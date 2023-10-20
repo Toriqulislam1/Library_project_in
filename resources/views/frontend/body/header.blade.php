@@ -296,21 +296,6 @@ ul.mobile-navItem li a::after{
             @endphp
 
 <!--Start Header -->
-{{--  <div class="container-fluid">
-		<div class="row">
-		 <div class="topnav">
-		<ul>
-			  <li style="letter-spacing:1px" > <img src="{{ asset('frontend/assets/images/bd.png')}}"></i><strong>&nbsp;{{ $setting->phone }}</strong>
-			</li>
-			<li style="float: right;letter-spacing:0.5px"><marquee><strong>Interrade Import & Export service</strong></marquee></li>
-		</ul>
-
-
-
-		</div>
-	</div>
-</div>  --}}
-{{--  custom design  --}}
 
 @php
 $setting = App\Models\setting::find(1);

@@ -2,15 +2,15 @@
 <html lang="en" class="no-js">
 <head>
 	<meta charset="utf-8"/>
-	<title>@yield('title') </title>
-	<meta name="description" content="Software Development, Digital Marketing & Video edit services">
-	<meta name="keywords" content="Digital Marketing, Software Development, Video Editing">
-	<meta name="author" content="technovalbd">
+	{{-- <title>@yield('title') </title> --}}
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="theme-color" content="#fff">
 	<!--website-favicon-->
-	<link href="frontend/assets/images/favicon.png" rel="icon">
+	{{-- <link href="frontend/assets/images/favicon.png" rel="icon"> --}}
 	<!--plugin-css-->
 	<link href="{{ asset('frontend/assets/css/bootstrap.min.css')}}" rel="stylesheet">
 	<link href="{{ asset('frontend/assets/css/plugin.min.css')}}" rel="stylesheet">
@@ -22,17 +22,17 @@
 	<link href="{{ asset('frontend/assets/css/responsive.css')}}" rel="stylesheet">
 	<link href="{{ asset('frontend/assets/css/darkmode.css')}}" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	
+
 		<a href="https://u.wechat.com/kHOUrNm0RFA3ZoGF1DpQiBM" class="flot" target="_blank">
 <i class="fab fa-weixin my-flot"></i>
 </a>
-	
+
 	<a href="https://wa.me/+8801535880909" class="float" target="_blank">
 <i class="fab fa-whatsapp my-float"></i>
 </a>
-	
-	
-	
+
+
+
 	    <style>
         * {
             margin: 0px;

@@ -9,7 +9,7 @@
 				  <!-- logo for regular state and mobile devices -->
 					 <div class="d-flex align-items-center justify-content-center">
 						  <img src="/admin/dashboard" alt="">
-						  <h3><b>Intertrade</b> Admin</h3>
+						  <h3><b>Car</b> Admin</h3>
 					 </div>
 				</a>
 			</div>
@@ -172,12 +172,7 @@
           </ul>
         </li>
 
-		<li>
-          <a href="auth_login.html">
-            <i data-feather="lock"></i>
-			<span>Log Out</span>
-          </a>
-        </li>
+
 
       </ul>
     </section>
