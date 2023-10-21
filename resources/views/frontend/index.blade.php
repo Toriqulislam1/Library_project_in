@@ -1,1498 +1,805 @@
 @extends('frontend.front_master')
 @section('content')
 @section('title')
-intertrade
+car
 @endsection
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
-<!--Start Hero Slider-->
-<section class="hero-slider hero-style">
-   <div class="swiper-container">
-      <!-- start swiper-wrapper -->
-       <div class="swiper-wrapper">
-          @php
-
-          $slider = App\Models\slide::latest()->get();
-
-          @endphp
-
-          @foreach ($slider as $item )
-
-         <div class="swiper-slide">
-             <a href="{{ $item->slide_link}}">
-                <div class="slide-inner slide-bg-image"  data-background=" {{asset($item->slide_photo)}}">
-
-                    <div class="container">
-                       <div data-swiper-parallax="300" class="slide-title">
-                          <h2 style="width:50px">{{ $item->slide_title}}</h2>
-                       </div>
-                       {{--  <div data-swiper-parallax="400" class="slide-text">
-                          <p>{!! Str::limit($item->slide_description, 50)  !!}</p>
-                       </div>  --}}
-                       <div class="clearfix"></div>
-                    </div>
-                 </div>
-             </a>
-          </div>
-          @endforeach
-
-       </div>
-       <!-- end swiper-wrapper -->
-       <!-- swipper controls -->
-       <div class="swiper-pagination"></div>
-       <div class="swiper-button-next"></div>
-       <div class="swiper-button-prev"></div>
-        <!-- swipper controls -->
+<div class="onloadpage" id="page_loader">
+    <div class="pre-content">
+    <div class="logo-pre"><img src="{{ asset('frontend/assets/images/white-logo') }}" alt="Logo" class="img-fluid" /></div>
+    <div class="pre-text- text-radius text-light text-animation bg-b">Niwax - Creative Agency & Portfolio HTML Template Are 2 Seconds Away. Have Patience</div>
     </div>
-</section>
-
-  {{--  custom template  --}}
-  <div class="shedul p-3 ">
+    </div>
+    <section class="hero-section niwax-lp1" data-background="images/banner/niwax-lpbg.jpg" id="home">
+    <div class="text-block">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="content text-center text-white  border-right">
-            <h4>OPENING TIMES</h4>
-            <p>Monday – Friday: 09:00 – 18:00</p>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="content text-center text-white">
-            <h4>CONTACT US</h4>
-            <p>AL-MODINA TOWER, 8TH FLOOR-D
-88/89 AGRABAD C/A, CHATTOGRAM,
-BANGLADESH.
-<br>PHONE: +8802333312689
-CELL: +8801535880909
- </p>
-          </div>
-        </div>
-      </div>
+    <div class="row v-center justify-content-between">
+    <div class="col-lg-6">
+    <div class="header-headings">
+    <span class="text-effect-1">Solution-Oriented Services</span>
+    <h1 class="wow fadeIn mt20 mb30 cd-headline clip" data-wow-delay=".4s">Creative Design Company We Create
+    <span class="cd-words-wrapper"> <b class="is-visible">Websites</b> <b>Apps</b> <b>Graphics</b> <b>Brandings</b> <b>Marketings</b> </span> </h1>
+    <p class="wow fadeIn" data-wow-delay=".8s">Niwax is one of the most creative and experienced mobile app development companies in India.</p>
+
+    <div class="niwaxbtnvideo mt30">
+    <a href="#" class="niwax-btn2">GET STARTED<i class="fas fa-chevron-right fa-icon"></i></a>
+    <div class="video-btn  d-flex v-center gap10">
+    <div class="video-intro-ppx"><a class="video-link play-video" href="https://www.youtube.com/watch?v=SZEflIVnhH8?autoplay=1&rel=0"><span class="triangle-play"></span></a></div>
+    <div class="title-hero">
+    <p>Play Video</p>
     </div>
-  </div>
-  {{--  custom template end  --}}
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-5 v-center">
+    <div class="form-block formcover shadow">
+    <h4>Request a Free Quote</h4>
+    <form id="contactForm" data-bs-toggle="validator" class="shake mt30">
+    <div class="row">
+    <div class="form-group col-sm-6">
+    <input type="text" id="name" placeholder="Enter name" required data-error="Please fill Out">
+    <div class="help-block with-errors"></div>
+    </div>
+    <div class="form-group col-sm-6">
+    <input type="email" id="email" placeholder="Enter email" required>
+    <div class="help-block with-errors"></div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="form-group col-sm-6">
+    <input type="text" id="mobile" placeholder="Enter mobile" required data-error="Please fill Out">
+    <div class="help-block with-errors"></div>
+    </div>
+    <div class="form-group col-sm-6">
+    <select name="Dtype" id="Dtype" required>
+    <option value>Select Requirement</option>
+    <option value="web">web</option>
+    <option value="graphic">graphic</option>
+    <option value="video">video</option>
+    </select>
+    <div class="help-block with-errors"></div>
+    </div>
+    </div>
+    <div class="form-group">
+    <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+    <div class="help-block with-errors"></div>
+    </div>
+    <button type="submit" id="form-submit" class="btn btn-main bg-btn3">Submit</button>
+    <div id="msgSubmit" class="h3 text-center hidden"></div>
+    <div class="clearfix"></div>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
 
 
-<!--End Hero Slider-->
-
-
+    <section class="dg-service2 pad-tb" id="services">
+    <div class="container">
+    <div class="row justify-content-center">
+    <div class="col-lg-8">
+    <div class="common-heading text-center">
+    <span class="text-effect-2">Our Best Services</span>
+    <h2 class="mb30"> car model </h2>
+    </div>
+    </div>
+    </div>
+    <div class="row justify-content-center">
         @php
-        $clients = App\Models\Client::orderBy('id','desc')->get();
+            $products = App\Models\Services::all();
         @endphp
-	<div class="container">
+        @foreach ($products  as $product )
+            <div class="col-lg-4 col-sm-6 mt30 wow fadeIn" data-wow-delay=".2s">
+            <div class="isotope_item h-scl-">
+            <div class="item-image h-scl-base">
+            <a href="#"><img src="{{ $product->thamble }}" alt="portfolio" class="img-fluid"> </a>
+            </div>
+            <div class="priceoderbtn"><a href="{{ route('checkOut-index') }}" class="niwax-btn3">Order Now</a></div>
+            <div class="item-info">
+            <h4><a href="#">{{ $product->content_title  }}</a></h4>
+            </div>
+            </div>
+            </div>
+        @endforeach
 
-		<div class="weworkfor pt20 pb20 dark-bg2">
-			<div class="container">
-
-				<div class="logo-weworkfor owl-carousel">
-				@foreach($clients as $item)
-                <div style="display:flex;flex-direction: column;">
-                    <a href="{{$item->client_title}}" target="blank">
-    					<div class="items" style="text-align: center"><img src="{{ asset($item->client_logo)}}" alt="clients" class="img100w">
-    					</div>
-                    </a>
-                    <a style="text-decoration:none; width:100px" href="{{$item->client_title}}" target="blank">
-                    <span>{{$item->orginal_title}}</span>
-                </a>
-                </div>
-
-					@endforeach
-				</div>
-
-			</div>
-		</div>
-
-		</div>
-
-{{-- mobile product show with carousl --}}
-
-
-@php
-        $Services = App\Models\Services::orderBy('id','desc')->get();
- @endphp
-	<div class="container mobileView">
-
-		<div class="weworkfor pt20 pb20 dark-bg2">
-			<div class="container">
-
-				<div class="logo-weworkfor owl-carousel">
-				@foreach($Services as $item)
-                <div style="display:flex;flex-direction: column;">
-                    <a href="{{route('serviceDetails', $item->id)}}" target="blank">
-    					<div class="items" style="text-align: center"><img src="{{ asset($item->thamble)}}" alt="clients" class="img100w">
-    					</div>
-                    </a>
-                    <a style="text-decoration:none; width:100px" href="{{route('serviceDetails', $item->id)}}" target="blank">
-                    <span>{{$item->content_slide_title}}</span>
-                </a>
-                </div>
-
-					@endforeach
-				</div>
-
-			</div>
-		</div>
-
-		</div>
-
-{{--end mobile product show with carousl --}}
-
-
-
-	<!--Start Service-->
-	  {{--  <section class="dg-service2 pb120 pt0" id="services">
-		<div class="container">
-		<div class="row justify-content-center">
-							<div class="col-lg-6">
-								<div class="common-heading ptag">
-
-									<h2>Services We Offer</h2>
-
-								</div>
-							</div>
-						</div>
-			<div class="row upset ">
-
-			@php
-		        $services = App\Models\Services::orderBy('content_title','desc')->limit(4)->get();
-	    	@endphp
-
-			@foreach($services as $item)
-				<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-					<div class="s-block up-hor">
-						<div class="nn-card-set">
-						<a href="{{ url('services/details/'.$item->id.'/'.$item->content_title ) }}">
-							<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset($item->thamble) }}" alt="service" class="img-fluid" /></div>
-                            <div class="p-3">
-                                <h6>{{ $item->content_title}}</h6>
-                                Learn More <i class="fas fa-chevron-right fa-icon"></i>
-                            </div>
-                        </a>
-						</div>
-					</div>
-				</div>
-				@endforeach
-
-			</div>
-		</div>
-		<div class="row">
-        <div class="col-lg-12 maga-btn mt60">
-          <a href="{{route('all-services')}}" class="btn-outline">View More Services<i class="fas fa-chevron-right fa-icon"></i></a>
-        </div>
-      </div>
-	</section>  --}}
-
-
-	<!--End Service-->
-
-		{{-- start steel melll waste --}}
-
-		<section class="dg-service2 pb120 pt0" id="services">
-			<div class="container">
-			<div class="row justify-content-center">
-								<div class="col-lg-6">
-									<div class="common-heading ptag">
-
-										<h2>Steel Mill Waste</h2>
-
-									</div>
-								</div>
-							</div>
-				<div class="row upset ">
-
-					{{--  @php
-					$services = App\Models\Services::where('category_id','12')->limit(4)->get();
-					@endphp  --}}
-
-				{{--  @foreach($services as $item)  --}}
-
-						{{-- SteelWaste product 1  --}}
-					<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-						<div class="s-block up-hor">
-							<div class="nn-card-set">
-							<a href="https://intertradebd.com/services/subcategory/48/zinc-ash-(induction-furnace-dust)">
-								<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/SteelWaste/1.Zinc Ash.jpg') }}" alt="service" class="img-fluid" /></div>
-								<div class="p-3">
-									<h6>Zinc Ash</h6>
-									Learn More <i class="fas fa-chevron-right fa-icon"></i>
-								</div>
-							</a>
-							</div>
-						</div>
-					</div>
-					{{-- end SteelWaste product 1  --}}
-						{{-- SteelWaste product 2  --}}
-					<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-						<div class="s-block up-hor">
-							<div class="nn-card-set">
-							<a href="https://intertradebd.com/services/subcategory/48/zinc-ash-(induction-furnace-dust)">
-								<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/SteelWaste/2. Test Report Zinc Ash.jpg') }}" alt="service" class="img-fluid" /></div>
-								<div class="p-3">
-									<h6>Test Report Zinc Ash</h6>
-									Learn More <i class="fas fa-chevron-right fa-icon"></i>
-								</div>
-							</a>
-							</div>
-						</div>
-					</div>
-					{{-- end SteelWaste product 2  --}}
-
-{{-- SteelWaste product 3  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/49/eafd-(electric-arc-furnace-dust)">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/SteelWaste/3. EAF Dust.jpg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>EAF Dust</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end SteelWaste product 3  --}}
-
-
-{{-- SteelWaste product 4  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/49/eafd-(electric-arc-furnace-dust)">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/SteelWaste/4. Test Report EAFD.jpg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>Test Report EAFD</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end SteelWaste product 4  --}}
-
-{{-- SteelWaste product 5  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/50/mill-scale">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/SteelWaste/5. Mill Scale.jpg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>Mill Scale</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end SteelWaste product 5  --}}
-
-{{-- SteelWaste product 6  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/50/mill-scale">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/SteelWaste/6. Test Report Mill Scale.jpeg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>Test Report Mill Scale</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end SteelWaste product 6  --}}
-
-{{-- SteelWaste product 7  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/51/iron-red-oxide">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/SteelWaste/7. Iron Red Oxide.jpg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>Iron Red Oxide</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end SteelWaste product 7  --}}
-
-
-{{-- SteelWaste product 8  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/51/iron-red-oxide">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/SteelWaste/8. Test Report Red Oxide.jpg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>Test Report Red Oxide</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end SteelWaste product 8  --}}
-
-					{{--  @endforeach  --}}
-
-				</div>
-			</div>
-
-
-		</section>
-
-		{{-- end steel melll waste --}}
-
-{{-- start Steel Scrap --}}
-
-<section class="dg-service2 pb120 pt0" id="services">
-	<div class="container">
-	<div class="row justify-content-center">
-						<div class="col-lg-6">
-							<div class="common-heading ptag">
-
-								<h2>Steel Scrap</h2>
-
-							</div>
-						</div>
-					</div>
-		<div class="row upset ">
-
-			{{--  @php
-			$services = App\Models\Services::where('category_id','23')->limit(4)->get();
-			@endphp  --}}
-
-		{{--  @foreach($services as $item)  --}}
-
-		{{--  Steel Scrap product 1  --}}
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/services/subcategory/58/hms-scrap">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/Scrap/1. HMS (1).jpg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6> HMS </h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-	{{-- end Steel Scrap product 1  --}}
-
-	{{--  Steel Scrap product 2  --}}
-	<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-		<div class="s-block up-hor">
-			<div class="nn-card-set">
-			<a href="https://intertradebd.com/services/subcategory/58/hms-scrap">
-				<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/Scrap/2. HMS.jpg') }}" alt="service" class="img-fluid" /></div>
-				<div class="p-3">
-					<h6> HMS </h6>
-					Learn More <i class="fas fa-chevron-right fa-icon"></i>
-				</div>
-			</a>
-			</div>
-		</div>
-	</div>
-{{-- end Steel Scrap product 2  --}}
-
-	{{--  Steel Scrap product 3  --}}
-	<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-		<div class="s-block up-hor">
-			<div class="nn-card-set">
-			<a href="https://intertradebd.com/services/subcategory/56/abc-scrap">
-				<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/Scrap/3. Aluminium.jpg') }}" alt="service" class="img-fluid" /></div>
-				<div class="p-3">
-					<h6>Aluminium</h6>
-					Learn More <i class="fas fa-chevron-right fa-icon"></i>
-				</div>
-			</a>
-			</div>
-		</div>
-	</div>
-{{-- end Steel Scrap product 3  --}}
-
-{{--  Steel Scrap product 4  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/56/abc-scrap">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/Scrap/4. Brass.jpg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>Brass</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end Steel Scrap product 4  --}}
-
-{{--  Steel Scrap product 5  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/56/abc-scrap">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/Scrap/5. Copper.jpg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>Copper</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end Steel Scrap product 5  --}}
-
-{{--  Steel Scrap product 6  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/56/abc-scrap">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/Scrap/6. Stainless Steel.jpg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>Stainless Steel</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end Steel Scrap product 6  --}}
-
-{{--  Steel Scrap product 7  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/56/abc-scrap">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/Scrap/7 .jpeg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>Cast iron engine block</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end Steel Scrap product 7  --}}
-
-
-{{--  Steel Scrap product 8  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/56/abc-scrap">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/Scrap/8.jpeg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>Cast iron drum</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end Steel Scrap product 8  --}}
-
-
-
-
-
-
-
-
-
-
-			{{--  @endforeach  --}}
-
-		</div>
-	</div>
-
-
-</section>
-
-{{-- end Steel Scrap --}}
-
-
-{{-- start abid argro --}}
-
-<section class="dg-service2 pb120 pt0" id="services">
-	<div class="container">
-	<div class="row justify-content-center">
-						<div class="col-lg-6">
-							<div class="common-heading ptag">
-
-								<h2>Abid agro</h2>
-
-							</div>
-						</div>
-					</div>
-		<div class="row upset ">
-
-			{{--  @php
-			$services = App\Models\Services::where('category_id','22')->limit(4)->get();
-			@endphp  --}}
-
-		{{--  @foreach($services as $item)  --}}
-
-		{{--  Abid agro product 1  --}}
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/services/subcategory/54/fresh-vegetable">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/AbidAgro/1. Vegetable Dharosh.jpeg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6>Vegetable Dharosh</h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-			{{-- end Abid agro product 1  --}}
-
-{{--  Abid agro product 2  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/54/fresh-vegetable">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/AbidAgro/2. Korola.jpeg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>Korola</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end Abid agro product 2  --}}
-
-{{--  Abid agro product 3  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/52/fish">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/AbidAgro/3. Fish -Baila.jpeg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>Fish Baila</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end Abid agro product 3  --}}
-
-
-{{--  Abid agro product 4  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/52/fish">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/AbidAgro/4. Fish-Elish.jpeg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>Fish Elish</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end Abid agro product 4  --}}
-
-
-{{--  Abid agro product 5  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/55/potato">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/AbidAgro/5. Potato.jpg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6> Potato</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end Abid agro product 5  --}}
-
-
-{{--  Abid agro product 6  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/55/potato">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/AbidAgro/6. Potato.jpg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6> Potato</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end Abid agro product 6  --}}
-
-
-{{--  Abid agro product 7  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/53/fish-scale">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/AbidAgro/7. Fish Scale.jpg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>Fish Scale</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end Abid agro product 7  --}}
-
-{{--  Abid agro product 8  --}}
-<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-	<div class="s-block up-hor">
-		<div class="nn-card-set">
-		<a href="https://intertradebd.com/services/subcategory/53/fish-scale">
-			<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/AbidAgro/8. Fish Scale.jpg') }}" alt="service" class="img-fluid" /></div>
-			<div class="p-3">
-				<h6>Fish Scale</h6>
-				Learn More <i class="fas fa-chevron-right fa-icon"></i>
-			</div>
-		</a>
-		</div>
-	</div>
-</div>
-{{-- end Abid agro product 8  --}}
-
-			{{--  @endforeach  --}}
-
-		</div>
-	</div>
-
-
-</section>
-
-{{-- end abid agro --}}
-
-{{-- start Kazi Fashion RMG Stock Lot --}}
-
-<section class="dg-service2 pb120 pt0" id="services">
-	<div class="container">
-	<div class="row justify-content-center">
-						<div class="col-lg-6">
-							<div class="common-heading ptag">
-
-								<h2>KAZI FASHION HOUSE (RMG)
-                                    STOCK LOT</h2>
-
-							</div>
-						</div>
-					</div>
-		<div class="row upset ">
-
-			{{--  @php
-			$services = App\Models\Services::where('category_id','25')->limit(4)->get();
-			@endphp  --}}
-
-		{{--  @foreach($services as $item)  --}}
-
-		{{--  KAZI FASHION HOUSE product 1  --}}
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/frontend/category/25">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/KaziFashion/1. T-Shirt.jpg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6> T-Shirt</h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-			{{-- end KAZI FASHION HOUSE product 1  --}}
-
-			{{--  KAZI FASHION HOUSE product 2  --}}
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/frontend/category/25">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/KaziFashion/2. T-Shirt.jpg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6>T-Shirt</h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-			{{-- end KAZI FASHION HOUSE product 2  --}}
-
-			{{--  KAZI FASHION HOUSE product 3  --}}
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/frontend/category/25">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/KaziFashion/3. Ladis Dress,a.jpg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6> Ladis Dress</h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-			{{-- end KAZI FASHION HOUSE product 3  --}}
-
-			{{--  KAZI FASHION HOUSE product 4  --}}
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/frontend/category/25">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/KaziFashion/3. Ladis Dress,b.jpg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6> Ladis Dress</h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-			{{-- end KAZI FASHION HOUSE product 4  --}}
-
-			{{--  KAZI FASHION HOUSE product 5  --}}
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/frontend/category/25">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/KaziFashion/5.Manundeware.jpg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6>  Man's undeware </h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-			{{-- end KAZI FASHION HOUSE product 5  --}}
-
-			{{--  KAZI FASHION HOUSE product 6  --}}
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/frontend/category/25">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/KaziFashion/6.ManTrouser.jpg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6> ManTrouser </h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-			{{-- end KAZI FASHION HOUSE product 6  --}}
-
-			{{--  KAZI FASHION HOUSE product 7  --}}
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/frontend/category/25">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/KaziFashion/7. Ladis Jumper.jpg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6> Ladis Jumper </h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-			{{-- end KAZI FASHION HOUSE product 7  --}}
-
-			{{--  KAZI FASHION HOUSE product 8  --}}
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/frontend/category/25">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/KaziFashion/8. Ladis Jumperca.jpg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6>  Ladis Jumperca </h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-			{{-- end KAZI FASHION HOUSE product 8  --}}
-
-
-			{{--  @endforeach  --}}
-
-		</div>
-	</div>
-
-
-</section>
-
-{{-- end Kazi Fashion RMG Stock Lot --}}
-
-
-{{-- start Kazi Auto Cars --}}
-
-<section class="dg-service2 pb120 pt0" id="services">
-	<div class="container">
-	<div class="row justify-content-center">
-						<div class="col-lg-6">
-							<div class="common-heading ptag">
-
-								<h2>Kazi Auto Cars</h2>
-
-							</div>
-						</div>
-					</div>
-		<div class="row upset ">
-
-			{{--  @php
-			$services = App\Models\Services::where('category_id','24')->limit(4)->get();
-			@endphp  --}}
-
-		{{--  @foreach($services as $item)  --}}
-
-
-		{{-- Kazi Auto Cars product 1 --}}
-
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/services/subcategory/59/kazi-auto-cars">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/KaziAutoCars/Harier 2021.jpeg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6>Harier 2021</h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-
-			{{-- end Kazi Auto Cars product 1  --}}
-
-			{{-- Kazi Auto Cars product 2 --}}
-
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/services/subcategory/59/kazi-auto-cars">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/KaziAutoCars/Prado 2022.jpeg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6>Prado 2022</h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-
-			{{-- end Kazi Auto Cars product 2  --}}
-
-			{{-- Kazi Auto Cars product 3 --}}
-
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/services/subcategory/59/kazi-auto-cars">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/KaziAutoCars/Premio 2021.jpeg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6>Premio 2021</h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-
-			{{-- end Kazi Auto Cars product 3  --}}
-
-			{{-- Kazi Auto Cars product 4 --}}
-
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/services/subcategory/59/kazi-auto-cars">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/KaziAutoCars/X-Trail 2022.jpeg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6>X-Trail 2022</h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-
-			{{-- end Kazi Auto Cars product 4  --}}
-
-
-			{{--  @endforeach  --}}
-
-		</div>
-	</div>
-
-
-</section>
-
-{{-- end Kazi Auto Cars --}}
-
-
-
-{{-- startInfinite shapping --}}
-
-<section class="dg-service2 pb120 pt0" id="services">
-	<div class="container">
-	<div class="row justify-content-center">
-						<div class="col-lg-6">
-							<div class="common-heading ptag">
-
-								<h2>INFINITE SHIPPING & LOGISTICS</h2>
-
-							</div>
-						</div>
-					</div>
-		<div class="row upset ">
-
-			{{--  @php
-			$services = App\Models\Services::where('category_id','21')->limit(4)->get();
-			@endphp  --}}
-
-		{{--  @foreach($services as $item)  --}}
-
-		{{--  INFINITE product 1  --}}
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/frontend/category/21">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/InfiniteShipping/Container Handling.jpeg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6>Container Handling</h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-			{{-- end INFINITE product 1  --}}
-
-			{{--  INFINITE product 2  --}}
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/frontend/category/21">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/InfiniteShipping/Port Operation.jpeg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6>Port Operation</h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-			{{-- end INFINITE product 2  --}}
-
-
-
-
-			{{--  INFINITE product 3  --}}
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/frontend/category/21">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/InfiniteShipping/Trailor delivery.jpeg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6>Trailor delivery</h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-			{{-- end INFINITE product 3  --}}
-
-			{{--  INFINITE product 4  --}}
-			<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-				<div class="s-block up-hor">
-					<div class="nn-card-set">
-					<a href="https://intertradebd.com/frontend/category/21">
-						<div class="card-icon"><img  width="917px" height="1000px" src="{{ asset('frontend/category/InfiniteShipping/Vessel Operation.jpeg') }}" alt="service" class="img-fluid" /></div>
-						<div class="p-3">
-							<h6>Vessel Operation</h6>
-							Learn More <i class="fas fa-chevron-right fa-icon"></i>
-						</div>
-					</a>
-					</div>
-				</div>
-			</div>
-			{{-- end INFINITE product 4  --}}
-
-
-
-
-
-
-
-
-
-
-			{{--  @endforeach  --}}
-
-		</div>
-	</div>
-
-
-</section>
-
-{{-- end Infinite shapping --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    {{--  catagory_product  --}}
-
-    	{{-- @php
-		$category = App\Models\Category::orderBy('id','desc')->get();;
-		@endphp
-         <section class="dg-service2 pb120 pt0" id="services">
-		<div class="container">
-        @foreach ($category  as $category  )
-		<div class="row justify-content-center">
-							<div class="col-lg-6">
-								<div class="common-heading ptag">
-
-									<h2>{{ $category->category_name }}</h2>
-
-								</div>
-							</div>
-						</div>
-			<div class="row upset ">
-
-			@php
-		$services = App\Models\Services::where('category_id',$category->id)->limit(4)->get();
-		@endphp
-
-			@foreach($services as $item)
-				<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-					<div class="s-block up-hor pt20">
-						<div class="nn-card-set">
-						<a href="{{ url('services/details/'.$item->id.'/'.$item->content_title ) }}">
-							<div class="card-icon"><img src="{{ asset($item->thamble) }}" alt="service" class="img-fluid" /></div>
-							<h6>{{ $item->content_title}}</h6>
-
-							Learn More <i class="fas fa-chevron-right fa-icon"></i></a>
-						</div>
-					</div>
-				</div>
-				@endforeach
-
-			</div>
-            @endforeach
-		</div>
-		<div class="row">
-        <div class="col-lg-12 maga-btn mt60">
-          <a href="{{route('all-services')}}" class="btn-outline">View More Services<i class="fas fa-chevron-right fa-icon"></i></a>
-        </div>
-      </div>
-	</section> --}}
-
-
-   {{-- end catagory_product  --}}
-
-    {{-- @php
-		$category = App\Models\category::orderBy('id','desc')->get();;
-		@endphp
- <section class="dg-service2 pb120 pt0" id="services">
-		<div class="container">
-        @foreach ($category  as $category  )
-		<div class="row justify-content-center">
-							<div class="col-lg-6">
-								<div class="common-heading ptag">
-
-									<h2>{{ $category->category_name }}</h2>
-
-								</div>
-							</div>
-						</div>
-			<div class="row upset ">
-
-			@php
-		$services = App\Models\Services::where('category_id',$category->id)->limit(4)->get();
-		@endphp
-
-			@foreach($services as $item)
-
-				<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-					<div class="s-block up-hor">
-						<div class="nn-card-set">
-						<a href="{{ url('services/details/'.$item->id.'/'.$item->content_title ) }}">
-							<div class="card-icon"><img src="{{ asset($item->thamble) }}" alt="service" class="img-fluid" /></div>
-							<div class="p-3">
-                                <h6>{{ $item->content_title}}</h6>
-							    Learn More <i class="fas fa-chevron-right fa-icon"></i>
-                            </div>
-                        </a>
-						</div>
-					</div>
-				</div>
-				@endforeach
-
-			</div>
-
-		</div>
-		<div class="row">
-        <div class="col-lg-12 maga-btn mt60 mb60">
-          <a href="{{route('all-services')}}" class="btn-outline">View More Services<i class="fas fa-chevron-right fa-icon"></i></a>
-        </div>
-      </div>
-      @endforeach
-	</section> --}}
-
-
-
-
-    {{-- end catagory_product  --}}
-
-	<!--Start gallery -->
-{{--  <section class="dg-portfolio-section pb120 pt120">
-<div class="container">
-<div class="row justify-content-center ">
-<div class="col-lg-8">
-<div class="common-heading-2">
-
-	<h2 class="mb0">Our Latest Creative Work</h2>
-</div>
-</div>
-</div>
-<div class="row">
-
-@php
-$gallery = App\Models\Gallery::orderBy('id','desc')->limit(12)->get();
-@endphp
-
-
-@foreach($gallery as $item)
-<div class="col-lg-3 col-sm-6 single-card-item wow fadeInUp" data-wow-delay=".2s">
-<div class="isotope_item h-scl-">
-	<div class="item-image h-scl-base zoom">
-		<a href="#"><img src="{{ asset($item->gallery) }}" alt="portfolio" class="img-fluid "/> </a>
-	</div>
-
-</div>
-</div>
-@endforeach
-
-
-
-
-
-</div>
-</div>
-<div class="row">
-        <div class="col-lg-12 maga-btn mt60">
-          <a href="{{ route('all-creative')}}" class="btn-outline">View More Photos<i class="fas fa-chevron-right fa-icon"></i></a>
-        </div>
-      </div>
-</section>  --}}
-<!--End gallery-->
-	<!--why choose-->
-		{{--  <section class="why-choos-lg pad-tb deep-dark">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="common-heading text-l">
-							<span style="color:black"><strong>Why Choose Us</strong></span>
-							<h2 class="mb20">Why The Technoval <span class="text-second text-bold">Ranked Top</span> Among The Leading IT Companies</h2>
-
-							<div class="itm-media-object mt40 tilt-3d">
-								<div class="media">
-									<div class="img-ab- base" data-tilt data-tilt-max="20" data-tilt-speed="1000"><img src="{{ asset('frontend/assets/images/icons/delivered.png')}}" alt="icon" class="layer"></div>
-									<div class="media-body">
-										<h4>We Ensure Right time delivery </h4>
-
-									</div>
-								</div>
-								<div class="media mt40">
-									<div class="img-ab- base" data-tilt data-tilt-max="20" data-tilt-speed="1000"><img src="{{ asset('frontend/assets/images/icons/rating.png')}}" alt="icon" class="layer"></div>
-									<div class="media-body">
-										<h4>Expart team members</h4>
-
-									</div>
-								</div>
-								<div class="media mt40">
-									<div class="img-ab- base" data-tilt data-tilt-max="20" data-tilt-speed="1000"> <img src="{{ asset('frontend/assets/images/icons/insurance.png')}}" alt="icon" class="layer"></div>
-									<div class="media-body">
-										<h4>We care your product & time</h4>
-
-									</div>
-								</div>
-								<div class="media mt40">
-									<div class="img-ab- base" data-tilt data-tilt-max="20" data-tilt-speed="1000"> <img src="{{ asset('frontend/assets/images/icons/recruitment.png')}}" alt="icon" class="layer"></div>
-									<div class="media-body">
-										<h4>We research for latest technology</h4>
-
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div  data-tilt data-tilt-max="5" data-tilt-speed="1000" class="single-image  wow fadeIn" data-wow-duration="2s"><img src="{{ asset('frontend/assets/images/about/choose-us.png')}}" alt="image" class="img-fluid"></div>
-						<!--p class="text-center mt30">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p-->
-
-					</div>
-				</div>
-			</div>
-		</section>  --}}
-		<!--End why choose-->
-
-		<!--About Us-->
-
-	{{--  <section class="about-dg-busign pb120 pt120 bg-light-ylo upset" id="about">
-	<div class="up-curvs"><svg height="100" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-viewBox="0 0 1920 89.3" style="enable-background:new 0 0 1920 89.3;" xml:space="preserve" fill="#e9f5ff">
-<path d="M1919.5,89.5H-0.5c0,0,0-90,0-90c114.9,4.8,228.6,17.9,343.6,24.6c118.6,7,237.4,11.9,356.1,14.7
-c237.6,5.7,475.3,3.1,712.7-7.7c164.2-7.5,328.1-23.7,492.3-31c0.7,0,15.2-0.5,15.2-0.6C1919.5-0.5,1919.5,89.5,1919.5,89.5z"/>
-</svg>
-</div>
-<div class="container">
-<div class="row">
-<div class="col-lg-6 v-center">
-<div class="common-heading-2 text-l">
-<span class="text-effect-1"><strong><h4>About Us</h4></strong></span>  --}}
-{{--  <h2 class="mb20">Work Together For Success</h2>  --}}
-{{--  <p>
-    Inter Trade is a trading company operating from Chattogram, Bangladesh. We have established on 2017 for longer and closer working relationships with our clients and suppliers not only provide immediate and reliable services but also to continually exceed expectations and goals.
-    We create commercial flows, import and export products, arranging and managing international projects with our partners. Supported our network, we are able to integrate all these functions with our fruitful experience. Our numerous competencies allow us to respond to the needs of industries looking for a new market. We look forward to welcoming you to our company and work to develop and enhance your current business in Bangladesh.
-</p>
-</div>
-
-<div class="common-heading-2 text-l">
-<span class="text-effect-1"></span>
-<h2 class="mb20">Our Mission:</h2>
-<p>
-    •	Striving to meet the increasing and diversified demands of the customers.<br>
-    •	Being market leader in defend market segments.<br>
-    •	Providing quality products & reliable services and sourcing from reputed manufacturers.<br>
-    •	Becoming professional marketing partner for our principals to meet the objectives of sales, market information, and   customer service.<br>
-    •	Being the preferred supplier of our customers, with our products exceeding their quality requirements.<br>
-    •	Giving timely information to the customers regarding trends of the market dynamics.<br>
-    •	Harnessing the creative energies of all our staffs through team work, develop and a transparent work environment.<br>
-
-</p>
-</div>
-
-<div class="common-heading-2 text-l">
-    <span class="text-effect-1"></span>
-    <h2 class="mb20">Our Focus: </h2>
-    <p>
-        •	Inter Trade focuses to foster growth and promote enduring business ties with its client. Customer responsiveness and commitment is the driving force in the quest for excellence.<br>
-        •	An effective supply chain manager - Right from sourcing supply of material at the doorstep of the customer in Organic and Natural Cosmetics, Organic Items, and Health Care Items.<br>
-
-
-    </p>
     </div>
-
-    <div class="common-heading-2 text-l">
-        <span class="text-effect-1"></span>
-        <h2 class="mb20">Our Lines of Business: </h2>
-        <p>
-            •	Inter Trade is exporting Industrial Dust, Zinc Ash, Compound of Zinc Ash, EAF Dust, IF Dust, Mill Scale, Steel Scrap, Agro Products, Fish, Dried Fish Scale, Vegetables, Food Stuff, Garments Items, Jute products and Tea from Bangladesh. Our main buyers are from China, Korea, Indonesia, Malaysia, Thailand, UAE, Turkey etc.<br>
-            •	Inter Trade is importing Recondition Car from Japan, Chocolate from Turkey, Electronic Items from China, Perfume and Ladies Ornaments from UAE, Steel Scraps from USA and UK, Ladies wallet from Thailand & China Etc.
-            We have also a reliable shipping line (INFINITE SHIPPING & LOGISTICS) with a very experienced logistics team.
+    </div>
+    </section>
 
 
-        </p>
-        </div>  --}}
-
-
-
-{{--  </div>
-<div class="col-lg-6 v-center">
-<img src="{{ asset('frontend/assets/images/about/about-us.png')}}" alt="img" class="img-fluid">
-</div>
-
-
-</div>
-</div>
-<div class="bottom-curvs">
-<svg height="100" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-viewBox="0 0 1920 89.3" style="enable-background:new 0 0 1920 89.3;" xml:space="preserve" fill="#e9f5ff" >
-<path d="M1919.5-0.5H-0.5c0,0,0,90,0,90c114.9-4.8,228.6-17.9,343.6-24.6c118.6-7,237.4-11.9,356.1-14.7
-c237.6-5.7,475.3-3.1,712.7,7.7c164.2,7.5,328.1,23.7,492.3,31c0.7,0,15.2,0.5,15.2,0.6C1919.5,89.5,1919.5-0.5,1919.5-0.5z"/>
-</svg>
-</div>
-</section>  --}}
-
-<!--end About Us-->
-
-
-<!--Start Portfolio-->
-		{{--  <section class="portfolio-section pad-tb" id="work">
-			<div class="container">
-				<div class="row justify-content-center ">
-					<div class="col-lg-8">
-						<div class="common-heading">
-
-							<h2 class="mb20">Our Portfolio</h2>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-
-@php
-$portfolios = App\Models\Portfolio::orderBy('id','desc')->get();
-@endphp
-
-		@foreach($portfolios as $item)
-					<div class="col-lg-3 col-sm-6 col mt40 wow fadeIn" data-wow-delay="0.2s">
-						<div class="isotope_item up-hor">
-							<div class="item-image">
-								<a href="#"><img src="{{ asset($item->port_image)}}" alt="image" class="img-fluid" /> </a>
-							</div>
-							<div class="item-info-div shdo">
-								<h6>{{ $item->port_title}}</h4>
-								<p>{{ $item->port_subtitle}}</p>
-							</div>
-						</div>
-					</div>
-		@endforeach
-
-
-
-
-				</div>
-			</div>
-		</section>  --}}
-		<!--End Portfolio-->
-
-
-
-		<!--Start work-category-->
-		{{--  <section class="work-category pad-tb">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-lg-8">
-						<div class="common-heading ptag">
-							<span>We Have Worked Across Multiple Industries</span>
-							<h2>Industries We Serve</h2>
-
-						</div>
-					</div>
-				</div>
-				<div class="row mt30">
-					<div class="col-lg-3 col-sm-6 col-6 wow fadeIn" data-wow-delay="0.1s"> <div class="industry-workfor hoshd"><img src="{{ asset('frontend/assets/images/icons/house.svg')}}" alt="img"> <h6>Real estate</h6> </div></div>
-					<div class="col-lg-3 col-sm-6 col-6 wow fadeIn" data-wow-delay="0.3s"> <div class="industry-workfor hoshd"><img src="{{ asset('frontend/assets/images/icons/travel-case.svg')}}" alt="img"> <h6>Tour &amp; Travels</h6> </div></div>
-					<div class="col-lg-3 col-sm-6 col-6 wow fadeIn" data-wow-delay="0.5s"> <div class="industry-workfor hoshd"><img src="{{ asset('frontend/assets/images/icons/video-tutorials.svg')}}" alt="img"> <h6>Education</h6> </div></div>
-					<div class="col-lg-3 col-sm-6 col-6 wow fadeIn" data-wow-delay="0.7s"> <div class="industry-workfor hoshd"><img src="{{ asset('frontend/assets/images/icons/taxi.svg')}}" alt="img"> <h6>Transport</h6> </div></div>
-					<div class="col-lg-3 col-sm-6 col-6 wow fadeIn" data-wow-delay="0.9s"> <div class="industry-workfor hoshd"><img src="{{ asset('frontend/assets/images/icons/event.svg')}}" alt="img"> <h6>Event</h6> </div></div>
-					<div class="col-lg-3 col-sm-6 col-6 wow fadeIn" data-wow-delay="1.1s"> <div class="industry-workfor hoshd"><img src="{{ asset('frontend/assets/images/icons/smartphone.svg')}}" alt="img"> <h6>eCommerce</h6> </div></div>
-					<div class="col-lg-3 col-sm-6 col-6 wow fadeIn" data-wow-delay="1.3s"> <div class="industry-workfor hoshd"><img src="{{ asset('frontend/assets/images/icons/joystick.svg')}}" alt="img"> <h6>Game</h6> </div></div>
-					<div class="col-lg-3 col-sm-6 col-6 wow fadeIn" data-wow-delay="1.5s"> <div class="industry-workfor hoshd"><img src="{{ asset('frontend/assets/images/icons/healthcare.svg')}}" alt="img"> <h6>Healthcare</h6> </div></div>
-					<div class="col-lg-3 col-sm-6 col-6 wow fadeIn" data-wow-delay="1.7s"> <div class="industry-workfor hoshd"><img src="{{ asset('frontend/assets/images/icons/money-growth.svg')}}" alt="img"> <h6>Finance</h6> </div></div>
-					<div class="col-lg-3 col-sm-6 col-6 wow fadeIn" data-wow-delay="1.9s"> <div class="industry-workfor hoshd"><img src="{{ asset('frontend/assets/images/icons/baker.svg')}}" alt="img"> <h6>Restaurant</h6> </div></div>
-					<div class="col-lg-3 col-sm-6 col-6 wow fadeIn" data-wow-delay="2.1s"> <div class="industry-workfor hoshd"><img src="{{ asset('frontend/assets/images/icons/mobile-app.svg')}}" alt="img"> <h6>On-Demand</h6> </div></div>
-					<div class="col-lg-3 col-sm-6 col-6 wow fadeIn" data-wow-delay="2.3s"> <div class="industry-workfor hoshd"><img src="{{ asset('frontend/assets/images/icons/groceries.svg')}}" alt="img"> <h6>Grocery</h6> </div></div></div>
-				</div>
-			</section>  --}}
-
-			<!--End  work-category-->
-
-			  <!--Start Blog Grid-->
-  <section class="blog-page pad-tb pt40">
+    <div class="niwax-company-awards-cover">
     <div class="container">
-      <div class="row">
-	  <div class="row justify-content-center">
-					<div class="col-lg-8">
-						<div class="common-heading ptag">
-
-							<h2>Our latest News</h2>
-
-						</div>
-					</div>
-				</div>
-	  @php
-$blogs = App\Models\Blog::orderBy('id','desc')->limit(4)->get();
-@endphp
-
-	  @foreach($blogs as $item)
-        <div class="col-lg-3 col-sm-6 single-card-item">
-          <div class="isotope_item hover-scale">
-            <div class="item-image">
-              <a href="{{ route('view-blog',$item->id) }}"><img src="{{ asset($item->blog_photo)}}" alt="blog" class="img-fluid"/> </a>
-
-            </div>
-            <div class="item-info blog-info">
-              <div class="entry-blog">
-
-                <span class="posted-on">
-                <a href="#"><i class="fas fa-clock"></i>{{ Carbon\Carbon::parse($item->created_at)->diffForHumans()}}</a>
-                </span>
-                <span><a href="#"><i class="far fa-eye"></i>{{ $item->views}}</a></span>
-              </div>
-              <h4><a href="{{ route('view-blog',$item->id) }}">{{ $item->blog_title}}</a></h4>
-              <p>{!! Str::limit($item->blog_description, 50)  !!}</p>
-            </div>
-          </div>
-        </div>
-
-		@endforeach
-
-
-
-
-      </div>
+    <div class="row v-center">
+    <div class="companytime col-lg-3">
+    <p>20 Yesrs* <span>Industry Experience</span></p>
     </div>
-	<div class="row">
-        <div class="col-lg-12 maga-btn mt60">
-          <a href="{{route('all-blog')}}" class="btn-outline">View More News<i class="fas fa-chevron-right fa-icon"></i></a>
-        </div>
-      </div>
-  </section>
-  <!--End Blog Grid-->
+    <div class="companyawards col-lg-9">
+    <div class="niwax-logo-awards niwax-logo-slider owl-carousel">
+    <div class="industry-workfors">
+    <img src="{{ asset('frontend/assets/images/icons/house.svg') }}" alt="img">
+    <h6>Real estate</h6>
+    </div>
+    <div class="industry-workfors">
+    <img src="{{ asset('frontend/assets/images/icons/travel-case.svg') }}" alt="img">
+    <h6>Tour &amp; Travels</h6>
+    </div>
+    <div class="industry-workfors">
+    <img src="{{ asset('frontend/assets/images/icons/video-tutorials.svg') }}" alt="img">
+    <h6>Education</h6>
+    </div>
+    <div class="industry-workfors">
+    <img src="{{ asset('frontend/assets/images/icons/taxi.svg') }}" alt="img">
+    <h6>Transport</h6>
+    </div>
+    <div class="industry-workfors">
+    <img src="{{ asset('frontend/assets/images/icons/event.svg') }}" alt="img">
+    <h6>Event</h6>
+    </div>
+    <div class="industry-workfors">
+    <img src="{{ asset('frontend/assets/images/icons/smartphone.svg') }}" alt="img">
+    <h6>eCommerce</h6>
+    </div>
+    <div class="industry-workfors">
+    <img src="{{ asset('frontend/assets/images/icons/joystick.svg') }}" alt="img">
+    <h6>Game</h6>
+    </div>
+    <div class="industry-workfors">
+    <img src="{{ asset('frontend/assets/images/icons/healthcare.svg') }}" alt="img">
+    <h6>Healthcare</h6>
+    </div>
+    <div class="industry-workfors">
+    <img src="{{ asset('frontend/assets/images/icons/money-growth.svg') }}" alt="img">
+    <h6>Finance</h6>
+    </div>
+    <div class="industry-workfors">
+    <img src="{{ asset('frontend/assets/images/icons/baker.svg') }}" alt="img">
+    <h6>Restaurant</h6>
+    </div>
+    <div class="industry-workfors">
+    <img src="{{ asset('frontend/assets/images/icons/mobile-app.svg') }}" alt="img">
+    <h6>On-Demand</h6>
+    </div>
+    <div class="industry-workfors">
+    <img src="{{ asset('frontend/assets/images/icons/groceries.svg') }}" alt="img">
+    <h6>Grocery</h6>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    <section class="why-choos-lg pad-tb deep-dark">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-6">
+    <div class="common-heading text-l">
+    <span>Who We Are</span>
+    <h2 class="mb20">Since 2000, We've Been the Most Dependable Web Design Company.</h2>
+    <p>We have produced IT solutions at a worldwide level by using the full potential of the latest disruptive technologies as one of the leading IT consulting companies in India. We have produced IT solutions at a worldwide level by using the full potential of the latest disruptive technologies as one of the leading IT consulting companies in India.</p>
+    <p>We have produced IT solutions at a worldwide level by using the full potential of the latest disruptive technologies as one of the leading IT consulting companies in India.</p>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <div class="img-design h-scl-">
+    <div class="imgac "> <img src="{{ asset('frontend/assets/images/hero/creative-ag2a.jpg') }}" alt="creative agnecy html template" class="ag-dg1 img-fluid h-scl-base"></div>
+    <div class="imgac h-scl-base"><img src="{{ asset('frontend/assets/images/hero/creative-ag2b.jpg') }}" alt="creative agnecy html template" class="ag-dg2 img-fluid "></div>
+    <div class="shpdez1 shpdzz"></div>
+    <div class="shpdez2 shpdzz"></div>
+    <div class="shpdez3 shpdzz"></div>
+    <div class="shpdez4 shpdzz"></div>
+    </div>
+    </div>
+    <div class="col-lg-6 mt30">
+    <div class="itm-media-object mt40 tilt-3d">
+    <div class="media">
+    <div class="img-ab- base" data-tilt data-tilt-max="20" data-tilt-speed="1000"><img src="{{ asset('frontend/assets/images/icons/computers.svg') }}" alt="icon" class="layer"></div>
+    <div class="media-body">
+    <h4>Streamlined Project Management</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet ligula nec leo elementum semper. Mauris aliquet egestas metus.</p>
+    </div>
+    </div>
+    <div class="media mt40">
+    <div class="img-ab- base" data-tilt data-tilt-max="20" data-tilt-speed="1000"><img src="{{ asset('frontend/assets/images/icons/worker.svg') }}" alt="icon" class="layer"></div>
+    <div class="media-body">
+    <h4>A Dedicated Team of Experts</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet ligula nec leo elementum semper. Mauris aliquet egestas metus.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-6 mt30">
+    <div class="itm-media-object mt40 tilt-3d">
+    <div class="media">
+    <div class="img-ab- base" data-tilt data-tilt-max="20" data-tilt-speed="1000"><img src="{{ asset('frontend/assets/images/icons/computers.svg') }}" alt="icon" class="layer"></div>
+    <div class="media-body">
+    <h4>Streamlined Project Management</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet ligula nec leo elementum semper. Mauris aliquet egestas metus.</p>
+    </div>
+    </div>
+    <div class="media mt40">
+    <div class="img-ab- base" data-tilt data-tilt-max="20" data-tilt-speed="1000"><img src="{{ asset('frontend/assets/images/icons/worker.svg') }}" alt="icon" class="layer"></div>
+    <div class="media-body">
+    <h4>A Dedicated Team of Experts</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet ligula nec leo elementum semper. Mauris aliquet egestas metus.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+
+    <section class="portfolio-page dark-bg4 bg-gradient6 pad-tb" id="work">
+    <div class="container">
+    <div class="row justify-content-left">
+    <div class="col-lg-6">
+    <div class="common-heading pp">
+    <span>Our Work</span>
+    <h2>Portfolio</h2>
+    </div>
+    </div>
+    <div class="col-lg-6 v-center">
+    <div class="filters">
+    <ul class="filter-menu">
+    <li data-filter="*" class="is-checked">All</li>
+    <li data-filter=".website">Website</li>
+    <li data-filter=".app">Mobile App</li>
+    <li data-filter=".graphic">Graphic</li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    <div class="row card-list justify-content-center">
+    <div class="col-lg-4 col-md-6 grid-sizer"></div>
+    <div class="col-lg-4 col-sm-6 single-card-item app">
+    <div class="isotope_item hover-scale">
+    <div class="item-image">
+    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-1.jpg') }}" alt="portfolio" class="img-fluid" /> </a>
+    </div>
+    <div class="item-info">
+    <h4><a href="#">Creative App</a></h4>
+    <p>ios, design</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 single-card-item graphic">
+    <div class="isotope_item hover-scale">
+    <div class="item-image">
+    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-2.jpg') }}" alt="image" class="img-fluid" /> </a>
+    </div>
+    <div class="item-info">
+    <h4><a href="#">Brochure Design</a></h4>
+    <p>Graphic, Print</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 single-card-item website">
+    <div class="isotope_item hover-scale">
+    <div class="item-image">
+    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-3.jpg') }}" alt="image" class="img-fluid" /> </a>
+    </div>
+    <div class="item-info">
+    <h4><a href="#">Ecommerce Development</a></h4>
+    <p>Web Application</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 single-card-item app">
+    <div class="isotope_item hover-scale">
+    <div class="item-image">
+    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-4.jpg') }}" alt="image" class="img-fluid" /> </a>
+    </div>
+    <div class="item-info">
+    <h4><a href="#">Icon Pack</a></h4>
+    <p>Android & iOs, Design</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 single-card-item graphic">
+    <div class="isotope_item hover-scale">
+    <div class="item-image">
+    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-5.jpg') }}" alt="image" class="img-fluid" /> </a>
+    </div>
+    <div class="item-info">
+    <h4><a href="#">Smart Watch</a></h4>
+    <p>UI/UX Design</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 single-card-item graphic">
+    <div class="isotope_item hover-scale">
+    <div class="item-image">
+    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-6.jpg') }}" alt="image" class="img-fluid" /> </a>
+    </div>
+    <div class="item-info">
+    <h4><a href="#">Brochure Design</a></h4>
+    <p>Graphic, Print</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 single-card-item website">
+    <div class="isotope_item hover-scale">
+    <div class="item-image">
+    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-7.jpg') }}" alt="image" class="img-fluid" /> </a>
+    </div>
+    <div class="item-info">
+    <h4><a href="#">Packaging Design</a></h4>
+    <p>Graphic, Print</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 single-card-item app">
+    <div class="isotope_item hover-scale">
+    <div class="item-image">
+    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-8.jpg') }}" alt="image" class="img-fluid" /> </a>
+    </div>
+    <div class="item-info">
+    <h4><a href="#">Restaurant App</a></h4>
+    <p>Android App</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 single-card-item  website">
+    <div class="isotope_item hover-scale">
+    <div class="item-image">
+    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-9.jpg') }}" alt="image" class="img-fluid" /> </a>
+    </div>
+    <div class="item-info">
+    <h4><a href="#">Portfolio Website</a></h4>
+    <p>Web Design</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+
+    <section class="why-niwax-section pad-tb">
+    <div class="container">
+    <div class="row justify-content-center ">
+    <div class="col-lg-12">
+    <div class="whychooseniwax v-center">
+    <div class="niwaxawardrow1">
+    <div class="awardbgwithtext">
+    <img src="images/icons/award-bg.png" alt>
+    <p>20+<span>YEARS Experience</span></p>
+    </div>
+    <div class="awardbgwithtext">
+    <img src="images/icons/award-bg.png" alt>
+    <p>20+<span>YEARS Experience</span></p>
+    </div>
+    <div class="awardbgwithtext">
+    <img src="images/icons/award-bg.png" alt>
+    <p>20+<span>YEARS Experience</span></p>
+    </div>
+    </div>
+    <div class="niwaxawardrow2">
+    <h2>Why Should You <span class="text-radius text-light text-animation bg-b">Choose Us!</span></h2>
+    <h4 class="mt10 text-second">Find your reasons to choose us</h4>
+    <p class="mt20">We have been providing Digital Marketing service from last 8 years by direct collaboration with our clients. As a Digital Marketing company we are providing all services like SEO Audit, Pay Per Click, Social Media Management, Organic SEO.</p>
+    <p class="mt10">We work with organizations of all sizes, from startups to Fortune companies. We believe in forging long-lasting partnerships with all of our clients and we remain available to our clients whenever they need us. Contact us for more information.</p>
+    <div class="pairofbtn mt40">
+    <a href="#" class="niwax-btn3">Get In Touch With Us</a>
+    <a href="#" class="btnwithiconside d-flex gap10 v-center">
+    <img src="images/icons/whatsapp.svg" alt="whatsapp">
+    <div> <span>Or - Just Give Us A Call:</span>+91- 1234567890 </div>
+    </a>
+    </div>
+    </div>
+    <div class="niwaxawardrow1">
+    <div class="awardbgwithtext">
+    <img src="{{ asset('frontend/assets/images/icons/award-bg.png') }}" alt>
+    <p>20+<span>YEARS Experience</span></p>
+    </div>
+    <div class="awardbgwithtext">
+    <img src="images/icons/award-bg.png" alt>
+    <p>20+<span>YEARS Experience</span></p>
+    </div>
+    <div class="awardbgwithtext">
+    <img src="images/icons/award-bg.png" alt>
+    <p>20+<span>YEARS Experience</span></p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+
+    <section class="bg-gradient1 dark-bg4 pad-tb">
+    <div class="container">
+    <div class="row justify-content-center">
+    <div class="col-lg-8">
+    <div class="common-heading ptag">
+    <span>Reviews</span>
+    <h2>Client Testimonials</h2>
+    <p class="mb30">Check our customers success stories.</p>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-12 mt30">
+    <div class="niwax-review-slider owl-carousel center-dots">
+    <div class="reviews-card pr-shadow">
+    <div class="row v-center">
+    <div class="col"> <span class="revbx-lr"><i class="fas fa-quote-left"></i></span> </div>
+    <div class="col"> <span class="revbx-rl"><img src="{{ asset('frontend/assets/images/client/upwork-logo.png') }}" alt="review service logo"></span> </div>
+    </div>
+    <div class="review-text">
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
+    <div class="-client-details-">
+    <div class="-reviewr">
+    <img src="{{ asset('frontend/assets/images/client/reviewer-a.jpg') }}" alt="Good Review" class="img-fluid">
+    </div>
+    <div class="reviewer-text">
+    <h4>Mario Speedwagon</h4>
+    <p>Business Owner, <small>Jaipur</small></p>
+    <div class="star-rate">
+    <ul>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="reviews-card pr-shadow">
+    <div class="row v-center">
+    <div class="col"> <span class="revbx-lr"><i class="fas fa-quote-left"></i></span> </div>
+    <div class="col"> <span class="revbx-rl"><img src="{{ asset('frontend/assets/images/client/upwork-logo.png') }}" alt="review service logo"></span> </div>
+    </div>
+    <div class="review-text">
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
+    <div class="-client-details-">
+    <div class="-reviewr">
+    <img src="images/client/reviewer-a.jpg" alt="Good Review" class="img-fluid">
+    </div>
+    <div class="reviewer-text">
+    <h4>Mario Speedwagon</h4>
+    <p>Business Owner, <small>Jaipur</small></p>
+    <div class="star-rate">
+    <ul>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="reviews-card pr-shadow">
+    <div class="row v-center">
+    <div class="col"> <span class="revbx-lr"><i class="fas fa-quote-left"></i></span> </div>
+    <div class="col"> <span class="revbx-rl"><img src="{{ asset('frontend/assets/images/client/upwork-logo.png') }}" alt="review service logo"></span> </div>
+    </div>
+    <div class="review-text">
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
+    <div class="-client-details-">
+    <div class="-reviewr">
+    <img src="{{ asset('frontend/assets/images/client/reviewer-a.jpg') }}" alt="Good Review" class="img-fluid">
+    </div>
+    <div class="reviewer-text">
+    <h4>Mario Speedwagon</h4>
+    <p>Business Owner, <small>Jaipur</small></p>
+    <div class="star-rate">
+    <ul>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="reviews-card pr-shadow">
+    <div class="row v-center">
+    <div class="col"> <span class="revbx-lr"><i class="fas fa-quote-left"></i></span> </div>
+    <div class="col"> <span class="revbx-rl"><img src="{{ asset('frontend/assets/images/client/upwork-logo.png') }}" alt="review service logo"></span> </div>
+    </div>
+    <div class="review-text">
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
+    <div class="-client-details-">
+    <div class="-reviewr">
+    <img src="{{ asset('frontend/assets/images/client/reviewer-a.jpg') }}" alt="Good Review" class="img-fluid">
+    </div>
+    <div class="reviewer-text">
+    <h4>Mario Speedwagon</h4>
+    <p>Business Owner, <small>Jaipur</small></p>
+    <div class="star-rate">
+    <ul>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    <li> <a href="javascript:void(0)"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+
+    <section class="pricing-block pad-tb" id="price">
+    <div class="container">
+    <div class="row justify-content-center">
+    <div class="col-lg-8">
+    <div class="common-heading ptag">
+    <span>Our Pricing</span>
+    <h2>Packages that are within your financial constraints</h2>
+    <p class="mb30">Choose from one of our three packages, all of which are priced competitively. We offer comprehensive yet cost-effective options. Everyone will find enticing features in our Basic, Professional, and Premium packages.</p>
+    </div>
+    </div>
+    </div>
+    <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-6 nxpb-1">
+    <div class="niwaxpricingbox shadow">
+    <div class="pricingheader" data-background="images/icons/plan-1.svg">
+    <h2>Basic</h2>
+    <p>Great For Small Business</p>
+    </div>
+    <div class="pricingrate">
+    <div class="pricevalue">
+    <h2><sup>$</sup> 50.00</h2>
+    </div>
+    <div class="priceoffer">
+    <h2>10% <span>$60.00</span></h2>
+    </div>
+    </div>
+    <div class="pricingoffers">
+    <ul class="list-ul ul-check">
+    <li>Customized Theme Based Design </li>
+    <li>Home Page Slider</li>
+    <li>Up-to 50 Products</li>
+    <li>Content Management System</li>
+    <li>Shopping Cart Integration</li>
+    <li>Payment Module Integration</li>
+    <li>Perfect Product Search</li>
+    <li>Social Media Integration</li>
+    <li>Responsive Device Design</li>
+    <li>Dedicated Designer &amp; Developer</li>
+    <li>Unlimited Revisions</li>
+    <li>100% Unique Design</li>
+    <li>100% Satisfaction</li>
+    <li>100% Unique Design</li>
+    <li>100% Money Back</li>
+    </ul>
+    </div>
+    <div class="priceodernow">
+    <div class="priceoderbtn"><a href="#" class="niwax-btn3">Order Now</a></div>
+    <div class="priceaskwithus">
+    <a href="#" class="livechatbtn d-flex gap10 v-center">
+    <i class="fas fa-comment"></i>
+    <div><span>Click here to</span> Live Chat </div>
+    </a>
+    </div>
+    </div>
+    <div class="pricingfooter mt30">
+    <div class="pfdiv1"><a href="#">Call Us: +91 123456790</a></div>
+    <div class="pfdiv2"><a href="#">Need Support</a></div>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-md-6 nxpb-2">
+    <div class="niwaxpricingbox shadow reco">
+    <div class="pricingheader" data-background="images/icons/plan-2.svg">
+    <h2>Professional</h2>
+    <p>Great For Small Business</p>
+    </div>
+    <div class="pricingrate">
+    <div class="pricevalue">
+    <h2><sup>$</sup> 150.00</h2>
+    </div>
+    <div class="priceoffer">
+    <h2>20% <span>$170.00</span></h2>
+    </div>
+    </div>
+    <div class="pricingoffers">
+    <ul class="list-ul ul-check">
+    <li>Customized Theme Based Design </li>
+    <li>Home Page Slider</li>
+    <li>Up-to 50 Products</li>
+    <li>Content Management System</li>
+    <li>Shopping Cart Integration</li>
+    <li>Payment Module Integration</li>
+    <li>Perfect Product Search</li>
+    <li>Social Media Integration</li>
+    <li>Responsive Device Design</li>
+    <li>Dedicated Designer &amp; Developer</li>
+    <li>Unlimited Revisions</li>
+    <li>100% Unique Design</li>
+    <li>100% Satisfaction</li>
+    <li>100% Unique Design</li>
+    <li>100% Money Back</li>
+    </ul>
+    </div>
+    <div class="priceodernow">
+    <div class="priceoderbtn"><a href="#" class="niwax-btn2">Order Now</a></div>
+    <div class="priceaskwithus">
+    <a href="#" class="livechatbtn d-flex gap10 v-center">
+    <i class="fas fa-comment"></i>
+    <div><span>Click here to</span> Live Chat </div>
+    </a>
+    </div>
+    </div>
+    <div class="pricingfooter mt30">
+    <div class="pfdiv1"><a href="#">Call Us: +91 123456790</a></div>
+    <div class="pfdiv2"><a href="#">Need Support</a></div>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-md-6 nxpb-3">
+    <div class="niwaxpricingbox shadow">
+    <div class="pricingheader" data-background="images/icons/plan-3.svg">
+    <h2>Premium </h2>
+    <p>Great For Small Business</p>
+    </div>
+    <div class="pricingrate">
+    <div class="pricevalue">
+    <h2><sup>$</sup> 150.00</h2>
+    </div>
+    <div class="priceoffer">
+    <h2>40% <span>$280.00</span></h2>
+    </div>
+    </div>
+    <div class="pricingoffers">
+    <ul class="list-ul ul-check">
+    <li>Customized Theme Based Design </li>
+    <li>Home Page Slider</li>
+    <li>Up-to 50 Products</li>
+    <li>Content Management System</li>
+    <li>Shopping Cart Integration</li>
+    <li>Payment Module Integration</li>
+    <li>Perfect Product Search</li>
+    <li>Social Media Integration</li>
+    <li>Responsive Device Design</li>
+    <li>Dedicated Designer &amp; Developer</li>
+    <li>Unlimited Revisions</li>
+    <li>100% Unique Design</li>
+    <li>100% Satisfaction</li>
+    <li>100% Unique Design</li>
+    <li>100% Money Back</li>
+    </ul>
+    </div>
+    <div class="priceodernow">
+    <div class="priceoderbtn"><a href="#" class="niwax-btn3">Order Now</a></div>
+    <div class="priceaskwithus">
+    <a href="#" class="livechatbtn d-flex gap10 v-center">
+    <i class="fas fa-comment"></i>
+    <div><span>Click here to</span> Live Chat </div>
+    </a>
+    </div>
+    </div>
+    <div class="pricingfooter mt30">
+    <div class="pfdiv1"><a href="#">Call Us: +91 123456790</a></div>
+    <div class="pfdiv2"><a href="#">Need Support</a></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+
+    <section class="service-block pad-tb bg-gradient3">
+    <div class="container">
+    <div class="row justify-content-center">
+    <div class="col-lg-8">
+    <div class="common-heading ptag">
+    <span>We Deliver Our Best</span>
+    <h2>Why Choose Niwax</h2>
+    <p class="mb30">Donec metus lorem, vulputate at sapien sit amet, auctor iaculis lorem. In vel hendrerit nisi. Vestibulum eget risus velit.</p>
+    </div>
+    </div>
+    </div>
+    <div class="row justify-content-center">
+    <div class="col-lg-4 col-sm-6 mt30  wow fadeIn" data-wow-delay=".2s">
+    <div class="s-block wide-sblock">
+    <div class="s-card-icon"><img src="{{ asset('frontend/assets/images/icons/teama.svg') }}" alt="service" class="img-fluid"></div>
+    <div class="s-block-content">
+    <h4>Reliable Service. In House Team</h4>
+    <p>In vel hendrerit nisi. Vestibulum eget risus velit.</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 mt30 wow fadeIn" data-wow-delay=".5s">
+    <div class="s-block wide-sblock">
+    <div class="s-card-icon"><img src="{{ asset('frontend/assets/images/icons/link.svg') }}" alt="service" class="img-fluid"></div>
+    <div class="s-block-content">
+    <h4>Trusted by People Like You</h4>
+    <p>In vel hendrerit nisi. Vestibulum eget risus velit.</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 mt30 wow fadeIn" data-wow-delay=".8s">
+    <div class="s-block wide-sblock">
+    <div class="s-card-icon"><img src="{{ asset('frontend/assets/images/icons/tech.svg') }}" alt="service" class="img-fluid"></div>
+    <div class="s-block-content">
+    <h4>Complete Technical Competency</h4>
+    <p>In vel hendrerit nisi. Vestibulum eget risus velit.</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 mt30 wow fadeIn" data-wow-delay="1.1s">
+    <div class="s-block wide-sblock">
+    <div class="s-card-icon"><img src="{{ asset('frontend/assets/images/icons/hi.svg') }}" alt="service" class="img-fluid"></div>
+    <div class="s-block-content">
+    <h4>Friendly & Cordial in Nature</h4>
+    <p>In vel hendrerit nisi. Vestibulum eget risus velit.</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 mt30 wow fadeIn" data-wow-delay="1.4s">
+    <div class="s-block wide-sblock">
+    <div class="s-card-icon"><img src="{{ asset('frontend/assets/images/icons/badge.svg') }}" alt="service" class="img-fluid"></div>
+    <div class="s-block-content">
+    <h4>Excellent Quality Delivered on Time</h4>
+    <p>In vel hendrerit nisi. Vestibulum eget risus velit.</p>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-4 col-sm-6 mt30 wow fadeIn" data-wow-delay="1.7s">
+    <div class="s-block wide-sblock">
+    <div class="s-card-icon"><img src="{{ asset('frontend/assets/images/icons/tin.svg') }}" alt="service" class="img-fluid"></div>
+    <div class="s-block-content">
+    <h4>Effective & Continuous Communication</h4>
+    <p>In vel hendrerit nisi. Vestibulum eget risus velit.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="-cta-btn mt70">
+    <div class="free-cta-title v-center wow zoomInDown" data-wow-delay="1.8s">
+    <p>Let's Start a <span>New Project</span> Together</p>
+    <a href="#" class="niwax-btn2">Inquire Now<i class="fas fa-chevron-right fa-icon"></i></a>
+    </div>
+    </div>
+    </div>
+    </section>
+
+    <div class="clientslider">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+    <div class="niwax-client-slider owl-carousel">
+    <div class="awardlogo"> <img src="{{ asset('frontend/assets/images/client/customer-logo-1.png') }}" alt="icon"></div>
+    <div class="awardlogo"> <img src="{{ asset('frontend/assets/images/client/customer-logo-2.png') }}" alt="icon"></div>
+    <div class="awardlogo"> <img src="{{ asset('frontend/assets/images/client/customer-logo-3.png') }}" alt="icon"></div>
+    <div class="awardlogo"> <img src="{{ asset('frontend/assets/images/client/customer-logo-4.png') }}" alt="icon"></div>
+    <div class="awardlogo"> <img src="{{ asset('frontend/assets/images/client/customer-logo-5.png') }}" alt="icon"></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+</section>
+
 </body>
 
-            @endsection
+@endsection

@@ -20,6 +20,8 @@ use App\Http\Controllers\Backend\IndController;
 use App\Http\Controllers\Backend\basicsettingController;
 use App\Http\Controllers\Backend\slideController;
 use App\Http\Controllers\Frontend\searchController;
+use App\Http\Controllers\Frontend\userLoginController;
+use App\Http\Controllers\Frontend\orderController;
 
 
 
@@ -60,6 +62,27 @@ Route::prefix('admin')->group(function (){
     Route::get('/change/password', [AdminProfileController::class, 'AdminChangePassword'])->name('admin.change.password');
 
     Route::post('/update/change/password', [AdminProfileController::class, 'AdminUpdateChangePassword'])->name('update.change.password');
+
+
+
+});
+//user login registration
+Route::prefix('user')->group(function (){
+
+    Route::get('/login',[userLoginController::class, 'Index'])->name('login-index');
+    Route::post('/login/success',[userLoginController::class, 'loginSuccess'])->name('login-user');
+
+    Route::get('/register',[userLoginController::class, 'IndexRegister'])->name('register-index');
+    Route::post('/register/store',[userLoginController::class, 'registerStore'])->name('register-store');
+
+    Route::get('/profile',[userLoginController::class, 'userProfile'])->name('user-profile-index');
+
+
+});
+//order
+Route::prefix('order')->group(function (){
+
+    Route::get('/checkout',[orderController::class, 'checkOutIndex'])->name('checkOut-index');
 
 
 
