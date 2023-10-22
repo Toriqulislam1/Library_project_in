@@ -97,7 +97,7 @@ car
             <div class="item-image h-scl-base">
             <a href="#"><img src="{{ $product->thamble }}" alt="portfolio" class="img-fluid"> </a>
             </div>
-            <div class="priceoderbtn"><a href="{{ route('checkOut-index') }}" class="niwax-btn3">Order Now</a></div>
+            <div class="priceoderbtn"><a href="{{ route('checkOut-index',$product->id) }}" class="niwax-btn3">Order Now</a></div>
             <div class="item-info">
             <h4><a href="#">{{ $product->content_title  }}</a></h4>
             </div>

@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 
 class userLoginController extends Controller
 {
@@ -13,6 +16,8 @@ class userLoginController extends Controller
     }//end
 
     function loginSuccess(Request $request){
+
+
 
         $email = $request->email;
         $password = $request->password;
@@ -23,7 +28,16 @@ class userLoginController extends Controller
         }else{
             return "wrong";
         }
-    }
+    }//end
+
+    function logOut(){
+
+        Auth::logout();
+
+        return redirect('/');
+
+
+    }//end
 
 
     function IndexRegister(){
@@ -31,8 +45,19 @@ class userLoginController extends Controller
         return view('frontend.auth.register');
     }//end
 
-    function registerStore(){
+    function registerStore(Request $request){
 
+
+		user::insert([
+
+			'name' => $request->name,
+			'mobile' => $request->mobile,
+			'email' => $request->email,
+			'password' => Hash::make($request->password),
+
+		]);
+
+        return view('frontend.auth.userProfile');
     }//end
 
 

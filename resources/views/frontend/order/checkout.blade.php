@@ -13,7 +13,7 @@ car
         <div class="col-lg-8 m-auto ">
           <div class="niwax23form shadow">
             <div class="common-heading text-l">
-              <h2 class="mt0 mb0 text-center mb-5">Sign up</h2>
+              <h2 class="mt0 mb0 text-center mb-5">Check Out</h2>
             </div>
 
             @if(session('success'))
@@ -30,8 +30,9 @@ car
             <div class="contact-form-card-pr contact-block-sw m0 iconin">
               <div class="form-block niwaxform">
 
-                <form action="" id="contactform" method="post" novalidate="novalidate">
+                <form action="{{ route('checkout-store') }}" id="contactform" method="post" novalidate="novalidate">
                     @csrf
+                    <input type="hidden" name="product_id" value="{{ $product_id }}">
                   <div class="fieldsets row">
                     <div class="col-md-6 form-group floating-label">
 
@@ -81,62 +82,13 @@ car
 
                   </div>
 
-                  <div class="fieldsets row">
-                    <div class="col-md-6 form-group floating-label">
-                      <div class="formicon"><i class="fa fa-university" aria-hidden="true"></i></i></div>
-                      <input type="email" placeholder=" " required="required" id="email" class="floating-input" name="institute_name">
-                      <label>Company name of institute</label>
-                      @error('institute_name')
-                      <div>{{ $message }}</div>
-                     @enderror
-                      <div class="error-label"></div>
-                    </div>
-
-                    <div class="col-md-6 form-group floating-label">
-                    <div class="formicon"><i class="fa fa-key" aria-hidden="true"></i></div>
-                    <input type="password" placeholder=" " required="required" id="your_location" class="floating-input" name="password">
-                    <label> password</label>
-                    @error('password')
-                    <div>{{ $message }}</div>
-                   @enderror
-                    <div class="error-label"></div>
-                  </div>
-
-                  </div>
-                  <div class="fieldsets row">
-                    <div class="col-md-6 form-group floating-label">
-                      <div class="formicon"><i class="fa fa-key" aria-hidden="true"></i></div>
-                      <input type="password" placeholder=" " required="required" id="email" class="floating-input" name="confirm_password">
-                      <label> confirm Password</label>
-                      @error('confirm_password')
-                      <div>{{ $message }}</div>
-                     @enderror
-                      <div class="error-label"></div>
-                    </div>
 
                   </div>
 
-
-                  <div class="custom-control custom-checkbox ctmsetsw">
-                    <input type="checkbox" class="custom-control-input ctminpt" id="agree" name="agree" checked="checked">
-                    <label class="custom-control-label ctmlabl" for="agree">By clicking the “Submit” button you agree to our  <a href="javascript:void(0)">Terms &amp; Conditions</a>.</label>
-                  </div>
                   <div class="fieldsets mt20"> <button type="submit" id="p" name="submit" class="btn btn-main bg-btn w-fit mb20"><span>Sing up <i class="fas fa-chevron-right fa-icon"></i></span> <span class="loader"></span></button> </div>
 
-                  <hr class="mt30 mb30">
-                  <div class="text-center">
-                      <p class="mb20">or Login with:</p>
-                      <div class="social-btnnxx">
-                        <a href="#" class="btn-main fb-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
-                        <a href="" class="btn-main google-btn"><i class="fab fa-google"></i> Google</a>
-                      </div>
-                    </div>
-
-
-
                 </form>
-                    <div>
-                        <a href="">Already have an account login.</a>
+
                     </div>
               </div>
             </div>

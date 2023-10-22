@@ -71,6 +71,7 @@ Route::prefix('user')->group(function (){
 
     Route::get('/login',[userLoginController::class, 'Index'])->name('login-index');
     Route::post('/login/success',[userLoginController::class, 'loginSuccess'])->name('login-user');
+    Route::get('/logout',[userLoginController::class, 'logOut'])->name('logout-user');
 
     Route::get('/register',[userLoginController::class, 'IndexRegister'])->name('register-index');
     Route::post('/register/store',[userLoginController::class, 'registerStore'])->name('register-store');
@@ -82,7 +83,10 @@ Route::prefix('user')->group(function (){
 //order
 Route::prefix('order')->group(function (){
 
-    Route::get('/checkout',[orderController::class, 'checkOutIndex'])->name('checkOut-index');
+    Route::get('/checkout/{product_id}',[orderController::class, 'checkOutIndex'])->name('checkOut-index');
+    Route::post('/checkout/store',[orderController::class, 'checkStore'])->name('checkout-store');
+    Route::get('/all',[orderController::class, 'allOrder'])->name('order-show');
+    Route::post('/statis/update',[orderController::class, 'statusUpdate'])->name('status-update');
 
 
 
@@ -91,8 +95,6 @@ Route::prefix('order')->group(function (){
 //frontend category
 
 Route::get('/frontend/category/{frontCat_id}', [CategoryController::class, 'frontCategory'])->name('front_category');
-
-
 
 
 /*-------------End Admin route--------*/

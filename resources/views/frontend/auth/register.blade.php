@@ -49,7 +49,7 @@ car
 
                     <div class="col-md-6 form-group floating-label">
                       <div class="formicon"><i class="fas fa-phone-alt"></i></div>
-                      <input type="tel" placeholder=" " required="required" id="mobile_number" class="floating-input" name="phone">
+                      <input type="tel" placeholder=" " required="required" id="mobile_number" class="floating-input" name="mobile">
                       <label>Mobile Number*</label>
                       @error('phone')
                       <div>{{ $message }}</div>
