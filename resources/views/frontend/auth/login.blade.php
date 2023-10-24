@@ -13,12 +13,12 @@ Applys
 
           <form id="contact-form" method="post" action="{{ route('login-user') }}">
             @csrf
-            {{-- <div class="fieldsets row">
+            <div class="fieldsets row">
                   @if(session('password_worng'))
                     <div class="alert alert-danger">
                         <strong> {{(session('password_worng')) }}</strong>
                     </div>
-              @endif --}}
+              @endif
 
               <div class="col-md-12 form-group">
                 <input id="form_name" type="email" name="email" placeholder="phone/email" required="required">
@@ -36,7 +36,6 @@ Applys
             <div class="text-center">
                 <p class="mb20">or Login with:</p>
                 <div class="social-btnnxx">
-                  <a href="#" class="btn-main fb-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
                   <a href="" class="btn-main google-btn"><i class="fab fa-google"></i> Google</a>
                 </div>
               </div>

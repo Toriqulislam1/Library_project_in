@@ -1,17 +1,52 @@
+
+<style>
+    .dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+</style>
+
+
+
+
+
+
+
+
 <header class="header-pr nav-bg-w main-header navfix fixed-top menu-white" style="background: white;">
     <div class="container m-pad">
         <div class="menu-header">
-            <div class="dsk-logo"><a class="nav-brand" href="digital-agency.html">
+            <div class="dsk-logo"><a class="nav-brand" href="{{ url('/') }}">
                     <img src="{{ asset('frontend/assets/images/white-logo.png') }}" alt="Logo" class="mega-white-logo" />
                     <img src="{{ asset('frontend/assets/images/images/logo.png') }}" alt="Logo" class="mega-darks-logo" />
                 </a>
             </div>
+
             <div class="custom-nav" role="navigation">
+
+                <div class="dropdown">
+                    Dashboard
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <li><a class="dropdown-item" href="#">Profile</a></li>
+                      <li><a class="dropdown-item" href="#">Order</a></li>
+                     
+                    </ul>
+                  </div>
+
                 <ul class="nav-list onepge">
                     <li><a href="{{ url('/') }}" class="menu-links">Home</a></li>
                     <li><a href="#services" class="menu-links">Services</a></li>
                     <li><a href="#work" class="menu-links">Work</a></li>
                     <li><a href="#price" class="menu-links">Price</a></li>
+
+
+
+
+
 
                     @auth
                     <li><a href="{{ route('user-profile-index') }}" class="menu-links">profile</a></li>
@@ -41,8 +76,8 @@
                 <li><a href="#services" class="menu-links">Services</a></li>
                 <li><a href="#work" class="menu-links">Work</a></li>
                 <li><a href="#price" class="menu-links">Price</a></li>
-                <li><a href="#price" class="menu-links">Login</a></li>
-                <li><a href="#price" class="menu-links">Registration</a></li>
+                <li><a href="{{ route('login-index') }}" class="menu-links">Login</a></li>
+                <li><a href="{{ route('register-index') }}" class="menu-links">Registration</a></li>
             </ul>
             <ul class="bottom-nav">
                 <li class="prb">

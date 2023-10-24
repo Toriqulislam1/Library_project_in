@@ -15,15 +15,27 @@ class orderController extends Controller
 {
     function checkOutIndex($product_id)
     {
-
+        if (Auth::user()){
         return view('frontend.order.checkout', ['product_id' => $product_id]);
+        }else{
+            return back()->with('loginError','please login first');
+        }
     } //end
 
     function checkStore(Request $request)
     {
 
-        $data =  order::insertGetId([
 
+        $request->validate([
+            'name' => 'required|max:255',
+            'phone' => 'required|max:20',
+            'email' => 'required',
+            'location' => 'required|max:255',
+
+        ]);
+
+
+        $dataid = order::insertGetId([
             'name' => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
@@ -31,11 +43,16 @@ class orderController extends Controller
             'product_id' => $request->product_id,
             'user_id' => Auth::user()->id,
             'order_num' => "#" . Auth::user()->id . rand(10, 9999),
-
         ]);
 
+        $pdf = PDF::loadView('frontend.auth.invoiceEmail', compact('dataid'))->setOptions(['defaultFont' => 'sans-serif']);
 
-            Mail::to($request->email)->send(new mailNotify($data));
+        Mail::send('frontend.auth.invoiceEmail', compact('dataid'), function ($message) use ($dataid, $pdf, $request) {
+            $message->to($request->email)
+                    ->subject('order invoice')
+                    ->attachData($pdf->output(), "invoice.pdf");
+        });
+
 
         return view('frontend.contact.success_page');
     } //end

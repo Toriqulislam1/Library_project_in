@@ -10,7 +10,7 @@ car
     <div class="pre-text- text-radius text-light text-animation bg-b">Niwax - Creative Agency & Portfolio HTML Template Are 2 Seconds Away. Have Patience</div>
     </div>
     </div>
-    <section class="hero-section niwax-lp1" data-background="images/banner/niwax-lpbg.jpg" id="home">
+    <section class="hero-section niwax-lp1" data-background="{{ asset('frontend/assets/images/banner/niwax-lpbg.jpg') }}" id="home">
     <div class="text-block">
     <div class="container">
     <div class="row v-center justify-content-between">
@@ -82,11 +82,18 @@ car
     <div class="row justify-content-center">
     <div class="col-lg-8">
     <div class="common-heading text-center">
-    <span class="text-effect-2">Our Best Services</span>
+    <span class="text-effect-2">Our Best Product</span>
     <h2 class="mb30"> car model </h2>
     </div>
     </div>
     </div>
+
+    <div class="fieldsets row">
+        @if(session('loginError'))
+        <div class="alert alert-danger">
+            <strong> {{(session('loginError')) }}</strong>
+        </div>
+    @endif
     <div class="row justify-content-center">
         @php
             $products = App\Models\Services::all();
@@ -97,10 +104,10 @@ car
             <div class="item-image h-scl-base">
             <a href="#"><img src="{{ $product->thamble }}" alt="portfolio" class="img-fluid"> </a>
             </div>
-            <div class="priceoderbtn"><a href="{{ route('checkOut-index',$product->id) }}" class="niwax-btn3">Order Now</a></div>
             <div class="item-info">
             <h4><a href="#">{{ $product->content_title  }}</a></h4>
             </div>
+            <div class="priceoderbtn"><a href="{{ route('checkOut-index',$product->id) }}" class="niwax-btn3" style="padding: 0 16px !important; line-height: 33px !important;">Order Now</a></div>
             </div>
             </div>
         @endforeach
@@ -114,7 +121,7 @@ car
     <div class="container">
     <div class="row v-center">
     <div class="companytime col-lg-3">
-    <p>20 Yesrs* <span>Industry Experience</span></p>
+    <p>2 Yesrs* <span>Industry Experience</span></p>
     </div>
     <div class="companyawards col-lg-9">
     <div class="niwax-logo-awards niwax-logo-slider owl-carousel">

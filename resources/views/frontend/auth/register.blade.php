@@ -1,7 +1,7 @@
 @extends('frontend.front_master')
 @section('content')
 @section('title')
-car
+Registration
 @endsection
 
 
@@ -94,7 +94,6 @@ car
                   <div class="text-center">
                       <p class="mb20">or Login with:</p>
                       <div class="social-btnnxx">
-                        <a href="#" class="btn-main fb-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
                         <a href="" class="btn-main google-btn"><i class="fab fa-google"></i> Google</a>
                       </div>
                     </div>
@@ -103,7 +102,7 @@ car
 
                 </form>
                     <div>
-                        <a href="">Already have an account login.</a>
+                        <a href="{{ route('login-index') }}">Already have an account login.</a>
                     </div>
               </div>
             </div>

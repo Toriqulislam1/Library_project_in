@@ -27,7 +27,7 @@ class userLoginController extends Controller
 
             return view('frontend.auth.userProfile');
         }else{
-            return "wrong";
+            return back()->with('password_worng','Your credentials worng');
         }
     }//end
 
@@ -47,6 +47,15 @@ class userLoginController extends Controller
     }//end
 
     function registerStore(Request $request){
+
+        $request->validate([
+            'name' => 'required|max:255',
+            'mobile' => 'required|max:20',
+            'email' => 'required|unique:orders|max:30',
+            'password' => 'required|max:20',
+
+        ]);
+
 
 
 		user::insert([

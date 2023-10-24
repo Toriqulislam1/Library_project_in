@@ -290,11 +290,10 @@
 $setting = App\Models\setting::orderBy('id','desc')->get();
 @endphp
 @php
-$orderinfo = App\Models\order::find($data);
+$orderinfo = App\Models\order::find($dataid);
 @endphp
 
 <!-- Invoice area Starts -->
-
 <div class="invoice-area">
     <div class="invoice-wrapper">
         <div class="invoice-header">
@@ -317,7 +316,7 @@ $orderinfo = App\Models\order::find($data);
                         <li class="list"> <a href="#"></a> </li>
                         <li class="list"> <a href="#"></a> </li>
 
-                        <li class="list">order: <a href="#"></a>{{ $orderinfo->order_num}}   </li>
+                        <li class="list">order: <a href="#"></a>{{ $orderinfo->order_num  }} </li>
                     </ul>
                 </div>
                 <div class="invoice-single-details" style="float:right;margin-top:-120px;">
@@ -372,7 +371,7 @@ $orderinfo = App\Models\order::find($data);
                     <tbody>
                     <tr>
                         <td>
-                            <span class="data-span"> {{ __('Name: ') }}</span>{{ $orderinfo->name}} <br>
+                            <span class="data-span"> {{ __('Name: ') }}</span>{{ $orderinfo->name }} <br>
                             <span class="data-span"> {{ __('Email: ') }}</span> {{ $orderinfo->email  }} <br>
                             <span class="data-span"> {{ __('Phone: ') }}{{ $orderinfo->phone  }} <br>
                             <span class="data-span"> {{ __('Address: ') }}</span>{{ $orderinfo->location}}
@@ -405,8 +404,10 @@ $orderinfo = App\Models\order::find($data);
 
     </div>
 </div>
+
 <!-- Invoice area end -->
 
 </body>
 
 </html>
+
