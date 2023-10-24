@@ -87,6 +87,8 @@ Route::prefix('order')->group(function (){
     Route::post('/checkout/store',[orderController::class, 'checkStore'])->name('checkout-store');
     Route::get('/all',[orderController::class, 'allOrder'])->name('order-show');
     Route::post('/statis/update',[orderController::class, 'statusUpdate'])->name('status-update');
+    Route::get('/invoice/{id}',[orderController::class, 'invoice'])->name('invoice');
+    Route::get('/send',[orderController::class, 'send']);
 
 
 

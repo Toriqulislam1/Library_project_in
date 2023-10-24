@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\order;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -57,13 +58,21 @@ class userLoginController extends Controller
 
 		]);
 
-        return view('frontend.auth.userProfile');
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+
+            return view('frontend.auth.userProfile');
+        }
+
+
     }//end
 
 
 
 
     function userProfile(){
-        return view('frontend.auth.userProfile');
+
+        $userOrders = order::where('user_id',Auth::user()->id)->get();
+
+        return view('frontend.auth.userProfile',['userOrders'=>$userOrders]);
     }//end
 }

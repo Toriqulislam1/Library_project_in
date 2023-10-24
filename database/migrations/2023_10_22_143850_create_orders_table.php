@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('location');
             $table->integer('product_id');
             $table->integer('user_id');
+            $table->string('order_num');
             $table->string('status')->default('panding');
             $table->timestamps();
         });

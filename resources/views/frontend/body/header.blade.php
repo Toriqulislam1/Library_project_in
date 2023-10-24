@@ -13,9 +13,9 @@
                     <li><a href="#work" class="menu-links">Work</a></li>
                     <li><a href="#price" class="menu-links">Price</a></li>
 
-
+                    @auth
                     <li><a href="{{ route('user-profile-index') }}" class="menu-links">profile</a></li>
-
+                    @endauth
 
                     <li><a href="{{ route('login-index') }}" class="menu-links">Login</a></li>
                     <li><a href="{{ route('register-index') }}" class="menu-links">Registration</a></li>

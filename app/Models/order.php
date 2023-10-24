@@ -9,4 +9,12 @@ class order extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+
+    public function product(){
+        return $this->belongsTo(Services::class,'product_id','id');
+    }
+
+
+
 }

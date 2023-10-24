@@ -27,7 +27,7 @@
 								<th> Title</th>
 								<th>Status </th>
 
-								<th>Action</th>
+								<th>Download</th>
 
 
 							</tr>
@@ -35,12 +35,12 @@
 						<tbody>
 	 @foreach($orders as $item)
 	 <tr>
-        <td> <img src="{{ asset($item->thamble ) }}" style="width: 60px; height: 50px;"> </td>
-		<td>{{ $item->content_title  }}</td>
+        <td> <img src="{{ asset($item->product->thamble ) }}" style="width: 60px; height: 50px;"> </td>
+		<td>{{ $item->product->content_title  }}</td>
 		 <td>
-		 	<span class="badge badge-pill badge-success"> Active </span>
+		 	<span class="badge badge-pill badge-success">{{ $item->status }}</span>
 		 </td>
-		 <td>{{ $item->views }}</td>
+		 <td><a  class="btn btn-success" href="{{ route('invoice',$item->id) }}">invoice</a></td>
 
 
 		<td width="25%">
