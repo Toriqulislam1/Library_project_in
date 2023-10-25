@@ -77,6 +77,9 @@ Route::prefix('user')->group(function (){
     Route::post('/register/store',[userLoginController::class, 'registerStore'])->name('register-store');
 
     Route::get('/profile',[userLoginController::class, 'userProfile'])->name('user-profile-index');
+    Route::get('/order',[userLoginController::class, 'userOrder'])->name('order-show-user-profile');
+    Route::get('/profile/edit',[userLoginController::class, 'userProfileEdit'])->name('user-profile-edit');
+    Route::post('/image/update',[userLoginController::class, 'userProfileImage'])->name('userProfileImage');
 
 
 });

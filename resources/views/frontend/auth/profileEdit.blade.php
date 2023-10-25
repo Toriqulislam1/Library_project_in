@@ -63,12 +63,13 @@
         box-shadow: none !important;
     }
 </style>
-
+@if(Auth::check())
 
 <div class="container " style="margin-top: 100px">
     <div class="main-body">
         <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
+
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
@@ -79,59 +80,57 @@
                                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
                                 class="rounded-circle" width="150">
                             @endif
-                            @if(Auth::check())
                             <div class="mt-3">
                                 <h4>{{ Auth::user()->name }}</h4>
                             </div>
                         </div>
+
+
+                        <form action="{{ route('userProfileImage') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">profile Image</label>
+                                <input class="form-control" type="file" id="formFile" name="image">
+                              </div>
+
+
+                              <div class="row">
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-info "
+                                        href="">Update</button>
+                                </div>
+                            </div>
+                        </form>
+
+
+
                     </div>
                 </div>
-                <div class="card mt-3">
-                    <ul class="list-group list-group-flush">
 
-                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                            <a class="btn btn-info" href="{{ route('logout-user') }}">logout</a>
-                        </li>
-
-                    </ul>
-                </div>
             </div>
 
             <div class="col-md-8">
                 <div class="card mb-3">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Full Name</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                {{ Auth::user()->name }}
-                            </div>
+
+
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" value=" {{ Auth::user()->name }}" placeholder="name">
                         </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Email</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                {{ Auth::user()->email }}
-                            </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="exampleFormControlInput1" value="   {{ Auth::user()->email }}" placeholder="name@example.com">
                         </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Phone</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                {{ Auth::user()->mobile }}
-                            </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" value=" {{ Auth::user()->mobile }}" placeholder="phone">
                         </div>
-                        <hr>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="new password">
+                        </div>
 
                         <div class="row">
                             <div class="col-sm-12">
                                 <a class="btn btn-info " target="__blank"
-                                    href="{{ route('user-profile-edit') }}">Edit</a>
+                                    href="{{ route('user-profile-edit') }}">Update</a>
                             </div>
                         </div>
                     </div>

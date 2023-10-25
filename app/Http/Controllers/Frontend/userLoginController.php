@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\order;
 use Illuminate\Support\Facades\Hash;
+use Image;
 
 
 class userLoginController extends Controller
@@ -83,5 +84,43 @@ class userLoginController extends Controller
         $userOrders = order::where('user_id',Auth::user()->id)->get();
 
         return view('frontend.auth.userProfile',['userOrders'=>$userOrders]);
+    }//end
+
+    function userOrder(){
+
+        $userOrders = order::where('user_id',Auth::user()->id)->get();
+        return view('frontend.auth.userOrder',['userOrders'=>$userOrders]);
+    }//end
+
+    function userProfileEdit(){
+
+        return view('frontend.auth.profileEdit');
+    }//end
+
+    function userProfileImage(Request $request){
+
+
+		$id = User::where('id',Auth::user()->id)->get();
+
+		$image = $request->file('image');
+    	$name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+    	Image::make($image)->resize(917,1000)->save('upload/user/profile/'.$name_gen);
+    	$save_url = 'upload/user/profile/'.$name_gen;
+
+
+		user::find(Auth::user()->id)->update([
+			'image' => $save_url,
+
+
+		]);
+
+
+
+
+		return redirect()->back();
+
+
+
+
     }//end
 }

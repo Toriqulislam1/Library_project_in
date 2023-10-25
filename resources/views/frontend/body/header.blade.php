@@ -27,30 +27,23 @@
             </div>
 
             <div class="custom-nav" role="navigation">
-
+                @auth
                 <div class="dropdown">
                     Dashboard
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <li><a class="dropdown-item" href="#">Profile</a></li>
-                      <li><a class="dropdown-item" href="#">Order</a></li>
-                     
+                      <li><a class="dropdown-item" href="{{ route('user-profile-index') }}">Profile</a></li>
+                      <li><a class="dropdown-item" href="{{ route('order-show-user-profile') }}">Order</a></li>
+                      <li><a class="dropdown-item" href="{{ route('logout-user') }}">Logout</a></li>
+
                     </ul>
                   </div>
+                  @endauth
 
                 <ul class="nav-list onepge">
                     <li><a href="{{ url('/') }}" class="menu-links">Home</a></li>
                     <li><a href="#services" class="menu-links">Services</a></li>
                     <li><a href="#work" class="menu-links">Work</a></li>
                     <li><a href="#price" class="menu-links">Price</a></li>
-
-
-
-
-
-
-                    @auth
-                    <li><a href="{{ route('user-profile-index') }}" class="menu-links">profile</a></li>
-                    @endauth
 
                     <li><a href="{{ route('login-index') }}" class="menu-links">Login</a></li>
                     <li><a href="{{ route('register-index') }}" class="menu-links">Registration</a></li>
@@ -60,6 +53,10 @@
                     <li><a href="#" class="btn-round- btn-br bg-btn"><i class="fas fa-phone-alt"></i></a></li>
                     <li><a href="#" class="btn-outline icon-btn">Chat With Us <i class="fab fa-whatsapp"></i></a> </li>
                 </ul>
+
+
+
+
             </div>
             <div class="mobile-menu2">
                 <ul class="mob-nav2">
