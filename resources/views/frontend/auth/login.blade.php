@@ -28,9 +28,10 @@ Applys
             </div>
             <div class="fieldsets row mt20">
               <div class="col-md-6 form-group v-center">
-                <button type="submit" class="lnk btn-main bg-btn">Submit <span class="circle"></span></button>
+                <button type="submit" class="lnk btn-main bg-btn">Login <span class="circle"></span></button>
               </div>
-              <div class="col-md-6 form-group v-center text-right"><a href="#" class="psforgt">Forgot Password?</a>     </div>
+
+              <div class="col-md-6 form-group v-center text-right btn-main bg-btn "><a href="{{ route('register-index') }}" class="psforgt">Registration now</a>     </div>
             </div>
             <hr class="mt30 mb30">
             <div class="text-center">

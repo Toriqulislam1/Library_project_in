@@ -5,6 +5,7 @@ use App\Mail\OrderInvoice;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\order;
+use App\Models\Services;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Mail;
@@ -15,46 +16,67 @@ class orderController extends Controller
 {
     function checkOutIndex($product_id)
     {
-        if (Auth::user()){
-        return view('frontend.order.checkout', ['product_id' => $product_id]);
-        }else{
-            return back()->with('loginError','please login first');
-        }
+
+            $services = Services::all();
+        return view('frontend.order.checkout', [
+            'product_id' => $product_id,
+            'services' =>$services,
+        ]);
+
+
+        
     } //end
 
     function checkStore(Request $request)
     {
+        if(Auth::user()){
+
+            $request->validate([
+                'name' => 'required|max:255',
+                'phone' => 'required|max:20',
+                'email' => 'required',
+                'location' => 'required|max:255',
+
+            ]);
 
 
-        $request->validate([
-            'name' => 'required|max:255',
-            'phone' => 'required|max:20',
-            'email' => 'required',
-            'location' => 'required|max:255',
+            $dataid = order::insertGetId([
+                'name' => $request->name,
+                'phone' => $request->phone,
+                'email' => $request->email,
+                'location' => $request->location,
+                'product_id' => $request->product_id,
+                'user_id' => Auth::user()->id,
+                'order_num' => "#" . Auth::user()->id . rand(10, 9999),
 
-        ]);
-
-
-        $dataid = order::insertGetId([
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'location' => $request->location,
-            'product_id' => $request->product_id,
-            'user_id' => Auth::user()->id,
-            'order_num' => "#" . Auth::user()->id . rand(10, 9999),
-        ]);
-
-        $pdf = PDF::loadView('frontend.auth.invoiceEmail', compact('dataid'))->setOptions(['defaultFont' => 'sans-serif']);
-
-        Mail::send('frontend.auth.invoiceEmail', compact('dataid'), function ($message) use ($dataid, $pdf, $request) {
-            $message->to($request->email)
-                    ->subject('order invoice')
-                    ->attachData($pdf->output(), "invoice.pdf");
-        });
+                'car_brand' => $request->carBrand,
+                'car_model' => $request->carModel,
+                'date' => $request->date,
+                'service_id' =>json_encode($request->service),
 
 
-        return view('frontend.contact.success_page');
+
+            ]);
+
+            $pdf = PDF::loadView('frontend.auth.invoiceEmail', compact('dataid'))->setOptions(['defaultFont' => 'sans-serif']);
+
+            Mail::send('frontend.auth.invoiceEmail', compact('dataid'), function ($message) use ($dataid, $pdf, $request) {
+                $message->to($request->email)
+                        ->subject('order invoice')
+                        ->attachData($pdf->output(), "invoice.pdf");
+            });
+
+
+            return view('frontend.contact.success_page');
+
+
+
+        }else{
+            return back()->with('loginError','please login for order tracking, if your not member register.');
+        }
+
+
+
     } //end
 
     function allOrder()

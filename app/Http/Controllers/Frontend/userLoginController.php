@@ -113,14 +113,28 @@ class userLoginController extends Controller
 
 
 		]);
-
-
-
-
 		return redirect()->back();
-
-
-
-
     }//end
+
+    function userInfo(Request $request){
+        if(!empty($request->password)){
+
+            user::find(Auth::user()->id)->update([
+                'name' => $request->name,
+                'mobile' => $request->mobile,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+
+        }else{
+
+            user::find(Auth::user()->id)->update([
+                'name' => $request->name,
+                'mobile' => $request->mobile,
+                'email' => $request->email,
+            ]);
+        }
+        return back();
+
+    }
 }

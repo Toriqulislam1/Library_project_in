@@ -112,27 +112,29 @@
             <div class="col-md-8">
                 <div class="card mb-3">
                     <div class="card-body">
+                    <form action="{{ route('userinfo-update') }}" method="post">
+                        @csrf
 
-
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="exampleFormControlInput1" value=" {{ Auth::user()->name }}" placeholder="name">
+                            <input type="text" class="form-control" name="name" id="exampleFormControlInput1" value=" {{ Auth::user()->name }}" placeholder="name">
                         </div>
                         <div class="mb-3">
-                            <input type="email" class="form-control" id="exampleFormControlInput1" value="   {{ Auth::user()->email }}" placeholder="name@example.com">
+                            <input type="email" class="form-control" name="email" id="exampleFormControlInput1" value="   {{ Auth::user()->email }}" placeholder="name@example.com">
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="exampleFormControlInput1" value=" {{ Auth::user()->mobile }}" placeholder="phone">
+                            <input type="text" class="form-control" name="mobile" id="exampleFormControlInput1" value=" {{ Auth::user()->mobile }}" placeholder="phone">
                         </div>
                         <div class="mb-3">
-                            <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="new password">
+                            <input type="password" class="form-control" name="password" id="exampleFormControlInput1" placeholder="new password">
                         </div>
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <a class="btn btn-info " target="__blank"
-                                    href="{{ route('user-profile-edit') }}">Update</a>
+                                <button type="submit" class="btn btn-info "
+                                   >Update</button>
                             </div>
                         </div>
+                    </form>
                     </div>
                 </div>
 

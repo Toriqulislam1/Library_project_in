@@ -6,8 +6,7 @@ car
 
 <div class="onloadpage" id="page_loader">
     <div class="pre-content">
-    <div class="logo-pre"><img src="{{ asset('frontend/assets/images/white-logo') }}" alt="Logo" class="img-fluid" /></div>
-    <div class="pre-text- text-radius text-light text-animation bg-b">Niwax - Creative Agency & Portfolio HTML Template Are 2 Seconds Away. Have Patience</div>
+    <div class="logo-pre"> <img src="{{ asset('frontend/assets/images/images/logo.png') }}" alt="Logo" class="mega-darks-logo" /></div>
     </div>
     </div>
     <section class="hero-section niwax-lp1" data-background="{{ asset('frontend/assets/images/banner/niwax-lpbg.jpg') }}" id="home">
@@ -35,40 +34,40 @@ car
     <div class="col-lg-5 v-center">
     <div class="form-block formcover shadow">
     <h4>Request a Free Quote</h4>
-    <form id="contactForm" data-bs-toggle="validator" class="shake mt30">
+
+    <form id="contactForm" data-bs-toggle="validator" action="{{ route('contact-form') }}" method="POST" class="shake mt30">
+        @csrf
     <div class="row">
     <div class="form-group col-sm-6">
-    <input type="text" id="name" placeholder="Enter name" required data-error="Please fill Out">
+    <input type="text" id="name" placeholder="Enter name" name="full_name" required data-error="Please fill Out">
     <div class="help-block with-errors"></div>
     </div>
     <div class="form-group col-sm-6">
-    <input type="email" id="email" placeholder="Enter email" required>
+    <input type="email" id="email" name="email_address" placeholder="Enter email" required>
     <div class="help-block with-errors"></div>
     </div>
     </div>
     <div class="row">
     <div class="form-group col-sm-6">
-    <input type="text" id="mobile" placeholder="Enter mobile" required data-error="Please fill Out">
+    <input type="text" id="mobile" name="mobile" placeholder="Enter mobile" required data-error="Please fill Out">
     <div class="help-block with-errors"></div>
     </div>
     <div class="form-group col-sm-6">
-    <select name="Dtype" id="Dtype" required>
-    <option value>Select Requirement</option>
-    <option value="web">web</option>
-    <option value="graphic">graphic</option>
-    <option value="video">video</option>
-    </select>
-    <div class="help-block with-errors"></div>
+
+        <input type="text" id="mobile" placeholder="Enter service name" name="subject" required data-error="Please fill Out">
+        <div class="help-block with-errors"></div>
     </div>
     </div>
     <div class="form-group">
-    <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+    <textarea id="message" rows="5" name="message" placeholder="Enter your message" required></textarea>
     <div class="help-block with-errors"></div>
     </div>
     <button type="submit" id="form-submit" class="btn btn-main bg-btn3">Submit</button>
     <div id="msgSubmit" class="h3 text-center hidden"></div>
     <div class="clearfix"></div>
     </form>
+
+
     </div>
     </div>
     </div>
@@ -367,60 +366,6 @@ car
     </div>
     </section>
 
-
-    <section class="why-niwax-section pad-tb">
-    <div class="container">
-    <div class="row justify-content-center ">
-    <div class="col-lg-12">
-    <div class="whychooseniwax v-center">
-    <div class="niwaxawardrow1">
-    <div class="awardbgwithtext">
-    <img src="images/icons/award-bg.png" alt>
-    <p>20+<span>YEARS Experience</span></p>
-    </div>
-    <div class="awardbgwithtext">
-    <img src="images/icons/award-bg.png" alt>
-    <p>20+<span>YEARS Experience</span></p>
-    </div>
-    <div class="awardbgwithtext">
-    <img src="images/icons/award-bg.png" alt>
-    <p>20+<span>YEARS Experience</span></p>
-    </div>
-    </div>
-    <div class="niwaxawardrow2">
-    <h2>Why Should You <span class="text-radius text-light text-animation bg-b">Choose Us!</span></h2>
-    <h4 class="mt10 text-second">Find your reasons to choose us</h4>
-    <p class="mt20">We have been providing Digital Marketing service from last 8 years by direct collaboration with our clients. As a Digital Marketing company we are providing all services like SEO Audit, Pay Per Click, Social Media Management, Organic SEO.</p>
-    <p class="mt10">We work with organizations of all sizes, from startups to Fortune companies. We believe in forging long-lasting partnerships with all of our clients and we remain available to our clients whenever they need us. Contact us for more information.</p>
-    <div class="pairofbtn mt40">
-    <a href="#" class="niwax-btn3">Get In Touch With Us</a>
-    <a href="#" class="btnwithiconside d-flex gap10 v-center">
-    <img src="images/icons/whatsapp.svg" alt="whatsapp">
-    <div> <span>Or - Just Give Us A Call:</span>+91- 1234567890 </div>
-    </a>
-    </div>
-    </div>
-    <div class="niwaxawardrow1">
-    <div class="awardbgwithtext">
-    <img src="{{ asset('frontend/assets/images/icons/award-bg.png') }}" alt>
-    <p>20+<span>YEARS Experience</span></p>
-    </div>
-    <div class="awardbgwithtext">
-    <img src="images/icons/award-bg.png" alt>
-    <p>20+<span>YEARS Experience</span></p>
-    </div>
-    <div class="awardbgwithtext">
-    <img src="images/icons/award-bg.png" alt>
-    <p>20+<span>YEARS Experience</span></p>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
-
-
     <section class="bg-gradient1 dark-bg4 pad-tb">
     <div class="container">
     <div class="row justify-content-center">
@@ -548,169 +493,6 @@ car
     </div>
     </div>
     </section>
-
-
-    <section class="pricing-block pad-tb" id="price">
-    <div class="container">
-    <div class="row justify-content-center">
-    <div class="col-lg-8">
-    <div class="common-heading ptag">
-    <span>Our Pricing</span>
-    <h2>Packages that are within your financial constraints</h2>
-    <p class="mb30">Choose from one of our three packages, all of which are priced competitively. We offer comprehensive yet cost-effective options. Everyone will find enticing features in our Basic, Professional, and Premium packages.</p>
-    </div>
-    </div>
-    </div>
-    <div class="row justify-content-center">
-    <div class="col-lg-4 col-md-6 nxpb-1">
-    <div class="niwaxpricingbox shadow">
-    <div class="pricingheader" data-background="images/icons/plan-1.svg">
-    <h2>Basic</h2>
-    <p>Great For Small Business</p>
-    </div>
-    <div class="pricingrate">
-    <div class="pricevalue">
-    <h2><sup>$</sup> 50.00</h2>
-    </div>
-    <div class="priceoffer">
-    <h2>10% <span>$60.00</span></h2>
-    </div>
-    </div>
-    <div class="pricingoffers">
-    <ul class="list-ul ul-check">
-    <li>Customized Theme Based Design </li>
-    <li>Home Page Slider</li>
-    <li>Up-to 50 Products</li>
-    <li>Content Management System</li>
-    <li>Shopping Cart Integration</li>
-    <li>Payment Module Integration</li>
-    <li>Perfect Product Search</li>
-    <li>Social Media Integration</li>
-    <li>Responsive Device Design</li>
-    <li>Dedicated Designer &amp; Developer</li>
-    <li>Unlimited Revisions</li>
-    <li>100% Unique Design</li>
-    <li>100% Satisfaction</li>
-    <li>100% Unique Design</li>
-    <li>100% Money Back</li>
-    </ul>
-    </div>
-    <div class="priceodernow">
-    <div class="priceoderbtn"><a href="#" class="niwax-btn3">Order Now</a></div>
-    <div class="priceaskwithus">
-    <a href="#" class="livechatbtn d-flex gap10 v-center">
-    <i class="fas fa-comment"></i>
-    <div><span>Click here to</span> Live Chat </div>
-    </a>
-    </div>
-    </div>
-    <div class="pricingfooter mt30">
-    <div class="pfdiv1"><a href="#">Call Us: +91 123456790</a></div>
-    <div class="pfdiv2"><a href="#">Need Support</a></div>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-4 col-md-6 nxpb-2">
-    <div class="niwaxpricingbox shadow reco">
-    <div class="pricingheader" data-background="images/icons/plan-2.svg">
-    <h2>Professional</h2>
-    <p>Great For Small Business</p>
-    </div>
-    <div class="pricingrate">
-    <div class="pricevalue">
-    <h2><sup>$</sup> 150.00</h2>
-    </div>
-    <div class="priceoffer">
-    <h2>20% <span>$170.00</span></h2>
-    </div>
-    </div>
-    <div class="pricingoffers">
-    <ul class="list-ul ul-check">
-    <li>Customized Theme Based Design </li>
-    <li>Home Page Slider</li>
-    <li>Up-to 50 Products</li>
-    <li>Content Management System</li>
-    <li>Shopping Cart Integration</li>
-    <li>Payment Module Integration</li>
-    <li>Perfect Product Search</li>
-    <li>Social Media Integration</li>
-    <li>Responsive Device Design</li>
-    <li>Dedicated Designer &amp; Developer</li>
-    <li>Unlimited Revisions</li>
-    <li>100% Unique Design</li>
-    <li>100% Satisfaction</li>
-    <li>100% Unique Design</li>
-    <li>100% Money Back</li>
-    </ul>
-    </div>
-    <div class="priceodernow">
-    <div class="priceoderbtn"><a href="#" class="niwax-btn2">Order Now</a></div>
-    <div class="priceaskwithus">
-    <a href="#" class="livechatbtn d-flex gap10 v-center">
-    <i class="fas fa-comment"></i>
-    <div><span>Click here to</span> Live Chat </div>
-    </a>
-    </div>
-    </div>
-    <div class="pricingfooter mt30">
-    <div class="pfdiv1"><a href="#">Call Us: +91 123456790</a></div>
-    <div class="pfdiv2"><a href="#">Need Support</a></div>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-4 col-md-6 nxpb-3">
-    <div class="niwaxpricingbox shadow">
-    <div class="pricingheader" data-background="images/icons/plan-3.svg">
-    <h2>Premium </h2>
-    <p>Great For Small Business</p>
-    </div>
-    <div class="pricingrate">
-    <div class="pricevalue">
-    <h2><sup>$</sup> 150.00</h2>
-    </div>
-    <div class="priceoffer">
-    <h2>40% <span>$280.00</span></h2>
-    </div>
-    </div>
-    <div class="pricingoffers">
-    <ul class="list-ul ul-check">
-    <li>Customized Theme Based Design </li>
-    <li>Home Page Slider</li>
-    <li>Up-to 50 Products</li>
-    <li>Content Management System</li>
-    <li>Shopping Cart Integration</li>
-    <li>Payment Module Integration</li>
-    <li>Perfect Product Search</li>
-    <li>Social Media Integration</li>
-    <li>Responsive Device Design</li>
-    <li>Dedicated Designer &amp; Developer</li>
-    <li>Unlimited Revisions</li>
-    <li>100% Unique Design</li>
-    <li>100% Satisfaction</li>
-    <li>100% Unique Design</li>
-    <li>100% Money Back</li>
-    </ul>
-    </div>
-    <div class="priceodernow">
-    <div class="priceoderbtn"><a href="#" class="niwax-btn3">Order Now</a></div>
-    <div class="priceaskwithus">
-    <a href="#" class="livechatbtn d-flex gap10 v-center">
-    <i class="fas fa-comment"></i>
-    <div><span>Click here to</span> Live Chat </div>
-    </a>
-    </div>
-    </div>
-    <div class="pricingfooter mt30">
-    <div class="pfdiv1"><a href="#">Call Us: +91 123456790</a></div>
-    <div class="pfdiv2"><a href="#">Need Support</a></div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
-
-
     <section class="service-block pad-tb bg-gradient3">
     <div class="container">
     <div class="row justify-content-center">
@@ -778,12 +560,7 @@ car
     </div>
     </div>
     </div>
-    <div class="-cta-btn mt70">
-    <div class="free-cta-title v-center wow zoomInDown" data-wow-delay="1.8s">
-    <p>Let's Start a <span>New Project</span> Together</p>
-    <a href="#" class="niwax-btn2">Inquire Now<i class="fas fa-chevron-right fa-icon"></i></a>
-    </div>
-    </div>
+
     </div>
     </section>
 

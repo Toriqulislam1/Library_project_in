@@ -71,12 +71,24 @@
             <ul class="treeview-menu">
 
               <li><a href="{{ route('order-show')}}"><i class="ti-more"></i>All order</a></li>
-      
+
 
             </ul>
           </li>
 
+          <li class="treeview">
+            <a href="#">
+              <i data-feather="mail"></i> <span>Project request</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('all-message')}}"><i class="ti-more"></i>All Request</a></li>
 
+            </ul>
+          </li>
+          
 		<li class="treeview">
           <a href="">
             <i data-feather="server"></i>

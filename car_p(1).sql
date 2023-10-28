@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2023 at 09:30 PM
+-- Generation Time: Oct 26, 2023 at 08:00 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -555,7 +555,7 @@ INSERT INTO `services` (`id`, `category_id`, `subcategory_id`, `childcategory_id
 (1, 21, 61, 0, 'Compact: Mazda 3', 'upload/services/1780266971334282.jpg', 'Compact: Mazda 3', 'Let’s face it, SUVs may lack the behind-the-wheel engagement of an equivalent car, but these tall and heavy vehicles’ rear liftgates sure make it a lot easier to simultaneously haul passengers and cargo. It’s the sensible choice, even if it’s not a particularly exciting one. But shouldn’t life offer a little excitement every now and again?', '<p>Although it&#39;s priced just like other compacts, the 2023 Mazda 3 aspires to compete with more premium cars&mdash;and&nbsp;<a href=\"https://www.caranddriver.com/reviews/comparison-test/a35123689/2021-mazda-3-vs-2021\">in many ways it does</a>. The 3 is available as either a sedan or a hatchback, and both are equally as handsome and agile. Two four-cylinder engines are offered, including a punchy turbo, and you can even have all-wheel drive if you want&mdash;though that means skipping the excellent six-speed manual. Other compact cars such as the&nbsp;<a href=\"https://www.caranddriver.com/honda/civic\">Honda Civic</a>,&nbsp;<a href=\"https://www.caranddriver.com/toyota/corolla\">Toyota Corolla</a>, and&nbsp;<a href=\"https://www.caranddriver.com/volkswagen/jetta\">Volkswagen Jetta</a>&nbsp;might seem more practical or have more name recognition, but the Mazda 3 is made for those buyers who value a gratifying driving experience and seek premium interior materials in their small car</p>', 'upload/services/1697794887_Hatchback.jpg', 1, '2023-10-20 03:41:27', NULL, 0),
 (2, 22, 60, 0, 'BMW 2 Series Sedan Price range in bd', 'upload/services/1780267230967501.jpg', 'BMW 2 Series Sedan Price range in bd', 'Here in this webpage we have given below BMW 2 SERIES SEDAN’s specification, overview and review depending on Bangladesh market.', '<h5><strong>VALUE ADDED FEATURES REGARDING COMFORT, SAFETY AND SECURITY :</strong></h5>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n	<li>BMW Intelligent Personal assistant</li>\r\n	<li>Parking Assistant</li>\r\n	<li>Active cruise control</li>\r\n	<li>Driving Assistant</li>\r\n	<li>Amazon Alexa car integration</li>\r\n	<li>Farmless doors</li>\r\n	<li>Glass roof</li>\r\n	<li>LED headlights</li>\r\n	<li>LED fog lights</li>\r\n	<li>M Sport steering</li>\r\n	<li>M Leather steering wheel</li>\r\n	<li>Vehicle key with exclusive M designation</li>\r\n	<li>Storage compartment package</li>\r\n	<li>Cruise control with braking function</li>\r\n	<li>Height adjustment for front passenger seat</li>\r\n	<li>Etc</li>\r\n</ul>', 'upload/services/1697795134_Sedan.jpg', 1, '2023-10-20 03:45:34', NULL, 0),
 (3, 24, 62, 0, 'BMW 2-Series', 'upload/services/1780267335102440.jpg', 'BMW 2-Series', 'The fun-size BMW 2-series is an entry-level luxury car with big thrust. Sold as a coupe only, the 230i and M240i have vastly different power levels, but are both offered with either rear- or all-wheel-drive. The 230i employs a turbocharged 255-hp inline-four that it shares with the Toyota Supra 2.0 and a host of other BMW products.', '<p>M240i comes with the far more entertaining turbocharged 382-hp inline-six engine. Sadly, no manual transmission is offered. Still, BMW&rsquo;s smallest car&rsquo;s recent redesign has wrought a deceptively quick ride, with solid braking and a chassis that loves the twisties. Although it&#39;s grown in size, its rear seat space is smaller than before. However, the most important aspect of the 2-series remains true in this generation: it rewards spirited driving at a reasonable price&mdash;particularly in four-cylinder, 230i form. There is a more rear-passenger-friendly four-door wearing a 2-series badge: it&rsquo;s known as the Gran Coupe but it&rsquo;s built on a completely different front-drive platform that has yet to win us over.&nbsp;<a href=\"https://www.caranddriver.com/bmw/2-series-gran-coupe\">We review that model separately.</a></p>', 'upload/services/1697795234_coupe.jpg', 1, '2023-10-20 03:47:14', NULL, 0),
-(4, NULL, NULL, NULL, 'Molestiae et incidun', 'upload/services/1780667958310600.jpg', 'Odio do nisi illum', 'Cillum ullamco ipsum', '<p>Long Description</p>', 'upload/services/1698177298_slidecar2.jpg', 1, '2023-10-24 13:54:58', NULL, 0);
+(4, NULL, NULL, NULL, 'Ea veniam consectet', 'upload/services/1780841861692363.jpg', 'Sequi accusamus temp', 'Eaque cillum ut volu', '<p>Long Description</p>', 'upload/services/1698177298_slidecar2.jpg', 1, '2023-10-26 11:59:05', '2023-10-26 11:59:05', 0);
 
 -- --------------------------------------------------------
 
@@ -719,7 +719,8 @@ INSERT INTO `users` (`id`, `name`, `mobile`, `email`, `email_verified_at`, `pass
 (65, 'Ayanna Decker', 1, 'qufixyn@mailinator.com', NULL, '$2y$10$.qEz03ZeZt8j4C1fuN/j7uatbeOPIeFleCk6AsdJs/sgfwXAdNlk.', 'upload/user/profile/1780755635478208.jpg', NULL, NULL, '2023-10-25 13:08:33'),
 (67, 'Risa Garrison', 1, 'zolosijogi@mailinator.com', NULL, '$2y$10$IjYrDMl9uCxniBwQEgkYAu1eBxMrLpyNl55QXtX17gm.5hVcL9Tx6', NULL, NULL, NULL, NULL),
 (69, 'Harper Juarez', 1, 'tegogazina@mailinator.com', NULL, '$2y$10$AQM7X0PPbH8wSWyxM8.mJOaxfOetThndmGx.bURHRFrnAMV6LQU9S', 'upload/user/profile/1780756875073445.jpg', NULL, NULL, '2023-10-25 13:28:15'),
-(70, 'Trevor Nolan', 1, 'naguzubiza@mailinator.com', NULL, '$2y$10$vvJb1NS/PW9QE./pcYcNwuFvhM0VWYh5fN5.j.atiq2PCuDUf1ccW', 'upload/user/profile/1780756940336892.jpg', NULL, NULL, '2023-10-25 13:29:17');
+(70, 'Trevor Nolan', 1, 'naguzubiza@mailinator.com', NULL, '$2y$10$vvJb1NS/PW9QE./pcYcNwuFvhM0VWYh5fN5.j.atiq2PCuDUf1ccW', 'upload/user/profile/1780756940336892.jpg', NULL, NULL, '2023-10-25 13:29:17'),
+(71, 'Harrison Reed', 2147483647, 'medebixuvi@mailinator.com', NULL, '$2y$10$wlZAKJeQyzWXg2Qp.tEQl.6W1mNUqt3MgAQn8lj7FkjQF0uG2Rg4i', NULL, NULL, NULL, '2023-10-26 11:36:37');
 
 --
 -- Indexes for dumped tables
@@ -1014,7 +1015,7 @@ ALTER TABLE `terms`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

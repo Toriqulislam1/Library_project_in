@@ -80,6 +80,7 @@ Route::prefix('user')->group(function (){
     Route::get('/order',[userLoginController::class, 'userOrder'])->name('order-show-user-profile');
     Route::get('/profile/edit',[userLoginController::class, 'userProfileEdit'])->name('user-profile-edit');
     Route::post('/image/update',[userLoginController::class, 'userProfileImage'])->name('userProfileImage');
+    Route::post('/info/update',[userLoginController::class, 'userInfo'])->name('userinfo-update');
 
 
 });

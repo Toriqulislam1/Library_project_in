@@ -13,7 +13,7 @@ class ContactController extends Controller
     } //end
 
     public function ContactForm(Request  $request){
-       
+
         $data = array();
         $data['full_name'] = $request->full_name;
         $data['email_address'] = $request->email_address;
@@ -22,7 +22,7 @@ class ContactController extends Controller
         $data['message'] = $request->message;
         DB::table('contacts')->insert($data);
 
-        return view('frontend.contact.success_page');
+        return view('frontend.contact.request');
     } //end
 
     public function AdminAllMessage(){

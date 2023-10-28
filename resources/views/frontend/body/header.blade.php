@@ -27,36 +27,46 @@
             </div>
 
             <div class="custom-nav" role="navigation">
-                @auth
-                <div class="dropdown">
-                    Dashboard
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <li><a class="dropdown-item" href="{{ route('user-profile-index') }}">Profile</a></li>
-                      <li><a class="dropdown-item" href="{{ route('order-show-user-profile') }}">Order</a></li>
-                      <li><a class="dropdown-item" href="{{ route('logout-user') }}">Logout</a></li>
 
-                    </ul>
-                  </div>
-                  @endauth
 
                 <ul class="nav-list onepge">
                     <li><a href="{{ url('/') }}" class="menu-links">Home</a></li>
                     <li><a href="#services" class="menu-links">Services</a></li>
                     <li><a href="#work" class="menu-links">Work</a></li>
                     <li><a href="#price" class="menu-links">Price</a></li>
+                    @if(Auth::check())
 
-                    <li><a href="{{ route('login-index') }}" class="menu-links">Login</a></li>
-                    <li><a href="{{ route('register-index') }}" class="menu-links">Registration</a></li>
+                    <div class="dropdown" >
+                      <span style="  font-size: 16px;
+                      color: #000;
+                      font-family: 'Poppins', sans-serif;
+                      font-weight: 500;
+                      padding: 0px 15px;
+                      line-height: 85px;
+                      text-transform: uppercase;
+                      position: relative;
+                      overflow: hidden;">Dashboard</span>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="{{ route('user-profile-index') }}">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{ route('order-show-user-profile') }}">Order</a></li>
+                        <li><a class="dropdown-item" href="{{ route('order-show-user-profile') }}">Payment invoice</a></li>
+                        <li><a class="dropdown-item" href="{{ route('logout-user') }}">Logout</a></li>
+                      </ul>
+                    </div>
+                    @else
+                    <a style="  font-size: 16px;
+                    color: #000;
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 500;
+                    padding: 0px 15px;
+                    line-height: 85px;
+                    text-transform: uppercase;
+                    position: relative;
+                    overflow: hidden;" href="{{ route('login-index') }}" class="menu-links">Login</a>
+                    @endif
 
-
-
-                    <li><a href="#" class="btn-round- btn-br bg-btn"><i class="fas fa-phone-alt"></i></a></li>
-                    <li><a href="#" class="btn-outline icon-btn">Chat With Us <i class="fab fa-whatsapp"></i></a> </li>
+                    <li><a href="https://wa.me/+8801535880909" class="btn-outline icon-btn">Chat With Us <i class="fab fa-whatsapp"></i></a> </li>
                 </ul>
-
-
-
-
             </div>
             <div class="mobile-menu2">
                 <ul class="mob-nav2">
@@ -74,7 +84,7 @@
                 <li><a href="#work" class="menu-links">Work</a></li>
                 <li><a href="#price" class="menu-links">Price</a></li>
                 <li><a href="{{ route('login-index') }}" class="menu-links">Login</a></li>
-                <li><a href="{{ route('register-index') }}" class="menu-links">Registration</a></li>
+
             </ul>
             <ul class="bottom-nav">
                 <li class="prb">
