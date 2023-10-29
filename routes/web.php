@@ -92,8 +92,14 @@ Route::prefix('order')->group(function (){
     Route::get('/all',[orderController::class, 'allOrder'])->name('order-show');
     Route::post('/statis/update',[orderController::class, 'statusUpdate'])->name('status-update');
     Route::get('/invoice/{id}',[orderController::class, 'invoice'])->name('invoice');
-    Route::get('/send',[orderController::class, 'send']);
+    Route::get('/payment',[orderController::class, 'userPayment'])->name('order-user-payment');
+    Route::get('/user/payment/download/{id}',[orderController::class, 'userPaymentDownload'])->name('user-download-payment');
 
+    Route::get('/user/payment/',[orderController::class, 'paymentOrder'])->name('order-payment-index');
+    Route::get('/user/payment/invoice/{id}',[orderController::class, 'paymentInvoiceIndex'])->name('payment-invoice');
+    Route::post('/user/payment/invoice/store',[orderController::class, 'paymentInvoiceStore'])->name('payment.invoice.store');
+    Route::get('/admin/download/{id}',[orderController::class, 'InvoiceDownload'])->name('admin-download-invoice');
+    Route::get('/admin/invoice/delete/{id}',[orderController::class, 'InvoiceAdminDelete'])->name('payment.delete');
 
 
 });

@@ -71,6 +71,7 @@
             <ul class="treeview-menu">
 
               <li><a href="{{ route('order-show')}}"><i class="ti-more"></i>All order</a></li>
+              <li><a href="{{ route('order-payment-index')}}"><i class="ti-more"></i>order Payment</a></li>
 
 
             </ul>
@@ -88,7 +89,7 @@
 
             </ul>
           </li>
-          
+
 		<li class="treeview">
           <a href="">
             <i data-feather="server"></i>

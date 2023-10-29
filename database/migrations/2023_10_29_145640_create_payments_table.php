@@ -13,20 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->id();
+            $table->integer('order_id');
+            $table->integer('user_id');
+            $table->integer('phone');
+            $table->integer('price');
+            $table->integer('discount');
             $table->string('name');
             $table->string('email');
-            $table->integer('phone');
-            $table->string('location');
-            $table->integer('product_id');
-            $table->integer('user_id');
-            $table->string('order_num');
-            $table->string('car_model');
-            $table->string('car_brand');
-            $table->string('date');
-            $table->string('service_id');
-            $table->string('status')->default('panding');
+            $table->string('servics_details');
             $table->timestamps();
         });
     }
@@ -38,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('payments');
     }
 };

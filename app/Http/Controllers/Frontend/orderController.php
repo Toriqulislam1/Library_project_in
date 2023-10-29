@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\order;
 use App\Models\Services;
+use App\Models\payment;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Mail;
@@ -24,11 +25,20 @@ class orderController extends Controller
         ]);
 
 
-        
+
     } //end
 
     function checkStore(Request $request)
+
+
     {
+        $services_id = $request->service;
+
+       $afterjson =json_encode($services_id);
+
+
+
+
         if(Auth::user()){
 
             $request->validate([
@@ -52,7 +62,7 @@ class orderController extends Controller
                 'car_brand' => $request->carBrand,
                 'car_model' => $request->carModel,
                 'date' => $request->date,
-                'service_id' =>json_encode($request->service),
+                'service_id' => $afterjson,
 
 
 
@@ -116,14 +126,76 @@ class orderController extends Controller
         return $pdf->stream('invoice-pdf');
     } //end
 
-    function send(){
+    function paymentOrder(){
+
+        $orders = order::all();
+
+        return view('admin.order.payment',['orders'=>$orders]);
+    }//end
+
+    function paymentInvoiceIndex($id){
+        $order_details = order::find($id);
+
+        return view('admin.order.payInvoice',['order_details'=>$order_details]);
+    }//end
+
+    function paymentInvoiceStore(Request $request){
 
 
+             payment::insertGetId([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'order_id' => $request->order_id,
+            'user_id' =>$request->user_id,
+            'price' =>$request->price,
+            'discount' => $request->discount,
+            'servics_details' => $request->service_descrip,
+
+        ]);
+
+        return back();
 
 
+    }//end
 
 
-    }
+    function InvoiceDownload($id){
 
+        $service = payment::find($id);
+
+        $pdf = Pdf::loadView('admin.order.pay.invoice', ['service'=>$service])->setOptions(['defaultFont' => 'sans-serif']);
+        return $pdf->stream('invoice-pdf');
+
+    }//end
+
+    function InvoiceAdminDelete($id){
+        payment::findOrFail($id)->delete();
+
+    	$notification = array(
+			'message' => 'invoice Deleted Successfully',
+			'alert-type' => 'success'
+		);
+
+		return redirect()->back()->with($notification);
+
+
+    }//end
+
+    function userPayment(){
+
+        $service = payment::where('user_id',Auth::user()->id)->get();
+
+        return view('frontend.auth.payment',['service'=>$service]);
+    }//end
+
+function userPaymentDownload($id){
+
+    $service = payment::find($id);
+
+    $pdf = Pdf::loadView('frontend.auth.userPayment.paymentInvoice', ['service'=>$service])->setOptions(['defaultFont' => 'sans-serif']);
+    return $pdf->stream('invoice-pdf');
+
+}//end
 
 }

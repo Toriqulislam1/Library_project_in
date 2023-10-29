@@ -49,7 +49,7 @@
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="{{ route('user-profile-index') }}">Profile</a></li>
                         <li><a class="dropdown-item" href="{{ route('order-show-user-profile') }}">Order</a></li>
-                        <li><a class="dropdown-item" href="{{ route('order-show-user-profile') }}">Payment invoice</a></li>
+                        <li><a class="dropdown-item" href="{{ route('order-user-payment') }}">Payment invoice</a></li>
                         <li><a class="dropdown-item" href="{{ route('logout-user') }}">Logout</a></li>
                       </ul>
                     </div>

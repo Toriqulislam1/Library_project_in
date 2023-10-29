@@ -14,14 +14,14 @@ car
           <div class="niwax23form shadow">
             <div class="common-heading text-l">
               <h2 class="mt0 mb0 text-center mb-5">Check Out</h2>
-
-            </div>
-                <div class="fieldsets row">
-                    @if(session('loginError'))
-                    <div class="alert alert-danger">
-                        <strong> {{(session('loginError')) }}</strong>
-                    </div>
+              <div class="fieldsets row">
+                @if(session('loginError'))
+                <div class="alert alert-danger">
+                    <strong> {{(session('loginError')) }}</strong>
+                </div>
                 @endif
+            </div>
+
 
 
             @if(session('success'))
