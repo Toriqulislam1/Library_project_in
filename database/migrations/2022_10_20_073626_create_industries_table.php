@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('industries', function (Blueprint $table) {
             $table->id();
-            $table->string('ind_title');
+            $table->string('ind_title')->nullable();
             $table->string('ind_photo');
-            $table->string('ind_description');
+            $table->string('ind_description')->nullable();
             $table->timestamps();
         });
     }

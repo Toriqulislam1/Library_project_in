@@ -42,9 +42,7 @@
 							<tr>
 
 								<th>Client Logo </th>
-								<th>Compant Link</th>
-	                            <th>Title</th>
-								<th>Action</th>
+					            <th>Action</th>
 
 							</tr>
 						</thead>
@@ -53,11 +51,6 @@
 							<tr>
 
 								<td><img src="{{ asset($item->client_logo ) }}" style="width: 60px; height: 50px;"></td>
-								<td>{{ $item->client_title }}</td>
-									<td>{{ $item->orginal_title}}</td>
-
-
-
 								<td width="30%">
                                     <a href="{{ route('client.edit',$item->id) }}" class="btn btn-info" title="Edit"><i class="fa fa-pencil"></i></a>
                                     <a href="{{ route('client.delete',$item->id) }}" class="btn btn-danger" id="delete" title="delete"><i class="fa fa-trash"></i></a>
@@ -94,28 +87,6 @@
 
             <form method="POST" action="{{ route('client-store') }}"  enctype="multipart/form-data" >
                 @csrf
-
-	<div class="form-group">
-					<h5> Link <span class="text-danger">*</span></h5>
-					<div class="controls">
-					<input type="text" name="client_title" class="form-control" required="">
-					@error('client_title')
-					<span class="text-danger">{{ $message }}</span>
-					@enderror
-					</div>
-	</div> <!---end--->
-
-
-	<div class="form-group">
-					<h5> title <span class="text-danger">*</span></h5>
-					<div class="controls">
-					<input type="text" name="orginal_title" class="form-control" required="">
-					@error('orgina_title')
-					<span class="text-danger">{{ $message }}</span>
-					@enderror
-					</div>
-	</div> <!---end--->
-
 
                     <div class="form-group">
 	<h5>Client Logo <span class="text-danger">*</span></h5>

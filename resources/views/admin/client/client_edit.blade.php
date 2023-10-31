@@ -45,32 +45,6 @@
                 <input type="hidden" name="id" value="{{ $clients->id }}">
 				<input type="hidden" name="old_img" value="{{ $clients->client_logo }}">
 
-	<div class="form-group">
-					<h5>Company link <span class="text-danger">*</span></h5>
-					<div class="controls">
-					<input type="text" name="client_title" class="form-control" required="" value="{{ $clients->client_title}}">
-					@error('client_title')
-					<span class="text-danger">{{ $message }}</span>
-					@enderror
-					</div>
-	</div> <!---end--->
-
-	<div class="form-group">
-					<h5>title<span class="text-danger">*</span></h5>
-					<div class="controls">
-					<input type="text" name="orginal_title" class="form-control" required="" value="{{ $clients->orginal_title}}">
-					@error('orginal_title')
-					<span class="text-danger">{{ $message }}</span>
-					@enderror
-					</div>
-	</div> <!---end--->
-
-
-
-
-
-
-
                     <div class="form-group">
 	<h5>Client Logo <span class="text-danger">*</span></h5>
 	<div class="controls">

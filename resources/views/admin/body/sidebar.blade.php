@@ -90,6 +90,24 @@
             </ul>
           </li>
 
+          <li class="treeview">
+            <a href="#">
+              <i data-feather="file"></i>
+              <span>Protfolio</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('add-portfolio')}}"><i class="ti-more"></i> add Portfolio</a></li>
+              <li><a href="{{ route('add-client')}}"><i class="ti-more"></i>Client</a></li>
+              <li><a href="{{ route('add-ind')}}"><i class="ti-more"></i>Industries</a></li>
+
+            </ul>
+          </li>
+
+
+
 		<li class="treeview">
           <a href="">
             <i data-feather="server"></i>

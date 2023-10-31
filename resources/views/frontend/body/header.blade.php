@@ -1,18 +1,51 @@
 
 <style>
-    .dropdown:hover>.dropdown-menu {
-  display: block;
-}
+    .dropbtn {
+      background-color: white;
+      color: black;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif
+    }
 
-.dropdown>.dropdown-toggle:active {
-  /*Without this, clicking will make it sticky*/
-    pointer-events: none;
-}
-</style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {background-color: #f1f1f1}
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: white;
+    }
+    </style>
 
 
-
-
+@php
+$setting = App\Models\setting::find(1);
+@endphp
 
 
 
@@ -21,8 +54,8 @@
     <div class="container m-pad">
         <div class="menu-header">
             <div class="dsk-logo"><a class="nav-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('frontend/assets/images/white-logo.png') }}" alt="Logo" class="mega-white-logo" />
-                    <img src="{{ asset('frontend/assets/images/images/logo.png') }}" alt="Logo" class="mega-darks-logo" />
+
+                    <img src="{{ asset($setting->logo) }}" alt="Logo" class="mega-darks-logo" />
                 </a>
             </div>
 
@@ -33,11 +66,21 @@
                     <li><a href="{{ url('/') }}" class="menu-links">Home</a></li>
                     <li><a href="#services" class="menu-links">Services</a></li>
                     <li><a href="#work" class="menu-links">Work</a></li>
-                    <li><a href="#price" class="menu-links">Price</a></li>
-                    @if(Auth::check())
 
-                    <div class="dropdown" >
-                      <span style="  font-size: 16px;
+
+                    @if(Auth::check())
+                    <div class="dropdown">
+                        <button class="dropbtn">Dashboard</button>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="{{ route('user-profile-index') }}">Profile</a>
+                            <a class="dropdown-item" href="{{ route('order-show-user-profile') }}">Order</a>
+                            <a class="dropdown-item" href="{{ route('order-user-payment') }}">Payment invoice</a>
+                            <a class="dropdown-item" href="{{ route('logout-user') }}">Logout</a>
+
+                        </div>
+                      </div>
+                      @else
+                      <a style="  font-size: 16px;
                       color: #000;
                       font-family: 'Poppins', sans-serif;
                       font-weight: 500;
@@ -45,25 +88,13 @@
                       line-height: 85px;
                       text-transform: uppercase;
                       position: relative;
-                      overflow: hidden;">Dashboard</span>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="{{ route('user-profile-index') }}">Profile</a></li>
-                        <li><a class="dropdown-item" href="{{ route('order-show-user-profile') }}">Order</a></li>
-                        <li><a class="dropdown-item" href="{{ route('order-user-payment') }}">Payment invoice</a></li>
-                        <li><a class="dropdown-item" href="{{ route('logout-user') }}">Logout</a></li>
-                      </ul>
-                    </div>
-                    @else
-                    <a style="  font-size: 16px;
-                    color: #000;
-                    font-family: 'Poppins', sans-serif;
-                    font-weight: 500;
-                    padding: 0px 15px;
-                    line-height: 85px;
-                    text-transform: uppercase;
-                    position: relative;
-                    overflow: hidden;" href="{{ route('login-index') }}" class="menu-links">Login</a>
-                    @endif
+                      overflow: hidden;" href="{{ route('login-index') }}" class="menu-links">Login</a>
+                      @endif
+
+
+
+
+
 
                     <li><a href="https://wa.me/+8801535880909" class="btn-outline icon-btn">Chat With Us <i class="fab fa-whatsapp"></i></a> </li>
                 </ul>

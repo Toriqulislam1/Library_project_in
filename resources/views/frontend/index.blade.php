@@ -3,10 +3,13 @@
 @section('title')
 car
 @endsection
+@php
+$setting = App\Models\setting::find(1);
+@endphp
 
 <div class="onloadpage" id="page_loader">
     <div class="pre-content">
-    <div class="logo-pre"> <img src="{{ asset('frontend/assets/images/images/logo.png') }}" alt="Logo" class="mega-darks-logo" /></div>
+    <div class="logo-pre"> <img src="{{ asset($setting->logo) }}" alt="Logo" class="mega-darks-logo" /></div>
     </div>
     </div>
     <section class="hero-section niwax-lp1" data-background="{{ asset('frontend/assets/images/banner/niwax-lpbg.jpg') }}" id="home">
@@ -16,12 +19,11 @@ car
     <div class="col-lg-6">
     <div class="header-headings">
     <span class="text-effect-1">Solution-Oriented Services</span>
-    <h1 class="wow fadeIn mt20 mb30 cd-headline clip" data-wow-delay=".4s">Creative Design Company We Create
-    <span class="cd-words-wrapper"> <b class="is-visible">Websites</b> <b>Apps</b> <b>Graphics</b> <b>Brandings</b> <b>Marketings</b> </span> </h1>
-    <p class="wow fadeIn" data-wow-delay=".8s">Niwax is one of the most creative and experienced mobile app development companies in India.</p>
+    <h1 class="wow fadeIn mt20 mb30 cd-headline clip" data-wow-delay=".4s">Creative service Company We Create
+    <span class="cd-words-wrapper"> <b class="is-visible">car</b> </span> </h1>
+    <p class="wow fadeIn" data-wow-delay=".8s">Disney Pixar Cars Storybook Collection: Storybook Collection (Treasury) Hardcover – 1 January 2015</p>
 
     <div class="niwaxbtnvideo mt30">
-    <a href="#" class="niwax-btn2">GET STARTED<i class="fas fa-chevron-right fa-icon"></i></a>
     <div class="video-btn  d-flex v-center gap10">
     <div class="video-intro-ppx"><a class="video-link play-video" href="https://www.youtube.com/watch?v=SZEflIVnhH8?autoplay=1&rel=0"><span class="triangle-play"></span></a></div>
     <div class="title-hero">
@@ -52,12 +54,19 @@ car
     <input type="text" id="mobile" name="mobile" placeholder="Enter mobile" required data-error="Please fill Out">
     <div class="help-block with-errors"></div>
     </div>
+    @php
+    $service_name = App\Models\Services::all();
+    @endphp
     <div class="form-group col-sm-6">
-
-        <input type="text" id="mobile" placeholder="Enter service name" name="subject" required data-error="Please fill Out">
+        <select name="subject" id="Dtype" required>
+        <option value>Select service</option>
+        @foreach ($service_name as $name)
+        <option value="{{ $name->content_title }}">{{ $name->content_title }}</option>
+        @endforeach
+        </select>
         <div class="help-block with-errors"></div>
     </div>
-    </div>
+
     <div class="form-group">
     <textarea id="message" rows="5" name="message" placeholder="Enter your message" required></textarea>
     <div class="help-block with-errors"></div>
@@ -81,7 +90,7 @@ car
     <div class="row justify-content-center">
     <div class="col-lg-8">
     <div class="common-heading text-center">
-    <span class="text-effect-2">Our Best Product</span>
+    <span class="text-effect-2">Our Best service</span>
     <h2 class="mb30"> car model </h2>
     </div>
     </div>
@@ -100,12 +109,14 @@ car
         @foreach ($products  as $product )
             <div class="col-lg-4 col-sm-6 mt30 wow fadeIn" data-wow-delay=".2s">
             <div class="isotope_item h-scl-">
+
             <div class="item-image h-scl-base">
-            <a href="#"><img src="{{ $product->thamble }}" alt="portfolio" class="img-fluid"> </a>
+            <a href="{{ route('details-service-page',$product->id) }}"><img src="{{ $product->thamble }}" alt="portfolio" class="img-fluid"> </a>
             </div>
             <div class="item-info">
-            <h4><a href="#">{{ $product->content_title  }}</a></h4>
+            <h4><a href="{{ route('details-service-page',$product->id) }}">{{ $product->content_title  }}</a></h4>
             </div>
+            
             <div class="priceoderbtn"><a href="{{ route('checkOut-index',$product->id) }}" class="niwax-btn3" style="padding: 0 16px !important; line-height: 33px !important;">Order Now</a></div>
             </div>
             </div>
@@ -114,70 +125,6 @@ car
     </div>
     </div>
     </section>
-
-
-    <div class="niwax-company-awards-cover">
-    <div class="container">
-    <div class="row v-center">
-    <div class="companytime col-lg-3">
-    <p>2 Yesrs* <span>Industry Experience</span></p>
-    </div>
-    <div class="companyawards col-lg-9">
-    <div class="niwax-logo-awards niwax-logo-slider owl-carousel">
-    <div class="industry-workfors">
-    <img src="{{ asset('frontend/assets/images/icons/house.svg') }}" alt="img">
-    <h6>Real estate</h6>
-    </div>
-    <div class="industry-workfors">
-    <img src="{{ asset('frontend/assets/images/icons/travel-case.svg') }}" alt="img">
-    <h6>Tour &amp; Travels</h6>
-    </div>
-    <div class="industry-workfors">
-    <img src="{{ asset('frontend/assets/images/icons/video-tutorials.svg') }}" alt="img">
-    <h6>Education</h6>
-    </div>
-    <div class="industry-workfors">
-    <img src="{{ asset('frontend/assets/images/icons/taxi.svg') }}" alt="img">
-    <h6>Transport</h6>
-    </div>
-    <div class="industry-workfors">
-    <img src="{{ asset('frontend/assets/images/icons/event.svg') }}" alt="img">
-    <h6>Event</h6>
-    </div>
-    <div class="industry-workfors">
-    <img src="{{ asset('frontend/assets/images/icons/smartphone.svg') }}" alt="img">
-    <h6>eCommerce</h6>
-    </div>
-    <div class="industry-workfors">
-    <img src="{{ asset('frontend/assets/images/icons/joystick.svg') }}" alt="img">
-    <h6>Game</h6>
-    </div>
-    <div class="industry-workfors">
-    <img src="{{ asset('frontend/assets/images/icons/healthcare.svg') }}" alt="img">
-    <h6>Healthcare</h6>
-    </div>
-    <div class="industry-workfors">
-    <img src="{{ asset('frontend/assets/images/icons/money-growth.svg') }}" alt="img">
-    <h6>Finance</h6>
-    </div>
-    <div class="industry-workfors">
-    <img src="{{ asset('frontend/assets/images/icons/baker.svg') }}" alt="img">
-    <h6>Restaurant</h6>
-    </div>
-    <div class="industry-workfors">
-    <img src="{{ asset('frontend/assets/images/icons/mobile-app.svg') }}" alt="img">
-    <h6>On-Demand</h6>
-    </div>
-    <div class="industry-workfors">
-    <img src="{{ asset('frontend/assets/images/icons/groceries.svg') }}" alt="img">
-    <h6>Grocery</h6>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-
 
     <section class="why-choos-lg pad-tb deep-dark">
     <div class="container">
@@ -239,129 +186,69 @@ car
     </div>
     </div>
     </section>
+    @php
+    $Industries = App\Models\Industries::all();
+    @endphp
 
+    <div class="niwax-company-awards-cover">
+        <div class="container">
+        <div class="row v-center">
+        <div class="companytime col-lg-3">
+        <p>2 Yesrs* <span>Industry Experience</span></p>
+        </div>
+        <div class="companyawards col-lg-9">
+        <div class="niwax-logo-awards niwax-logo-slider owl-carousel">
+         @foreach ($Industries as $Industrie)
+        <div class="industry-workfors">
+        <img src="{{ asset($Industrie->ind_photo ) }}" alt="img">
+        <h6>{{ $Industrie->ind_title}}</h6>
+        </div>
+        @endforeach
+
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        @php
+            $portfolios = App\Models\Portfolio::all();
+        @endphp
 
     <section class="portfolio-page dark-bg4 bg-gradient6 pad-tb" id="work">
     <div class="container">
+
     <div class="row justify-content-left">
     <div class="col-lg-6">
     <div class="common-heading pp">
-    <span>Our Work</span>
-    <h2>Portfolio</h2>
-    </div>
-    </div>
-    <div class="col-lg-6 v-center">
-    <div class="filters">
-    <ul class="filter-menu">
-    <li data-filter="*" class="is-checked">All</li>
-    <li data-filter=".website">Website</li>
-    <li data-filter=".app">Mobile App</li>
-    <li data-filter=".graphic">Graphic</li>
-    </ul>
+    <span class="text-center" style="
+    margin-left: 472px;">Our Work</span>
+    <h2 class="text-center" style="
+    margin-left: 472px;">Portfolio</h2>
     </div>
     </div>
     </div>
     <div class="row card-list justify-content-center">
+        @foreach ($portfolios  as $portfolio)
+
+
     <div class="col-lg-4 col-md-6 grid-sizer"></div>
+
     <div class="col-lg-4 col-sm-6 single-card-item app">
     <div class="isotope_item hover-scale">
     <div class="item-image">
-    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-1.jpg') }}" alt="portfolio" class="img-fluid" /> </a>
+    <a href="#"><img src="{{ asset( $portfolio->port_image ) }}" alt="portfolio" class="img-fluid" /> </a>
     </div>
     <div class="item-info">
-    <h4><a href="#">Creative App</a></h4>
-    <p>ios, design</p>
+    <h4><a href="#">{{ $portfolio->port_title  }}</a></h4>
+    <p>{{ $portfolio->port_subtitle }}</p>
     </div>
     </div>
     </div>
-    <div class="col-lg-4 col-sm-6 single-card-item graphic">
-    <div class="isotope_item hover-scale">
-    <div class="item-image">
-    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-2.jpg') }}" alt="image" class="img-fluid" /> </a>
-    </div>
-    <div class="item-info">
-    <h4><a href="#">Brochure Design</a></h4>
-    <p>Graphic, Print</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-4 col-sm-6 single-card-item website">
-    <div class="isotope_item hover-scale">
-    <div class="item-image">
-    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-3.jpg') }}" alt="image" class="img-fluid" /> </a>
-    </div>
-    <div class="item-info">
-    <h4><a href="#">Ecommerce Development</a></h4>
-    <p>Web Application</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-4 col-sm-6 single-card-item app">
-    <div class="isotope_item hover-scale">
-    <div class="item-image">
-    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-4.jpg') }}" alt="image" class="img-fluid" /> </a>
-    </div>
-    <div class="item-info">
-    <h4><a href="#">Icon Pack</a></h4>
-    <p>Android & iOs, Design</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-4 col-sm-6 single-card-item graphic">
-    <div class="isotope_item hover-scale">
-    <div class="item-image">
-    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-5.jpg') }}" alt="image" class="img-fluid" /> </a>
-    </div>
-    <div class="item-info">
-    <h4><a href="#">Smart Watch</a></h4>
-    <p>UI/UX Design</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-4 col-sm-6 single-card-item graphic">
-    <div class="isotope_item hover-scale">
-    <div class="item-image">
-    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-6.jpg') }}" alt="image" class="img-fluid" /> </a>
-    </div>
-    <div class="item-info">
-    <h4><a href="#">Brochure Design</a></h4>
-    <p>Graphic, Print</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-4 col-sm-6 single-card-item website">
-    <div class="isotope_item hover-scale">
-    <div class="item-image">
-    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-7.jpg') }}" alt="image" class="img-fluid" /> </a>
-    </div>
-    <div class="item-info">
-    <h4><a href="#">Packaging Design</a></h4>
-    <p>Graphic, Print</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-4 col-sm-6 single-card-item app">
-    <div class="isotope_item hover-scale">
-    <div class="item-image">
-    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-8.jpg') }}" alt="image" class="img-fluid" /> </a>
-    </div>
-    <div class="item-info">
-    <h4><a href="#">Restaurant App</a></h4>
-    <p>Android App</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-4 col-sm-6 single-card-item  website">
-    <div class="isotope_item hover-scale">
-    <div class="item-image">
-    <a href="#"><img src="{{ asset('frontend/assets/images/portfolio/image-9.jpg') }}" alt="image" class="img-fluid" /> </a>
-    </div>
-    <div class="item-info">
-    <h4><a href="#">Portfolio Website</a></h4>
-    <p>Web Design</p>
-    </div>
-    </div>
-    </div>
+
+
+@endforeach
+
     </div>
     </div>
     </section>
@@ -563,17 +450,17 @@ car
 
     </div>
     </section>
-
+    @php
+    $clients = App\Models\client::all();
+    @endphp
     <div class="clientslider">
     <div class="container">
     <div class="row">
     <div class="col-md-12">
     <div class="niwax-client-slider owl-carousel">
-    <div class="awardlogo"> <img src="{{ asset('frontend/assets/images/client/customer-logo-1.png') }}" alt="icon"></div>
-    <div class="awardlogo"> <img src="{{ asset('frontend/assets/images/client/customer-logo-2.png') }}" alt="icon"></div>
-    <div class="awardlogo"> <img src="{{ asset('frontend/assets/images/client/customer-logo-3.png') }}" alt="icon"></div>
-    <div class="awardlogo"> <img src="{{ asset('frontend/assets/images/client/customer-logo-4.png') }}" alt="icon"></div>
-    <div class="awardlogo"> <img src="{{ asset('frontend/assets/images/client/customer-logo-5.png') }}" alt="icon"></div>
+    @foreach ($clients as $client)
+    <div class="awardlogo"> <img src="{{ asset($client->client_logo ) }}" alt="icon"></div>
+    @endforeach
     </div>
     </div>
     </div>

@@ -3,23 +3,23 @@
 
 
   <!-- Content Wrapper. Contains page content -->
-  
+
 	  <div class="container-full">
 		<!-- Content Header (Page header) -->
-		 
+
 
 		<!-- Main content -->
 		<section class="content">
 		  <div class="row">
-			   
-		 
+
+
 
 			<div class="col-12">
 
 			 <div class="box">
 				<div class="box-header with-border">
 				  <h3 class="box-title">Request  List <span class="badge badge-pill badge-danger">  </span></h3>
-				  
+
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
@@ -30,9 +30,9 @@
 								<th>Full Name </th>
 								<th>Email Address</th>
 								<th>Phone </th>
-								<th>Subject</th>
+								<th>Service</th>
                                 <th>Message</th>
-								 
+
 							</tr>
 						</thead>
 						<tbody>
@@ -43,11 +43,11 @@
 		<td>{{$msg->mobile}} </td>
 		<td width="">{{$msg->subject}}</td>
         <td width="30%">{{$msg->message}}</td>
-		@endforeach					 
+		@endforeach
 	 </tr>
-	 
+
 						</tbody>
-						 
+
 					  </table>
 					</div>
 				</div>
@@ -55,21 +55,21 @@
 			  </div>
 			  <!-- /.box -->
 
-			          
+
 			</div>
 			<!-- /.col -->
 
- 
- 
+
+
 
 
 		  </div>
 		  <!-- /.row -->
 		</section>
 		<!-- /.content -->
-	  
+
 	  </div>
-  
+
 
 
 

@@ -36,9 +36,6 @@ class orderController extends Controller
 
        $afterjson =json_encode($services_id);
 
-
-
-
         if(Auth::user()){
 
             $request->validate([

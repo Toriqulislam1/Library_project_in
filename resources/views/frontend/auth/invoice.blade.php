@@ -307,12 +307,8 @@ $setting = App\Models\setting::orderBy('id','desc')->get();
         <div class="invoice-details">
             <div class="invoice-details-flex">
                 <div class="invoice-single-details">
-                    <h4 class="invoice-details-title">{{ __('Bill To:') }}</h4>
-                    <ul class="details-list">
-                        <li class="list">  </li>
-                        <li class="list"> <a href="#"></a> </li>
-                        <li class="list"> <a href="#"></a> </li>
 
+                    <ul class="details-list">
                         <li class="list">order: <a href="#"></a>{{ $orderinfo->order_num  }} </li>
                     </ul>
                 </div>
@@ -329,26 +325,23 @@ $setting = App\Models\setting::orderBy('id','desc')->get();
         </div>
 
         <div class="item-description">
-            <h5 class="table-title">{{ __('product details') }}</h5>
+            <h5 class="table-title">{{ __('service details') }}</h5>
             <table class="custom--table">
                 <thead>
                 <tr>
                     <th>{{ __('name') }}</th>
-                    <th>{{ __('image')  }}</th>
-                    <th>{{ __('Quantity') }}</th>
+                    <th>{{ __('car model')  }}</th>
+                    <th>{{ __('car brand ') }}</th>
                     <th>{{ __('time') }}</th>
-                    {{-- <th>{{ __('amount') }}</th> --}}
-
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td>{{ $orderinfo->product->content_title}}</td>
-                    <td>{{ $orderinfo->product->content_title}}</td>
-                    <td>1</td>
-
+                    <td>{{ $orderinfo->car_model}}</td>
+                    <td>{{ $orderinfo->car_brand }}</td>
                     <td>{{ Carbon\Carbon::parse($orderinfo->created_at)}}</td>
-                    {{-- <td> </td> --}}
+
                 </tr>
                 </tbody>
             </table>
@@ -356,13 +349,13 @@ $setting = App\Models\setting::orderBy('id','desc')->get();
 
         <div class="item-description">
             <div class="table-responsive">
-                <h5 class="table-title">{{ __('Orders Details') }}</h5>
+               
                 <table class="custom--table">
                     <thead class="head-bg">
                     <tr>
                         <th>{{ __('Buyer Details') }}</th>
                         <th>{{ __('Date & Schedule') }}</th>
-                        <th>{{ __('Amount Details') }}</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -374,30 +367,13 @@ $setting = App\Models\setting::orderBy('id','desc')->get();
                             <span class="data-span"> {{ __('Address: ') }}</span>{{ $orderinfo->location}}
 
                         </td>
-                        <td>
+                        <td>{{ $orderinfo->date}} </td>
 
-
-                        </td>
-                        <td>
-
-                            <span class="data-span"> {{ __('unit price:') }} </span><br>
-                            <span class="data-span"> {{ __('Amount:') }} </span><br>
-                            <span class="data-span"> {{ __('Total:') }} </span><br>
-
-                        </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-
-        <footer>
-
-            <div>
-                <h4 style="background-color: #030303; color:white; text-align:center"> company name</h4>
-            </div>
-            </h3>
-        </footer>
 
     </div>
 </div>

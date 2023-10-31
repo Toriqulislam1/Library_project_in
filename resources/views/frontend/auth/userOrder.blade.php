@@ -90,7 +90,7 @@
                             <tr>
                                 <th>Order </th>
                                 <th>Status</th>
-                                <th>product name</th>
+                                <th>service name</th>
                                 <th>Image</th>
                                 <th>invoice</th>
                             </tr>

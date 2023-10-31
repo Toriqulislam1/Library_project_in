@@ -19,6 +19,46 @@ use App\Models\Terms;
 
 class IndexController extends Controller
 {
+
+
+function serviceDetailsPage($id){
+
+    $details = Services::find($id);
+
+    return view('frontend.previewpage.previewService',['details'=>$details]);
+}//end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function index(){
 
         $services = Services::where('status',1)->orderBy('id','DESC')->limit(8)->get();

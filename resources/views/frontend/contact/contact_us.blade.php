@@ -42,7 +42,7 @@ intertrade
 									<div class="help-block with-errors"></div>
 								</div>
 								<button type="submit"  class="btn lnk btn-main bg-btn">Submit <span class="circle"></span></button>
-								
+
 								<div class="clearfix"></div>
 							</form>
 									</div>
@@ -58,8 +58,9 @@ intertrade
                                                         POLITECHNICAL, CHATTOGRAM-4209
                                                         BANGLADESH
                                         </p>
-                                                        													<a href="tel:+880153588909 ">+880153588909</a><br>
-                                                        								<a href="tel:+8801819643861">+8801819643861</a>					
+                                                        													<a href="tel:+8801458633588909 ">+880153454509</a><br>
+                                                        								<a href="tel:+88018526
+                                                                                    43861">+880184543861</a>
 												</div>
 											</div>
 										</div>
@@ -68,11 +69,11 @@ intertrade
 												<span><i class="fas fa-envelope"></i> Email:</span>
 												<div class="info-body">
 													<p>Our support team will get back to in 24-h during standard business hours.</p>
-													<a href="mailto:info@technovalbd.com">info@intertradebd.com</a>
+													<a href="mailto:info@technovalbd.com">info@demo.com</a>
 												</div>
 											</div>
 										</div>
-									
+
 									</div>
 								</div>
 							</div>

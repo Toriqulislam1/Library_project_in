@@ -42,7 +42,7 @@ Route::get('/', function()
 {
     return view('frontend.index');
 });
-
+///admin login
 Route::prefix('admin')->group(function (){
 
     Route::get('/login',[AdminController::class, 'Index'])->name('login_form');
@@ -84,6 +84,16 @@ Route::prefix('user')->group(function (){
 
 
 });
+
+//frontend index page
+Route::prefix('user')->group(function (){
+    Route::get('/service/details/{id}', [IndexController::class, 'serviceDetailsPage'])->name('details-service-page');
+
+
+});
+
+
+
 //order
 Route::prefix('order')->group(function (){
 
