@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\order;
+use App\Models\Services;
+
 use Illuminate\Support\Facades\Hash;
 use Image;
 
@@ -26,14 +28,24 @@ class userLoginController extends Controller
 
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
 
-            return view('frontend.auth.userProfile');
+
+            $services = Services::all();
+            if(session('test')){
+                return view('frontend.order.checkout', ['services' => $services]);
+            }else{
+                return view('frontend.auth.userProfile');
+            }
+
+
+
+
         }else{
             return back()->with('password_worng','Your credentials worng');
         }
     }//end
 
     function logOut(){
-
+        
         Auth::logout();
 
         return redirect('/');
@@ -70,7 +82,14 @@ class userLoginController extends Controller
 
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
 
-            return view('frontend.auth.userProfile');
+            $services = Services::all();
+            if(session('test')){
+                return view('frontend.order.checkout', ['services' => $services]);
+            }else{
+                return view('frontend.auth.userProfile');
+            }
+
+
         }
 
 

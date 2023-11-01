@@ -14,14 +14,22 @@ car
           <div class="niwax23form shadow">
             <div class="common-heading text-l">
               <h2 class="mt0 mb0 text-center mb-5">Check Out</h2>
-              <div class="fieldsets row">
-                @if(session('loginError'))
+              {{-- <div class="fieldsets row">
+                @if(session('test'))
                 <div class="alert alert-danger">
-                    <strong> {{(session('loginError')) }}</strong>
+                    <strong> {{(session('test')) }}</strong>
                 </div>
                 @endif
-            </div>
+            </div> --}}
 
+            {{-- <div>
+                @if(session('test'))
+                    <h1>Session Data</h1>
+                    <pre>{{ print_r(session('test'), true) }}</pre>
+                @else
+                    <p>No session data available</p>
+                @endif
+            </div> --}}
 
 
             @if(session('success'))
@@ -40,14 +48,14 @@ car
 
                 <form action="{{ route('checkout-store') }}" id="contactform" method="post" novalidate="novalidate">
                     @csrf
-                    <input type="hidden" name="product_id" value="{{ $product_id }}">
+                    <input type="hidden" name="product_id" value="{{ $product_id ?? session('product_id') }}">
                   <div class="fieldsets row">
                     <div class="col-md-6 form-group floating-label">
 
 
                       <div class="formicon"><i class="fas fa-user"></i></div>
 
-                      <input type="text" placeholder=" "  id="name" class="floating-input" name="name">
+                      <input type="text" placeholder=" " value="{{ session('test.name') }}" id="name" class="floating-input" name="name">
 
                       <label>Full Name*</label>
                       @error('name')
@@ -58,7 +66,7 @@ car
 
                     <div class="col-md-6 form-group floating-label">
                       <div class="formicon"><i class="fas fa-phone-alt"></i></div>
-                      <input type="tel" placeholder=" " required="required" id="mobile_number" class="floating-input" name="phone">
+                      <input type="tel" placeholder=" " value="{{ session('test.phone') }}" required="required" id="mobile_number" class="floating-input" name="phone">
                       <label>Mobile Number*</label>
                       @error('phone')
                       <div>{{ $message }}</div>
@@ -70,7 +78,7 @@ car
                   <div class="fieldsets row">
                     <div class="col-md-6 form-group floating-label">
                       <div class="formicon"><i class="fas fa-envelope"></i></div>
-                      <input type="email" placeholder=" " required="required" id="email" class="floating-input" name="email">
+                      <input type="email" placeholder=" " value="{{ session('test.email') }}" email required="required" id="email" class="floating-input" name="email">
                       <label>Email Address*</label>
                       @error('email')
                       <div>{{ $message }}</div>
@@ -80,7 +88,7 @@ car
 
                     <div class="col-md-6 form-group floating-label">
                     <div class="formicon"><i class="fas fa-map-marker-alt"></i></div>
-                    <input type="text" placeholder=" " required="required" id="your_location" class="floating-input" name="location">
+                    <input type="text" placeholder=" " required="required" value="{{ session('test.location') }}"  id="your_location" class="floating-input" name="location">
                     <label>Your Location*</label>
                     @error('location')
                     <div>{{ $message }}</div>
@@ -93,7 +101,7 @@ car
                   <div class="fieldsets row">
                     <div class="col-md-6 form-group floating-label">
                       <div class="formicon"><i class='fas fa-calendar-minus'></i></div>
-                      <input type="datetime-local" id="myID" placeholder=" data and time " required="required" id="email" class="floating-input" name="date">
+                      <input type="datetime-local" id="myID" placeholder=" data and time " value="{{ session('test.date') }}" required="required" id="email" class="floating-input" name="date">
                       <label>date</label>
                       @error('email')
                       <div>{{ $message }}</div>
@@ -103,7 +111,7 @@ car
 
                     <div class="col-md-6 form-group floating-label">
                     <div class="formicon"><i class="fa fa-car"></i></div>
-                    <input type="text" placeholder=" " required="required" id="your_location" class="floating-input" name="carModel">
+                    <input type="text" placeholder=" " required="required" id="your_location" value="{{ session('test.carModel') }}" class="floating-input" name="carModel">
                     <label>Car Model </label>
                     @error('location')
                     <div>{{ $message }}</div>
@@ -115,7 +123,7 @@ car
                   <div class="fieldsets row">
                     <div class="col-md-6 form-group floating-label">
                       <div class="formicon"><i class='fas fa-car-side'></i></i></div>
-                      <input type="text" id="myID" placeholder=" " required="required" id="email" class="floating-input" name="carBrand">
+                      <input type="text" id="myID" placeholder=" " value="{{ session('test.carBrand') }}" required="required" id="email" class="floating-input" name="carBrand">
                       <label>Car Brand</label>
                       @error('email')
                       <div>{{ $message }}</div>
@@ -128,14 +136,16 @@ car
 
                   </div>
 
-                  @php
 
-                  @endphp
                     @foreach ($services as $service)
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="service[]" id="inlineCheckbox1" value="{{ $service->id}}">
-                    <label class="form-check-label" for="inlineCheckbox1">{{ $service->content_title  }}</label>
-                  </div>
+
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="service[]" id="inlineCheckbox1"
+                                  value="{{ $service->id}}" {{ in_array($service->id, session('test.service', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="inlineCheckbox1">{{ $service->content_title  }}</label>
+                            </div>
+
                   @endforeach
                   <div class="fieldsets mt20"> <button type="submit" id="p" name="submit" class="btn btn-main bg-btn w-fit mb20"><span>Order Now<i class="fas fa-chevron-right fa-icon"></i></span> <span class="loader"></span></button> </div>
 

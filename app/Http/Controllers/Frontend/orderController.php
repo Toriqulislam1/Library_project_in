@@ -30,11 +30,26 @@ class orderController extends Controller
 
     function checkStore(Request $request)
 
-
     {
+        $alldata = $request->all();
+
+        $request->session()->put('test',   $alldata);
+
+        $request->session()->put('product_id', $alldata['product_id']);
+
+
         $services_id = $request->service;
 
        $afterjson =json_encode($services_id);
+
+     // Store the product ID in the session
+$prod = $request->product_id;
+$request->session()->put('product_id', $prod);
+
+$product_id = session('product_id');
+
+
+
 
         if(Auth::user()){
 
@@ -52,7 +67,7 @@ class orderController extends Controller
                 'phone' => $request->phone,
                 'email' => $request->email,
                 'location' => $request->location,
-                'product_id' => $request->product_id,
+                'product_id' =>$product_id,
                 'user_id' => Auth::user()->id,
                 'order_num' => "#" . Auth::user()->id . rand(10, 9999),
 
@@ -73,13 +88,13 @@ class orderController extends Controller
                         ->attachData($pdf->output(), "invoice.pdf");
             });
 
-
+            $request->session()->forget('test');
             return view('frontend.contact.success_page');
 
 
 
         }else{
-            return back()->with('loginError','please login for order tracking, if your not member register.');
+            return redirect()->route('login-index');
         }
 
 
