@@ -13,7 +13,7 @@ File Description: Main JS file of the template*/
       disableAt: false,
       customToggle: $toggle,
       levelSpacing: 10,
-       navTitle: 'Technoval Menu',
+       navTitle: 'Niwax Menu',
        levelTitles: true,
       levelTitles: true,
        labelClose: false,

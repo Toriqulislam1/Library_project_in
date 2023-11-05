@@ -91,18 +91,11 @@ $setting = App\Models\setting::find(1);
                       overflow: hidden;" href="{{ route('login-index') }}" class="menu-links">Login</a>
                       @endif
 
-
-
-
-
-
                     <li><a href="https://wa.me/+8801535880909" class="btn-outline icon-btn">Chat With Us <i class="fab fa-whatsapp"></i></a> </li>
                 </ul>
             </div>
             <div class="mobile-menu2">
                 <ul class="mob-nav2">
-                    <li><a href="#" class="btn-round- trngl btn-br bg-btn btshad-b1" data-bs-toggle="modal"
-                            data-bs-target="#menu-popup"><i class="fas fa-envelope-open-text"></i></a></li>
                     <li class="navm-"> <a class="toggle" href="#"><span></span></a></li>
                 </ul>
             </div>
@@ -113,6 +106,7 @@ $setting = App\Models\setting::find(1);
                 <li><a href="#home" class="menu-links">Home</a></li>
                 <li><a href="#services" class="menu-links">Services</a></li>
                 <li><a href="#work" class="menu-links">Work</a></li>
+                <li><a href="{{ route('login-index') }}" class="menu-links">Login</a></li>
 
                 @if(Auth::check())
                 <div class="dropdown">
@@ -170,5 +164,7 @@ $setting = App\Models\setting::find(1);
                 </li>
             </ul>
         </nav>
+
     </div>
+
 </header>

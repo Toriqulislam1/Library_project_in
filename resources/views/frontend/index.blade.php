@@ -218,13 +218,11 @@ $setting = App\Models\setting::find(1);
     <section class="portfolio-page dark-bg4 bg-gradient6 pad-tb" id="work">
     <div class="container">
 
-    <div class="row justify-content-left">
+    <div class="row justify-content-center">
     <div class="col-lg-6">
     <div class="common-heading pp">
-    <span class="text-center" style="
-    margin-left: 472px;">Our Work</span>
-    <h2 class="text-center" style="
-    margin-left: 472px;">Portfolio</h2>
+    <span class="text-center" >Our Work</span>
+    <h2 class="text-center">Portfolio</h2>
     </div>
     </div>
     </div>

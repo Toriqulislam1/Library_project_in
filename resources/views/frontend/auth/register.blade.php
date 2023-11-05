@@ -5,7 +5,12 @@ Registration
 @endsection
 
 
-
+<style>
+    .btn-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+</style>
 
 <section class="contact-page pad-tb bg-gradient3">
     <div class="container ">
@@ -85,21 +90,25 @@ Registration
 
 
                   <div class="custom-control custom-checkbox ctmsetsw">
-                    <input type="checkbox" class="custom-control-input ctminpt" id="agree" name="agree" checked="checked">
+                    <input type="checkbox" class="custom-control-input ctminpt" id="agree" name="agree" checked="checked" onchange="toggleButton()">
                     <label class="custom-control-label ctmlabl" for="agree">By clicking the “Submit” button you agree to our  <a href="javascript:void(0)">Terms &amp; Conditions</a>.</label>
-                  </div>
-                  <div class="fieldsets mt20"> <button type="submit" id="p" name="submit" class="btn btn-main bg-btn w-fit mb20"><span>Sing up <i class="fas fa-chevron-right fa-icon"></i></span> <span class="loader"></span></button> </div>
+                </div>
 
-                  <hr class="mt30 mb30">
+                <div class="fieldsets mt20">
+                    <button type="submit" id="signupBtn" name="submit" class="btn btn-main bg-btn w-fit mb20" disabled>
+                        <span>Sign up <i class="fas fa-chevron-right fa-icon"></i></span> <span class="loader"></span>
+                    </button>
+                </div>
+
+
+
+                  {{-- <hr class="mt30 mb30">
                   <div class="text-center">
                       <p class="mb20">or Login with:</p>
                       <div class="social-btnnxx">
                         <a href="" class="btn-main google-btn"><i class="fab fa-google"></i> Google</a>
                       </div>
-                    </div>
-
-
-
+                    </div> --}}
                 </form>
                     <div>
                         <a href="{{ route('login-index') }}">Already have an account login.</a>
@@ -113,4 +122,18 @@ Registration
     </div>
   </section>
 
+  <script>
+    function toggleButton() {
+        var checkbox = document.getElementById("agree");
+        var signupBtn = document.getElementById("signupBtn");
+
+        signupBtn.disabled = !checkbox.checked;
+
+        if (checkbox.checked) {
+            signupBtn.classList.remove("btn-disabled");
+        } else {
+            signupBtn.classList.add("btn-disabled");
+        }
+    }
+</script>
 @endsection

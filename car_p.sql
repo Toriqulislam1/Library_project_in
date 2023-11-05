@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2023 at 09:49 AM
+-- Generation Time: Nov 05, 2023 at 04:32 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -44,7 +44,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `admin_photos`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'car decoration', 'admin@gmail.com', '2022-06-07 01:00:33', '$2y$10$JDrlzQW9LcPkV.tbW9QBmeBdY1RtPAkmFcqhUWU/loQgymCOrz45O', '202310181916demologo.jpg', 0, '2022-06-07 01:00:34', '2023-10-18 13:16:52'),
+(1, 'car decoration', 'toriqulislam2720@gmail.com', '2022-06-07 01:00:33', '$2y$10$JDrlzQW9LcPkV.tbW9QBmeBdY1RtPAkmFcqhUWU/loQgymCOrz45O', '202311041412download (11).jpg', 0, '2022-06-07 01:00:34', '2023-11-04 08:12:16'),
 (2, 'Admin', 'ward.cecil@example.net', '2022-06-07 01:00:33', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, 0, '2022-06-07 01:00:34', '2022-06-07 01:00:34');
 
 -- --------------------------------------------------------
@@ -119,9 +119,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `category_name`, `slug`, `created_at`, `updated_at`) VALUES
-(21, 'Hatchback', 'hatchback', NULL, '2023-10-20 03:36:27'),
-(22, 'Sedan', 'sedan', NULL, '2023-10-20 03:35:54'),
-(24, 'Coupe', 'coupe', NULL, '2023-10-20 03:36:51');
+(22, 'Sedan dfg', 'sedan-dfg', NULL, '2023-11-04 08:32:05'),
+(26, 'zxfg', 'zxfg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -362,20 +361,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `name`, `email`, `phone`, `location`, `product_id`, `user_id`, `status`, `order_num`, `car_model`, `car_brand`, `date`, `service_id`, `created_at`, `updated_at`) VALUES
-(1, 'Sasha Morris', 'kefyjeto@mailinator.com', 1, 'Veniam ut temporibu', 4, 1, 'panding', '#12643', 'Ex sint nulla et qui', 'Quo nesciunt cillum', '2007-05-10T17:05', '[\"1\",\"2\",\"3\",\"4\"]', NULL, NULL),
-(2, 'Winter Sharp', 'butusalal@mailinator.com', 1, 'Officia illum ut of', 4, 2, 'panding', '#2492', 'Ut voluptatem in of', 'Aperiam est error in', '1970-02-27T05:45', '[\"1\",\"3\",\"4\"]', NULL, NULL),
-(3, 'Toriqul islam', 'toriqulislam2720@gmail.com', 1315732214, 'asdf', 2, 8, 'panding', '#85697', 'asd', 'as', '2023-11-01T20:05', '[\"1\",\"2\",\"4\"]', NULL, NULL),
-(4, 'Toriqul islam', 'toriqulislamrajar@gmail.com', 1315732214, 'asdf', 4, 8, 'panding', '#84668', 'asd', 'as', '2023-11-01T20:05', '[\"1\",\"4\"]', NULL, NULL),
-(5, 'Toriqul islam sdfg', 'toriqulislamrajar@gmail.com', 1315732214, 'asdf', 2, 8, 'panding', '#82949', 'asddfg', 'asdfsgh', '2023-11-01T20:05', '[\"1\",\"2\",\"4\"]', NULL, NULL),
-(6, 'Sloane Nieves', 'labyhyhy@mailinator.com', 1, 'Quod tenetur perfere', 1, 9, 'panding', '#91481', 'In labore quia et co', 'Nesciunt enim volup', '2009-01-02T00:33', '[\"1\",\"3\",\"4\"]', NULL, NULL),
-(7, 'Lionel James', 'zahalil@mailinator.com', 1, 'Quidem est dolorem p', 4, 29, 'panding', '#293811', 'Deserunt sapiente do', 'Necessitatibus susci', '2003-06-02T11:37', '[\"1\",\"2\",\"4\"]', NULL, NULL),
-(8, 'Plato Mcbride', 'gimabuw@mailinator.com', 1, 'Ipsa non qui non do', 4, 30, 'panding', '#305000', 'Proident magna inve', 'Ex laborum ex neque', '2009-04-05T20:01', '[\"1\",\"2\",\"4\"]', NULL, NULL),
-(9, 'Carlos Foreman', 'fyhawek@mailinator.com', 1, 'Consequatur assumen', 2, 32, 'panding', '#321448', 'Vel enim eos eu qui', 'Vero illum voluptat', '1973-04-14T19:52', '[\"2\",\"3\",\"4\"]', NULL, NULL),
-(10, 'Silas Atkinson', 'noxapeso@mailinator.com', 1, 'Officiis iste lorem', 1, 32, 'panding', '#323871', 'Laboris consectetur', 'Ea animi dicta eaqu', '2013-05-16T04:15', '[\"1\",\"3\",\"4\"]', NULL, NULL),
-(11, 'Bree Hampton', 'viqycylupi@mailinator.com', 1, 'Ut ut alias quasi ma', 4, 33, 'panding', '#337657', 'Consequatur Volupta', 'Rerum eum ipsa cum', '1977-03-03T15:41', '[\"1\",\"2\",\"3\"]', NULL, NULL),
-(12, 'Bree Hampton', 'viqycylupi@mailinator.com', 1, 'Ut ut alias quasi ma', 4, 33, 'panding', '#335027', 'Consequatur Volupta', 'Rerum eum ipsa cum', '1977-03-03T15:41', '[\"1\",\"2\",\"3\"]', NULL, NULL),
-(13, 'Avram Maynard', 'nypek@mailinator.com', 1, 'Amet in ullam conse', 1, 34, 'panding', '#345273', 'Proident officiis o', 'Temporibus facere eu', '1985-10-01T02:46', '[\"1\",\"2\",\"3\",\"4\"]', NULL, NULL),
-(14, 'Tarik Lang', 'zumiryb@mailinator.com', 1, 'Iusto beatae volupta', 1, 35, 'panding', '#352681', 'Dolore blanditiis co', 'Sed commodo quo null', '1981-10-21T08:05', '[\"2\"]', NULL, NULL);
+(1, 'Alice Mckay', 'hylyhadov@mailinator.com', 1, 'Velit nihil ex numqu', 1, 6, 'delevary', '#68734', '1980-12-16', 'Sedan dfg', '2020-11-07T15:46', '[\"1\",\"4\"]', NULL, '2023-11-04 08:51:01'),
+(2, 'Sierra Joseph', 'ruwegiruzu@mailinator.com', 1, 'Qui tenetur excepteu', 1, 14, 'panding', '#141650', '1987-11-23', 'Sedan dfg', '1970-02-05T21:04', '[\"1\",\"2\",\"3\",\"5\",\"7\"]', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -662,7 +649,15 @@ INSERT INTO `users` (`id`, `name`, `mobile`, `email`, `email_verified_at`, `pass
 (1, 'Abigail Barrera', '1', 'qokohad@mailinator.com', NULL, '$2y$10$Rw8qOD4tvPae/B8shMFzOe4FNkDh0FBsSqDF52my1GtdwhAOPeZcq', NULL, NULL, NULL, NULL),
 (2, 'Maxine James', '1727204284', 'dewybeko@mailinator.com', NULL, '$2y$10$rSqUNQ0GNJaUx5RvIWP8YOcsWKCyvbJc3R1wbdkW2oKBVLLGta6my', NULL, NULL, NULL, NULL),
 (4, 'Isaac Holman', '+1 (221) 679-8149', 'pisac@mailinator.com', NULL, '$2y$10$PjOMC.qXwmswTX7RwInY4e7ihDBf/CrN2/UJZ1K4BO9hiD3rCsfXq', NULL, NULL, NULL, NULL),
-(5, 'Chloe Camacho', '+11973324328', 'fysaqomow@mailinator.com', NULL, '$2y$10$8YT6kX110NY1XXU.2cQnuOynJCYSw4Eqia350FQD0WenobHURKyxe', NULL, NULL, NULL, '2023-11-03 02:36:14');
+(5, 'Chloe Camacho', '+11973324328', 'fysaqomow@mailinator.com', NULL, '$2y$10$8YT6kX110NY1XXU.2cQnuOynJCYSw4Eqia350FQD0WenobHURKyxe', NULL, NULL, NULL, '2023-11-03 02:36:14'),
+(6, 'Carl Colon', '+1 (801) 796-6074', 'tazkulislam164478@gmail.com', NULL, '$2y$10$DE3wjSi.o8Q5VfdmMvegauHhPJ7g3ltf4iI6JeoKqkSIZA0psK8y6', NULL, NULL, NULL, NULL),
+(7, 'Ryan Olson', '+1 (386) 153-9946', 'qutajo@mailinator.com', NULL, '$2y$10$7DwyP1ZtKaBj1ABxyK43y.79sy9D2gLwigb6fvjj/VTFsU4StzFq.', NULL, NULL, NULL, NULL),
+(10, 'Martha Price', '+1 (588) 326-4008', 'cywypygyji@mailinator.com', NULL, '$2y$10$gpipFDlbwNFmprufFDd3suKEM0SBQ6vgFKsVKl2V6HUZ7vBbEapMC', NULL, NULL, NULL, NULL),
+(12, 'Aileen Woods', '+1 (826) 319-1537', 'mitynilaho@mailinator.com', NULL, '$2y$10$51fd0EQD5aIlpILBbFS2Vu19bA4879984MmiT146K/OwTqerrCAEi', NULL, NULL, NULL, NULL),
+(14, 'Caryn Donaldson', '+1 (493) 173-4481', 'filybagide@mailinator.com', NULL, '$2y$10$/gz6Rpzpdi5ctOPcAg60ueJlpg0MxvdkYgdDc2dhcMhNpIsDwtI4i', NULL, NULL, NULL, NULL),
+(15, 'Erich Hester', '+1 (503) 867-4614', 'bixabymy@mailinator.com', NULL, '$2y$10$Yn2M1cUPzzzwsROv838gU.ZsCLIlmPw783mkiLaL3UMsoqIqR95rq', NULL, NULL, NULL, NULL),
+(16, 'Vernon Paul', '+1 (123) 324-6736', 'xesy@mailinator.com', NULL, '$2y$10$OgREeQgm1ihkK/8rH8okl.Scb5OYkOl4dLKHjfnnpnuGW3b.eIRT.', NULL, NULL, NULL, NULL),
+(17, 'Leilani Howe', '+1 (985) 203-2509', 'vusu@mailinator.com', NULL, '$2y$10$XJgYAMxcI0TatihR8GusQuZoVTwO77yhoWIYsJ94UKyszpRKHSTTq', NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -849,7 +844,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `childcategories`
@@ -903,7 +898,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -969,7 +964,7 @@ ALTER TABLE `terms`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

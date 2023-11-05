@@ -33,13 +33,13 @@ Applys
 
               <div class="col-md-6 form-group v-center text-right btn-main bg-btn "><a href="{{ route('register-index') }}" class="psforgt">Registration now</a>     </div>
             </div>
-            <hr class="mt30 mb30">
-            <div class="text-center">
+            {{-- <hr class="mt30 mb30"> --}}
+            {{-- <div class="text-center">
                 <p class="mb20">or Login with:</p>
                 <div class="social-btnnxx">
                   <a href="" class="btn-main google-btn"><i class="fab fa-google"></i> Google</a>
                 </div>
-              </div>
+              </div> --}}
           </form>
         </div>
       </div>
