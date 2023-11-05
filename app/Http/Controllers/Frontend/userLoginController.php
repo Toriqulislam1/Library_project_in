@@ -45,7 +45,7 @@ class userLoginController extends Controller
     }//end
 
     function logOut(){
-        
+
         Auth::logout();
 
         return redirect('/');
@@ -68,9 +68,6 @@ class userLoginController extends Controller
             'password' => 'required|max:20',
 
         ]);
-
-
-
 		user::insert([
 
 			'name' => $request->name,

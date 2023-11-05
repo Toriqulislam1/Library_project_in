@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\mailNotify;
+use App\Models\Admin;
 use Exception;
 
 class orderController extends Controller
@@ -49,7 +50,9 @@ $request->session()->put('product_id', $prod);
 $product_id = session('product_id');
 
 
+$admin = Admin::find(1);
 
+ $adminNotify = $admin->email;
 
         if(Auth::user()){
 
@@ -84,6 +87,12 @@ $product_id = session('product_id');
 
             Mail::send('frontend.auth.invoiceEmail', compact('dataid'), function ($message) use ($dataid, $pdf, $request) {
                 $message->to($request->email)
+                        ->subject('order invoice')
+                        ->attachData($pdf->output(), "invoice.pdf");
+            });
+
+            Mail::send('frontend.auth.invoiceEmail', compact('dataid'), function ($message) use ($dataid, $pdf, $adminNotify, $request) {
+                $message->to($adminNotify)
                         ->subject('order invoice')
                         ->attachData($pdf->output(), "invoice.pdf");
             });

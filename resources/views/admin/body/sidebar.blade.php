@@ -41,19 +41,31 @@
           </ul>
         </li>
 
+		<li class="treeview">
+            <a href="">
+              <i data-feather="server"></i>
+              <span>Brand</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('all.category')}}"><i class="ti-more"></i>Create brand</a></li>
+            </ul>
+          </li>
 
         <li class="treeview">
           <a href="#">
             <i data-feather="file"></i>
-            <span>Product</span>
+            <span>service</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
 
-            <li><a href="{{ route('add-content')}}"><i class="ti-more"></i>Add Product</a></li>
-            <li><a href="{{ route('manage-content')}}"><i class="ti-more"></i>Manage Product</a></li>
+            <li><a href="{{ route('add-content')}}"><i class="ti-more"></i>Add service</a></li>
+            <li><a href="{{ route('manage-content')}}"><i class="ti-more"></i>Manage service</a></li>
 
           </ul>
         </li>
@@ -106,7 +118,19 @@
             </ul>
           </li>
 
-
+          <li class="treeview">
+            <a href="#">
+              <i data-feather="message-circle"></i>
+              <span>Testimonials</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('blog-add')}}"><i class="ti-more"></i>Create</a></li>
+              <li><a href="{{ route('blog-manage')}}"><i class="ti-more"></i>All testimonials</a></li>
+            </ul>
+          </li>
 
 		<li class="treeview">
           <a href="">

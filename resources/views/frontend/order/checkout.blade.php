@@ -111,7 +111,7 @@ car
 
                     <div class="col-md-6 form-group floating-label">
                     <div class="formicon"><i class="fa fa-car"></i></div>
-                    <input type="text" placeholder=" " required="required" id="your_location" value="{{ session('test.carModel') }}" class="floating-input" name="carModel">
+                    <input type="date" placeholder=" " required="required" id="your_location" value="{{ session('test.carModel') }}" class="floating-input" name="carModel">
                     <label>Car Model </label>
                     @error('location')
                     <div>{{ $message }}</div>
@@ -120,19 +120,24 @@ car
                   </div>
 
                   </div>
-                  <div class="fieldsets row">
-                    <div class="col-md-6 form-group floating-label">
-                      <div class="formicon"><i class='fas fa-car-side'></i></i></div>
-                      <input type="text" id="myID" placeholder=" " value="{{ session('test.carBrand') }}" required="required" id="email" class="floating-input" name="carBrand">
-                      <label>Car Brand</label>
-                      @error('email')
-                      <div>{{ $message }}</div>
-                     @enderror
-                      <div class="error-label"></div>
-                    </div>
 
-
+                  @php
+                  $brands = App\Models\Category::all();
+                  @endphp
+                  <div class="form-group col-sm-6">
+                    <span>Brand Name</span>
+                      <select name="carBrand" id="Dtype" required>
+                      <option value>Select Brand</option>
+                      @foreach ($brands  as  $brand)
+                      <option value="{{ $brand->category_name }}" {{ ($brand->category_name == session('test.carBrand')) ? 'selected' : '' }}>
+                        {{ $brand->category_name }}
+                    </option>
+                      @endforeach
+                      </select>
+                      <div class="help-block with-errors"></div>
                   </div>
+
+
 
                   </div>
 

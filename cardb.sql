@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2023 at 05:09 PM
+-- Generation Time: Nov 03, 2023 at 09:49 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -55,8 +55,12 @@ INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `a
 
 CREATE TABLE `blogs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `blog_title` varchar(255) NOT NULL,
-  `blog_photo` varchar(255) NOT NULL,
+  `person_name` varchar(255) NOT NULL,
+  `person_img` varchar(255) NOT NULL,
+  `designation` varchar(255) NOT NULL,
+  `company_name` varchar(255) NOT NULL,
+  `rating_num` int(11) NOT NULL,
+  `company_logo` varchar(255) NOT NULL,
   `blog_description` text NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -68,11 +72,9 @@ CREATE TABLE `blogs` (
 -- Dumping data for table `blogs`
 --
 
-INSERT INTO `blogs` (`id`, `blog_title`, `blog_photo`, `blog_description`, `status`, `created_at`, `updated_at`, `views`) VALUES
-(9, 'The point of using Lorem Ipsum is that it', 'upload/blog/1756535990078992.jpg', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>', 0, '2023-01-31 19:07:40', '2023-04-26 10:22:20', 40),
-(13, 'An art studio is sometimes', 'upload/blog/1756536162917231.jpg', '<p>The studio of any artist, especially from the 15th to the 19th centuries, characterized all the assistants</p>', 1, '2023-01-31 19:10:24', '2023-04-16 07:39:37', 61),
-(16, 'one', 'upload/blog/1756539187064627.jpg', '<p>one</p>', 1, '2023-01-31 19:58:29', '2023-04-20 19:51:58', 13),
-(17, 'two', 'upload/blog/1756539278284492.jpg', '<p>two</p>', 1, '2023-01-31 19:59:55', '2023-04-19 11:50:45', 10);
+INSERT INTO `blogs` (`id`, `person_name`, `person_img`, `designation`, `company_name`, `rating_num`, `company_logo`, `blog_description`, `status`, `created_at`, `updated_at`, `views`) VALUES
+(2, 'Tallulah Hines', 'upload/blog/1781530839056338.jpg', 'COO', 'Appllys', 4, 'upload/blog/1781530839068394.png', '<p><span style=\"background-color:#ffffff; color:#5f6368; font-family:Roboto,Arial,sans-serif; font-size:14px\">Spoken by more than 100 million people, Urdu is the official language of Pakistan. It&rsquo;s also widely spoken in India and places that have large </span></p>', 1, '2023-11-03 02:30:05', '2023-11-03 02:30:05', 0),
+(3, 'Cathleen Mercer', 'upload/blog/1781530389561760.jpg', 'Ceo', 'Upwork', 5, 'upload/blog/1781530389565706.png', '<p><span style=\"background-color:#ffffff; color:#5f6368; font-family:Roboto,Arial,sans-serif; font-size:14px\">Preparing for the International English Language Testing System (IELTS) can be a daunting task, especially when it comes to the reading section.</span></p>', 1, '2023-11-03 02:22:56', '2023-11-03 02:22:56', 0);
 
 -- --------------------------------------------------------
 
@@ -166,10 +168,11 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `client_title`, `orginal_title`, `client_logo`, `created_at`, `updated_at`) VALUES
-(46, 'https://intertradebd.com/frontend/category/24', 'KAZI AUTO', 'upload/client/1762942739741607.jpg', '2023-04-12 04:20:12', NULL),
-(47, NULL, NULL, 'upload/client/1781191942478524.png', '2023-04-12 04:20:43', '2023-10-30 08:43:28'),
-(50, NULL, NULL, 'upload/client/1781191916019632.png', '2023-10-30 08:32:07', '2023-10-30 08:43:03'),
-(51, NULL, NULL, 'upload/client/1781191892930368.png', '2023-10-30 08:36:12', '2023-10-30 08:42:41');
+(46, NULL, NULL, 'upload/client/1781529553232111.png', '2023-04-12 04:20:12', '2023-11-03 02:09:39'),
+(47, NULL, NULL, 'upload/client/1781529543384175.png', '2023-04-12 04:20:43', '2023-11-03 02:09:29'),
+(50, NULL, NULL, 'upload/client/1781529534445802.png', '2023-10-30 08:32:07', '2023-11-03 02:09:21'),
+(51, NULL, NULL, 'upload/client/1781529523058809.png', '2023-10-30 08:36:12', '2023-11-03 02:09:10'),
+(52, NULL, NULL, 'upload/client/1781529616225223.png', '2023-11-03 02:10:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -193,10 +196,9 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `full_name`, `email_address`, `mobile`, `subject`, `message`, `created_at`, `updated_at`) VALUES
-(1, 'Yuri Deleon', 'nejoze@mailinator.com', '52143563', 'Mollit incididunt qu', 'Consequatur et facer', NULL, NULL),
-(2, 'Xantha Hall', 'zibozuryve@mailinator.com', '45634563', 'Placeat ut sed ipsa', 'Voluptates voluptate', NULL, NULL),
-(3, 'Ria Hampton', 'falapas@mailinator.com', '5463563', 'Excepteur quis rerum', 'Cillum eos consequa', NULL, NULL),
-(4, 'September Kennedy', 'tafeje@mailinator.com', '5635', 'Excepturi omnis iste', 'Labore est tempore', NULL, NULL);
+(1, 'toriqul', 'taxifalado@mailinator.com', '14787972196', 'video', 'asdf', NULL, NULL),
+(2, 'Rhea Mclaughlin', 'lymera@mailinator.com', 'Culpa delectus cul', 'BMW 2-Series', 'Iusto ut excepteur n', NULL, NULL),
+(3, 'Kane Mcdowell', 'xozig@mailinator.com', 'Sunt non nisi volupt', 'Modi ullam amet est', 'Fuga Enim autem dol', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -361,7 +363,19 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`id`, `name`, `email`, `phone`, `location`, `product_id`, `user_id`, `status`, `order_num`, `car_model`, `car_brand`, `date`, `service_id`, `created_at`, `updated_at`) VALUES
 (1, 'Sasha Morris', 'kefyjeto@mailinator.com', 1, 'Veniam ut temporibu', 4, 1, 'panding', '#12643', 'Ex sint nulla et qui', 'Quo nesciunt cillum', '2007-05-10T17:05', '[\"1\",\"2\",\"3\",\"4\"]', NULL, NULL),
-(2, 'Winter Sharp', 'butusalal@mailinator.com', 1, 'Officia illum ut of', 4, 2, 'panding', '#2492', 'Ut voluptatem in of', 'Aperiam est error in', '1970-02-27T05:45', '[\"1\",\"3\",\"4\"]', NULL, NULL);
+(2, 'Winter Sharp', 'butusalal@mailinator.com', 1, 'Officia illum ut of', 4, 2, 'panding', '#2492', 'Ut voluptatem in of', 'Aperiam est error in', '1970-02-27T05:45', '[\"1\",\"3\",\"4\"]', NULL, NULL),
+(3, 'Toriqul islam', 'toriqulislam2720@gmail.com', 1315732214, 'asdf', 2, 8, 'panding', '#85697', 'asd', 'as', '2023-11-01T20:05', '[\"1\",\"2\",\"4\"]', NULL, NULL),
+(4, 'Toriqul islam', 'toriqulislamrajar@gmail.com', 1315732214, 'asdf', 4, 8, 'panding', '#84668', 'asd', 'as', '2023-11-01T20:05', '[\"1\",\"4\"]', NULL, NULL),
+(5, 'Toriqul islam sdfg', 'toriqulislamrajar@gmail.com', 1315732214, 'asdf', 2, 8, 'panding', '#82949', 'asddfg', 'asdfsgh', '2023-11-01T20:05', '[\"1\",\"2\",\"4\"]', NULL, NULL),
+(6, 'Sloane Nieves', 'labyhyhy@mailinator.com', 1, 'Quod tenetur perfere', 1, 9, 'panding', '#91481', 'In labore quia et co', 'Nesciunt enim volup', '2009-01-02T00:33', '[\"1\",\"3\",\"4\"]', NULL, NULL),
+(7, 'Lionel James', 'zahalil@mailinator.com', 1, 'Quidem est dolorem p', 4, 29, 'panding', '#293811', 'Deserunt sapiente do', 'Necessitatibus susci', '2003-06-02T11:37', '[\"1\",\"2\",\"4\"]', NULL, NULL),
+(8, 'Plato Mcbride', 'gimabuw@mailinator.com', 1, 'Ipsa non qui non do', 4, 30, 'panding', '#305000', 'Proident magna inve', 'Ex laborum ex neque', '2009-04-05T20:01', '[\"1\",\"2\",\"4\"]', NULL, NULL),
+(9, 'Carlos Foreman', 'fyhawek@mailinator.com', 1, 'Consequatur assumen', 2, 32, 'panding', '#321448', 'Vel enim eos eu qui', 'Vero illum voluptat', '1973-04-14T19:52', '[\"2\",\"3\",\"4\"]', NULL, NULL),
+(10, 'Silas Atkinson', 'noxapeso@mailinator.com', 1, 'Officiis iste lorem', 1, 32, 'panding', '#323871', 'Laboris consectetur', 'Ea animi dicta eaqu', '2013-05-16T04:15', '[\"1\",\"3\",\"4\"]', NULL, NULL),
+(11, 'Bree Hampton', 'viqycylupi@mailinator.com', 1, 'Ut ut alias quasi ma', 4, 33, 'panding', '#337657', 'Consequatur Volupta', 'Rerum eum ipsa cum', '1977-03-03T15:41', '[\"1\",\"2\",\"3\"]', NULL, NULL),
+(12, 'Bree Hampton', 'viqycylupi@mailinator.com', 1, 'Ut ut alias quasi ma', 4, 33, 'panding', '#335027', 'Consequatur Volupta', 'Rerum eum ipsa cum', '1977-03-03T15:41', '[\"1\",\"2\",\"3\"]', NULL, NULL),
+(13, 'Avram Maynard', 'nypek@mailinator.com', 1, 'Amet in ullam conse', 1, 34, 'panding', '#345273', 'Proident officiis o', 'Temporibus facere eu', '1985-10-01T02:46', '[\"1\",\"2\",\"3\",\"4\"]', NULL, NULL),
+(14, 'Tarik Lang', 'zumiryb@mailinator.com', 1, 'Iusto beatae volupta', 1, 35, 'panding', '#352681', 'Dolore blanditiis co', 'Sed commodo quo null', '1981-10-21T08:05', '[\"2\"]', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -455,10 +469,15 @@ CREATE TABLE `portfolios` (
 --
 
 INSERT INTO `portfolios` (`id`, `port_title`, `port_subtitle`, `port_image`, `status`, `created_at`, `updated_at`) VALUES
-(29, 'Consectetur at recu', 'Magna voluptatem vol', 'upload/portfolio/1781197091130226.jpg', 1, '2023-10-30 10:05:18', '2023-10-30 10:05:18'),
-(30, 'Consequatur autem qu', 'Iste nulla mollit qu', 'upload/portfolio/1781196696834468.jpg', 1, '2023-10-30 09:59:02', NULL),
+(29, 'Consectetur at recu', 'Magna voluptatem vol', 'upload/portfolio/1781529172618594.jpg', 1, '2023-11-03 02:03:36', '2023-11-03 02:03:36'),
+(30, 'Consequatur autem qu', 'Iste nulla mollit qu', 'upload/portfolio/1781529288427627.jpg', 1, '2023-11-03 02:05:26', '2023-11-03 02:05:26'),
 (31, 'Qui quia autem ipsa', 'Mollitia cupidatat u', 'upload/portfolio/1781196759723557.jpg', 1, '2023-10-30 10:00:02', NULL),
-(32, 'Quia ab nemo repudia', 'Mollitia ut consecte', 'upload/portfolio/1781196783444733.jpg', 1, '2023-10-30 10:00:24', NULL);
+(32, 'Quia ab nemo repudia', 'Mollitia ut consecte', 'upload/portfolio/1781529267907055.jpg', 1, '2023-11-03 02:05:07', '2023-11-03 02:05:07'),
+(33, 'Distinctio Nisi rep', 'Irure aliqua Deleni', 'upload/portfolio/1781529358394989.jpg', 1, '2023-11-03 02:06:33', NULL),
+(34, 'Quia earum officia d', 'Pariatur Et exercit', 'upload/portfolio/1781529367058146.jpg', 1, '2023-11-03 02:06:41', NULL),
+(35, 'Corporis sapiente re', 'Et excepturi exercit', 'upload/portfolio/1781529380693715.jpg', 1, '2023-11-03 02:06:54', NULL),
+(36, 'Magnam nihil in sit', 'Perferendis non corr', 'upload/portfolio/1781529389593288.jpg', 1, '2023-11-03 02:07:02', NULL),
+(37, 'Quia aliqua Sed cil', 'Sunt sint laborum', 'upload/portfolio/1781529405333527.jpg', 1, '2023-11-03 02:07:17', NULL);
 
 -- --------------------------------------------------------
 
@@ -512,7 +531,9 @@ INSERT INTO `services` (`id`, `category_id`, `subcategory_id`, `childcategory_id
 (1, 21, 61, 0, 'Compact: Mazda 3', 'upload/services/1780266971334282.jpg', 'Compact: Mazda 3', 'Let’s face it, SUVs may lack the behind-the-wheel engagement of an equivalent car, but these tall and heavy vehicles’ rear liftgates sure make it a lot easier to simultaneously haul passengers and cargo. It’s the sensible choice, even if it’s not a particularly exciting one. But shouldn’t life offer a little excitement every now and again?', '<p>Although it&#39;s priced just like other compacts, the 2023 Mazda 3 aspires to compete with more premium cars&mdash;and&nbsp;<a href=\"https://www.caranddriver.com/reviews/comparison-test/a35123689/2021-mazda-3-vs-2021\">in many ways it does</a>. The 3 is available as either a sedan or a hatchback, and both are equally as handsome and agile. Two four-cylinder engines are offered, including a punchy turbo, and you can even have all-wheel drive if you want&mdash;though that means skipping the excellent six-speed manual. Other compact cars such as the&nbsp;<a href=\"https://www.caranddriver.com/honda/civic\">Honda Civic</a>,&nbsp;<a href=\"https://www.caranddriver.com/toyota/corolla\">Toyota Corolla</a>, and&nbsp;<a href=\"https://www.caranddriver.com/volkswagen/jetta\">Volkswagen Jetta</a>&nbsp;might seem more practical or have more name recognition, but the Mazda 3 is made for those buyers who value a gratifying driving experience and seek premium interior materials in their small car</p>', 'upload/services/1697794887_Hatchback.jpg', 1, '2023-10-20 03:41:27', NULL, 0),
 (2, 22, 60, 0, 'BMW 2 Series Sedan Price range in bd', 'upload/services/1780267230967501.jpg', 'BMW 2 Series Sedan Price range in bd', 'Here in this webpage we have given below BMW 2 SERIES SEDAN’s specification, overview and review depending on Bangladesh market.', '<h5><strong>VALUE ADDED FEATURES REGARDING COMFORT, SAFETY AND SECURITY :</strong></h5>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n	<li>BMW Intelligent Personal assistant</li>\r\n	<li>Parking Assistant</li>\r\n	<li>Active cruise control</li>\r\n	<li>Driving Assistant</li>\r\n	<li>Amazon Alexa car integration</li>\r\n	<li>Farmless doors</li>\r\n	<li>Glass roof</li>\r\n	<li>LED headlights</li>\r\n	<li>LED fog lights</li>\r\n	<li>M Sport steering</li>\r\n	<li>M Leather steering wheel</li>\r\n	<li>Vehicle key with exclusive M designation</li>\r\n	<li>Storage compartment package</li>\r\n	<li>Cruise control with braking function</li>\r\n	<li>Height adjustment for front passenger seat</li>\r\n	<li>Etc</li>\r\n</ul>', 'upload/services/1697795134_Sedan.jpg', 1, '2023-10-20 03:45:34', NULL, 0),
 (3, 24, 62, 0, 'BMW 2-Series', 'upload/services/1780267335102440.jpg', 'BMW 2-Series', 'The fun-size BMW 2-series is an entry-level luxury car with big thrust. Sold as a coupe only, the 230i and M240i have vastly different power levels, but are both offered with either rear- or all-wheel-drive. The 230i employs a turbocharged 255-hp inline-four that it shares with the Toyota Supra 2.0 and a host of other BMW products.', '<p>M240i comes with the far more entertaining turbocharged 382-hp inline-six engine. Sadly, no manual transmission is offered. Still, BMW&rsquo;s smallest car&rsquo;s recent redesign has wrought a deceptively quick ride, with solid braking and a chassis that loves the twisties. Although it&#39;s grown in size, its rear seat space is smaller than before. However, the most important aspect of the 2-series remains true in this generation: it rewards spirited driving at a reasonable price&mdash;particularly in four-cylinder, 230i form. There is a more rear-passenger-friendly four-door wearing a 2-series badge: it&rsquo;s known as the Gran Coupe but it&rsquo;s built on a completely different front-drive platform that has yet to win us over.&nbsp;<a href=\"https://www.caranddriver.com/bmw/2-series-gran-coupe\">We review that model separately.</a></p>', 'upload/services/1697795234_coupe.jpg', 1, '2023-10-20 03:47:14', NULL, 0),
-(4, NULL, NULL, NULL, 'Ea veniam consectet', 'upload/services/1780841861692363.jpg', 'Sequi accusamus temp', 'Eaque cillum ut volu', '<p>Long Description</p>', 'upload/services/1698177298_slidecar2.jpg', 1, '2023-10-26 11:59:05', '2023-10-26 11:59:05', 0);
+(4, NULL, NULL, NULL, 'Ea veniam consectet', 'upload/services/1780841861692363.jpg', 'Sequi accusamus temp', 'Eaque cillum ut volu', '<p>Long Description</p>', 'upload/services/1698177298_slidecar2.jpg', 1, '2023-10-26 11:59:05', '2023-10-26 11:59:05', 0),
+(5, 22, 60, 0, 'BMW 2 Series Sedan Price range in bd', 'upload/services/1780267230967501.jpg', 'BMW 2 Series Sedan Price range in bd', 'Here in this webpage we have given below BMW 2 SERIES SEDAN’s specification, overview and review depending on Bangladesh market.', '<h5><strong>VALUE ADDED FEATURES REGARDING COMFORT, SAFETY AND SECURITY :</strong></h5>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n	<li>BMW Intelligent Personal assistant</li>\r\n	<li>Parking Assistant</li>\r\n	<li>Active cruise control</li>\r\n	<li>Driving Assistant</li>\r\n	<li>Amazon Alexa car integration</li>\r\n	<li>Farmless doors</li>\r\n	<li>Glass roof</li>\r\n	<li>LED headlights</li>\r\n	<li>LED fog lights</li>\r\n	<li>M Sport steering</li>\r\n	<li>M Leather steering wheel</li>\r\n	<li>Vehicle key with exclusive M designation</li>\r\n	<li>Storage compartment package</li>\r\n	<li>Cruise control with braking function</li>\r\n	<li>Height adjustment for front passenger seat</li>\r\n	<li>Etc</li>\r\n</ul>', 'upload/services/1697795134_Sedan.jpg', 1, '2023-10-20 03:45:34', NULL, 0),
+(7, NULL, NULL, NULL, 'Ea veniam consectet', 'upload/services/1780841861692363.jpg', 'Sequi accusamus temp', 'Eaque cillum ut volu', '<p>Long Description</p>', 'upload/services/1698177298_slidecar2.jpg', 1, '2023-10-26 11:59:05', '2023-10-26 11:59:05', 0);
 
 -- --------------------------------------------------------
 
@@ -623,7 +644,7 @@ INSERT INTO `terms` (`id`, `terms_title`, `t_description`, `created_at`, `update
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
-  `mobile` int(11) NOT NULL,
+  `mobile` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
@@ -638,8 +659,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `mobile`, `email`, `email_verified_at`, `password`, `image`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Holly Slater', 1, 'fileraxude@mailinator.com', NULL, '$2y$10$qUKR5UppqcQwuFD/IxHQvOI/dmMcU7GESR8fX6kvN6pV06KYb2eIu', NULL, NULL, NULL, NULL),
-(2, 'Belle Riley', 1, 'toriqulislam2720@gmail.com', NULL, '$2y$10$Hr8U/7nyQLJCDJ5XuPK3OudRITK4UXtRU4Daid1rUE.2MuJfspQ1m', NULL, NULL, NULL, NULL);
+(1, 'Abigail Barrera', '1', 'qokohad@mailinator.com', NULL, '$2y$10$Rw8qOD4tvPae/B8shMFzOe4FNkDh0FBsSqDF52my1GtdwhAOPeZcq', NULL, NULL, NULL, NULL),
+(2, 'Maxine James', '1727204284', 'dewybeko@mailinator.com', NULL, '$2y$10$rSqUNQ0GNJaUx5RvIWP8YOcsWKCyvbJc3R1wbdkW2oKBVLLGta6my', NULL, NULL, NULL, NULL),
+(4, 'Isaac Holman', '+1 (221) 679-8149', 'pisac@mailinator.com', NULL, '$2y$10$PjOMC.qXwmswTX7RwInY4e7ihDBf/CrN2/UJZ1K4BO9hiD3rCsfXq', NULL, NULL, NULL, NULL),
+(5, 'Chloe Camacho', '+11973324328', 'fysaqomow@mailinator.com', NULL, '$2y$10$8YT6kX110NY1XXU.2cQnuOynJCYSw4Eqia350FQD0WenobHURKyxe', NULL, NULL, NULL, '2023-11-03 02:36:14');
 
 --
 -- Indexes for dumped tables
@@ -820,7 +843,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -838,13 +861,13 @@ ALTER TABLE `childcategories`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `contactuses`
@@ -880,7 +903,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -904,7 +927,7 @@ ALTER TABLE `policies`
 -- AUTO_INCREMENT for table `portfolios`
 --
 ALTER TABLE `portfolios`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `privacies`
@@ -916,7 +939,7 @@ ALTER TABLE `privacies`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -946,7 +969,7 @@ ALTER TABLE `terms`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

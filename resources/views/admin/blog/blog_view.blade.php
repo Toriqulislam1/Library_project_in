@@ -13,7 +13,7 @@
 					<h3 class="page-title">Data Tables</h3>
 					<div class="d-inline-block align-items-center">
 						<nav>
-						
+
 						</nav>
 					</div>
 				</div>
@@ -23,34 +23,33 @@
 		<!-- Main content -->
 		<section class="content">
 		  <div class="row">
-			  
+
 			<div class="col-12">
 				<div class="box">
-					<div class="box-header">						
-						<h4 class="box-title">All Blog</h4>
+					<div class="box-header">
+						<h4 class="box-title">All Testimonials</h4>
 					</div>
 					<div class="box-body">
 						<div class="table-responsive">
                         <table id="example1" class="table table-bordered table-striped">
 						<thead>
 							<tr>
-								
-								<th>Blog Photo</th>
-                                <th>Blog Title</th>
-                                <th>Blog Description</th>
+
+								<th>company logo</th>
+                                <th> company name </th>
+                                <th>rating number </th>
 								<th>Status</th>
 								<th>Action</th>
-								 
+
 							</tr>
 						</thead>
 						<tbody>
 						@foreach($blogs as $item)
 	 <tr>
-		
-		<td><img src="{{ asset($item->blog_photo) }}" style="width: 60px; height: 50px;"></td>
-        <td>{{ $item->blog_title }}</td>
-		
-        <td>{!! $item->blog_description !!}</td>
+
+		<td><img src="{{ asset($item->company_logo ) }}" style="width: 60px; height: 50px;"></td>
+        <td>{{ $item->company_name }}</td>
+        <td>{{ $item->rating_num }}</td>
 		<td>
 		@if($item->status == 1)
 		 	<span class="badge badge-pill badge-success"> Active </span>
@@ -69,15 +68,15 @@
 	 @else
  <a href="{{ route('blog.active',$item->id) }}" class="btn btn-success" title="Active Now"><i class="fa fa-arrow-up"></i> </a>
 	 @endif
-	
+
 
 
 		</td>
-							 
+
 	 </tr>
 	 @endforeach
 						</tbody>
-						 
+
 					  </table>
 						</div>
 					</div>
@@ -88,18 +87,18 @@
 
 
 
-		
+
 		  </div>
 		  <!-- /.row -->
 		</section>
 		<!-- /.content -->
-	  
+
 	  </div>
- 
+
   <!-- /.content-wrapper -->
 
   <
 
-  
+
 
 @endsection

@@ -11,41 +11,51 @@ use Image;
 
 class BlogController extends Controller
 {
-    
+
     public function BlogAdd(){
 		$blogs = Blog::latest()->get();
 		return view('admin.blog.add_blog',compact('blogs'));
 
 	} //end
 
-    
+
 	public function BlogStore(Request $request){
 
-		
-		
 
-		$image = $request->file('blog_photo');
+
+
+		$image = $request->file('person_img');
     	$name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-    	Image::make($image)->resize(917,1000)->save('upload/blog/'.$name_gen);
+    	Image::make($image)->save('upload/blog/'.$name_gen);
+    	$save_url_person = 'upload/blog/'.$name_gen;
+
+		$image = $request->file('company_logo');
+    	$name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+    	Image::make($image)->save('upload/blog/'.$name_gen);
     	$save_url = 'upload/blog/'.$name_gen;
 
-		
+
 
 
 		Blog::insert([
-			
-			'blog_title' => $request->blog_title,
+
+			'person_name' => $request->person_name,
+			'person_img' => $save_url_person,
+			'designation' => $request->designation,
+			'company_name' => $request->company_name,
+			'rating_num' => $request->rating_num,
+			'company_logo' => $save_url,
 			'blog_description' => $request->blog_description,
-			'blog_photo' => $save_url,
+
 			'status' => 1,
-      		'created_at' => Carbon::now(),   
+      		'created_at' => Carbon::now(),
 
 
 		]);
 
 
 		$notification = array(
-			'message' => 'Blog Inserted Successfully',
+			'message' =>  ' Testimonials Inserted Successfully',
 			'alert-type' => 'success'
 		);
 
@@ -69,32 +79,42 @@ class BlogController extends Controller
     public function BlogUpdate(Request $request){
 
 		$blogs_id = $request->id;
-		$oldImage = $request->old_img;
-		unlink($oldImage);
-		
+		$oldImage_person = $request->person_img_old;
+		$oldImage_company = $request->company_img_old;
+		// unlink($oldImage_person);
+		// unlink($oldImage_company);
 
-		$image = $request->file('blog_photo');
+        $image = $request->file('person_img');
     	$name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-    	Image::make($image)->resize(917,1000)->save('upload/blog/'.$name_gen);
+    	Image::make($image)->save('upload/blog/'.$name_gen);
+    	$save_url_person = 'upload/blog/'.$name_gen;
+
+		$image = $request->file('company_logo');
+    	$name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+    	Image::make($image)->save('upload/blog/'.$name_gen);
     	$save_url = 'upload/blog/'.$name_gen;
 
-		
+
 
 
 		Blog::findOrFail($blogs_id)->update([
-			
-			'blog_title' => $request->blog_title,
+
+			'person_name' => $request->person_name,
+			'person_img' => $save_url_person,
+			'designation' => $request->designation,
+			'company_name' => $request->company_name,
+			'rating_num' => $request->rating_num,
+			'company_logo' => $save_url,
 			'blog_description' => $request->blog_description,
-			'blog_photo' => $save_url,
 			'status' => 1,
-      		'created_at' => Carbon::now(),   
+      		'created_at' => Carbon::now(),
 
 
 		]);
 
 
 		$notification = array(
-			'message' => 'Blog Update Successfully',
+			'message' => 'Testimonials Update Successfully',
 			'alert-type' => 'success'
 		);
 
@@ -104,24 +124,24 @@ class BlogController extends Controller
 
     public function BlogDelete($id){
 		$blogs = Blog::findOrFail($id);
-		unlink($blogs->blog_photo);
+		// unlink($blogs->blog_photo);
 		Blog::findOrFail($id)->delete();
 
-		
+
 
 		$notification = array(
-		   'message' => 'Blog Deleted Successfully',
+		   'message' => 'testimonials Deleted Successfully',
 		   'alert-type' => 'success'
 	   );
 
 	   return redirect()->back()->with($notification);
 
-	}// end method 
+	}// end method
 
     public function BlogInactive($id){
 		Blog::findOrFail($id)->update(['status' => 0]);
 		$notification = array(
-		   'message' => 'Blog Inactive',
+		   'message' => 'testimonials Inactive',
 		   'alert-type' => 'success'
 	   );
 
@@ -130,18 +150,18 @@ class BlogController extends Controller
 	public function BlogActive($id){
 		Blog::findOrFail($id)->update(['status' => 1]);
 		   $notification = array(
-			  'message' => 'Blog Active',
+			  'message' => 'testimonials Active',
 			  'alert-type' => 'success'
 		  );
-  
+
 		  return redirect()->back()->with($notification);
-		   
+
 	   } //end
 
-	
-
-    
 
 
-    
+
+
+
+
 }

@@ -116,7 +116,7 @@ $setting = App\Models\setting::find(1);
             <div class="item-info">
             <h4><a href="{{ route('details-service-page',$product->id) }}">{{ $product->content_title  }}</a></h4>
             </div>
-            
+
             <div class="priceoderbtn"><a href="{{ route('checkOut-index',$product->id) }}" class="niwax-btn3" style="padding: 0 16px !important; line-height: 33px !important;">Order Now</a></div>
             </div>
             </div>
@@ -253,7 +253,11 @@ $setting = App\Models\setting::find(1);
     </div>
     </section>
 
-    <section class="bg-gradient1 dark-bg4 pad-tb">
+    @php
+    $testimonials = App\Models\Blog::orderBy('id','desc')->get();
+    @endphp
+
+    {{-- <section class="bg-gradient1 dark-bg4 pad-tb">
     <div class="container">
     <div class="row justify-content-center">
     <div class="col-lg-8">
@@ -265,128 +269,51 @@ $setting = App\Models\setting::find(1);
     </div>
     </div>
     <div class="row">
+
     <div class="col-md-12 mt30">
     <div class="niwax-review-slider owl-carousel center-dots">
+    @foreach ($testimonials as $testimonial)
+
     <div class="reviews-card pr-shadow">
     <div class="row v-center">
     <div class="col"> <span class="revbx-lr"><i class="fas fa-quote-left"></i></span> </div>
-    <div class="col"> <span class="revbx-rl"><img src="{{ asset('frontend/assets/images/client/upwork-logo.png') }}" alt="review service logo"></span> </div>
+    <div class="col"> <span class="revbx-rl"><img src="{{ asset($testimonial->company_logo ) }}" alt="review service logo"></span> </div>
     </div>
     <div class="review-text">
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    <p>{!! $testimonial->blog_description !!}</p>
     </div>
     <div class="-client-details-">
     <div class="-reviewr">
-    <img src="{{ asset('frontend/assets/images/client/reviewer-a.jpg') }}" alt="Good Review" class="img-fluid">
+    <img src="{{ asset($testimonial->person_img) }}" alt="Good Review" class="img-fluid">
     </div>
     <div class="reviewer-text">
-    <h4>Mario Speedwagon</h4>
-    <p>Business Owner, <small>Jaipur</small></p>
+    <h4>{{ $testimonial->person_name }}</h4>
+    <p>{{ $testimonial->designation }}, <small>{{ $testimonial->company_name }}</small></p>
     <div class="star-rate">
     <ul>
+    @for($i = 1; $i <= $testimonial->rating_num  ; $i++)
     <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
+    @endfor
     </ul>
     </div>
     </div>
     </div>
     </div>
-    <div class="reviews-card pr-shadow">
-    <div class="row v-center">
-    <div class="col"> <span class="revbx-lr"><i class="fas fa-quote-left"></i></span> </div>
-    <div class="col"> <span class="revbx-rl"><img src="{{ asset('frontend/assets/images/client/upwork-logo.png') }}" alt="review service logo"></span> </div>
-    </div>
-    <div class="review-text">
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-    </div>
-    <div class="-client-details-">
-    <div class="-reviewr">
-    <img src="images/client/reviewer-a.jpg" alt="Good Review" class="img-fluid">
-    </div>
-    <div class="reviewer-text">
-    <h4>Mario Speedwagon</h4>
-    <p>Business Owner, <small>Jaipur</small></p>
-    <div class="star-rate">
-    <ul>
-    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    </ul>
+    @endforeach
+
     </div>
     </div>
     </div>
     </div>
-    <div class="reviews-card pr-shadow">
-    <div class="row v-center">
-    <div class="col"> <span class="revbx-lr"><i class="fas fa-quote-left"></i></span> </div>
-    <div class="col"> <span class="revbx-rl"><img src="{{ asset('frontend/assets/images/client/upwork-logo.png') }}" alt="review service logo"></span> </div>
-    </div>
-    <div class="review-text">
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-    </div>
-    <div class="-client-details-">
-    <div class="-reviewr">
-    <img src="{{ asset('frontend/assets/images/client/reviewer-a.jpg') }}" alt="Good Review" class="img-fluid">
-    </div>
-    <div class="reviewer-text">
-    <h4>Mario Speedwagon</h4>
-    <p>Business Owner, <small>Jaipur</small></p>
-    <div class="star-rate">
-    <ul>
-    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    </ul>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="reviews-card pr-shadow">
-    <div class="row v-center">
-    <div class="col"> <span class="revbx-lr"><i class="fas fa-quote-left"></i></span> </div>
-    <div class="col"> <span class="revbx-rl"><img src="{{ asset('frontend/assets/images/client/upwork-logo.png') }}" alt="review service logo"></span> </div>
-    </div>
-    <div class="review-text">
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-    </div>
-    <div class="-client-details-">
-    <div class="-reviewr">
-    <img src="{{ asset('frontend/assets/images/client/reviewer-a.jpg') }}" alt="Good Review" class="img-fluid">
-    </div>
-    <div class="reviewer-text">
-    <h4>Mario Speedwagon</h4>
-    <p>Business Owner, <small>Jaipur</small></p>
-    <div class="star-rate">
-    <ul>
-    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)" class="chked"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    <li> <a href="javascript:void(0)"><i class="fas fa-star" aria-hidden="true"></i></a> </li>
-    </ul>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
-    <section class="service-block pad-tb bg-gradient3">
+    </section> --}}
+
+    {{-- <section class="service-block pad-tb bg-gradient3">
     <div class="container">
     <div class="row justify-content-center">
     <div class="col-lg-8">
     <div class="common-heading ptag">
     <span>We Deliver Our Best</span>
-    <h2>Why Choose Niwax</h2>
+    <h2>Why Choose company Name</h2>
     <p class="mb30">Donec metus lorem, vulputate at sapien sit amet, auctor iaculis lorem. In vel hendrerit nisi. Vestibulum eget risus velit.</p>
     </div>
     </div>
@@ -449,11 +376,13 @@ $setting = App\Models\setting::find(1);
     </div>
 
     </div>
-    </section>
+    </section> --}}
+
     @php
     $clients = App\Models\client::all();
     @endphp
-    <div class="clientslider">
+
+    {{-- <div class="clientslider">
     <div class="container">
     <div class="row">
     <div class="col-md-12">
@@ -465,7 +394,7 @@ $setting = App\Models\setting::find(1);
     </div>
     </div>
     </div>
-    </div>
+    </div> --}}
 
 
 

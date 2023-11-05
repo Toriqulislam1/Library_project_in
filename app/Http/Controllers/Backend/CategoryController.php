@@ -36,7 +36,7 @@ class CategoryController extends Controller
          ]);
 
          $notification = array(
-             'message' => 'Category Inserted Successfully',
+             'message' => 'Brand Inserted Successfully',
              'alert-type' => 'success'
          );
 
@@ -62,7 +62,7 @@ class CategoryController extends Controller
     	]);
 
 	    $notification = array(
-			'message' => 'Category Updated Successfully',
+			'message' => 'Brand Updated Successfully',
 			'alert-type' => 'success'
 		);
 
@@ -76,7 +76,7 @@ class CategoryController extends Controller
     	Category::findOrFail($id)->delete();
 
     	$notification = array(
-			'message' => 'Category Deleted Successfully',
+			'message' => 'Brand Deleted Successfully',
 			'alert-type' => 'success'
 		);
 

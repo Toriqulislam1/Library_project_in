@@ -113,8 +113,29 @@ $setting = App\Models\setting::find(1);
                 <li><a href="#home" class="menu-links">Home</a></li>
                 <li><a href="#services" class="menu-links">Services</a></li>
                 <li><a href="#work" class="menu-links">Work</a></li>
-                <li><a href="#price" class="menu-links">Price</a></li>
-                <li><a href="{{ route('login-index') }}" class="menu-links">Login</a></li>
+
+                @if(Auth::check())
+                <div class="dropdown">
+                    <button class="dropbtn">Dashboard</button>
+                    <div class="dropdown-content">
+                        <a class="dropdown-item" href="{{ route('user-profile-index') }}">Profile</a>
+                        <a class="dropdown-item" href="{{ route('order-show-user-profile') }}">Order</a>
+                        <a class="dropdown-item" href="{{ route('order-user-payment') }}">Payment invoice</a>
+                        <a class="dropdown-item" href="{{ route('logout-user') }}">Logout</a>
+
+                    </div>
+                  </div>
+                  @else
+                  <a style="  font-size: 16px;
+                  color: #000;
+                  font-family: 'Poppins', sans-serif;
+                  font-weight: 500;
+                  padding: 0px 15px;
+                  line-height: 85px;
+                  text-transform: uppercase;
+                  position: relative;
+                  overflow: hidden;" href="{{ route('login-index') }}" class="menu-links">Login</a>
+                  @endif
 
             </ul>
             <ul class="bottom-nav">
