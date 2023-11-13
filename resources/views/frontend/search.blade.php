@@ -1,7 +1,7 @@
 @extends('frontend.front_master')
 @section('content')
 @section('title')
-Technoval BD
+Book search
 @endsection
 
 
@@ -14,31 +14,39 @@ Technoval BD
 
 			<div class="row upset ">
 
-			{{--  @php
-		$services = App\Models\Services::orderBy('content_title','desc')->limit(8)->get();
-		@endphp  --}}
+                @foreach ($services  as $product )
+                <div class="col-lg-4 col-sm-6 mt30 wow fadeIn" data-wow-delay=".2s">
+                <div class="isotope_item h-scl-">
 
-			@foreach($services as $item)
-				<div class="col-lg-3 col-sm-6 mt30 wow fadeInUp" data-wow-delay=".6s">
-					<div class="s-block up-hor pt20">
-						<div class="nn-card-set">
-						<a href="{{ url('services/details/'.$item->id.'/'.$item->content_title ) }}">
-							<div class="card-icon"><img src="{{ asset($item->thamble) }}" alt="service" class="img-fluid" /></div>
-							<h6>{{ $item->content_title}}</h6>
+                <div class="item-image h-scl-base">
+                <a href="{{ route('details-service-page',$product->id) }}"><img src="{{ $product->thamble }}" alt="portfolio" class="img-fluid"> </a>
+                </div>
+                <div class="item-info">
+                    @if($product->quentiry <= 0)
+                    <p> out of stock</p>
+                @else
+                    <p>Available: {{ $product->quentiry }} units</p>
+                @endif
+                <h4><a href="{{ route('details-service-page',$product->id) }}">{{ $product->content_title  }}</a></h4>
+                </div>
 
-							Learn More <i class="fas fa-chevron-right fa-icon"></i></a>
-						</div>
-					</div>
-				</div>
-				@endforeach
+                <div class="priceoderbtn"><a href="{{ route('checkOut-index',$product->id) }}" class="niwax-btn3" style="padding: 0 16px !important; line-height: 33px !important;">Request for Book</a></div>
+                </div>
+                </div>
+            @endforeach
+
+
+
+
+
+
+
+
+
+
 
 			</div>
 		</div>
-		{{--  <div class="row">
-        <div class="col-lg-12 maga-btn mt60">
-          <a href="{{route('all-services')}}" class="btn-outline">View More Services<i class="fas fa-chevron-right fa-icon"></i></a>
-        </div>
-      </div>  --}}
 	</section>
 
 

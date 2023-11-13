@@ -29,12 +29,6 @@ $setting = App\Models\setting::find(1);
     <h5>Company</h5>
     <ul class="footer-address-list link-hover">
 
-
-
-    <li><a href="{{ route('contact-us')}}" target="_blank">Contact us</a></li>
-    <li><a href="{{ route('privacy-view')}}">Privacy Policy</a></li>
-    <li><a href="{{ route('terms-view')}}">Terms and Conditions</a></li>
-
     </ul>
     </div>
     </div>

@@ -312,9 +312,6 @@ $orderinfo = App\Models\order::find($dataid);
                 <div class="invoice-single-details">
                     <h4 class="invoice-details-title">{{ __('Bill To:') }}</h4>
                     <ul class="details-list">
-                        <li class="list">  </li>
-                        <li class="list"> <a href="#"></a> </li>
-                        <li class="list"> <a href="#"></a> </li>
 
                         <li class="list">order: <a href="#"></a>{{ $orderinfo->order_num  }} </li>
                     </ul>
@@ -337,7 +334,7 @@ $orderinfo = App\Models\order::find($dataid);
                 <thead>
                 <tr>
                     <th>{{ __('name') }}</th>
-                    <th>{{ __('image')  }}</th>
+
                     <th>{{ __('Quantity') }}</th>
                     <th>{{ __('time') }}</th>
                     {{-- <th>{{ __('amount') }}</th> --}}
@@ -347,11 +344,11 @@ $orderinfo = App\Models\order::find($dataid);
                 <tbody>
                 <tr>
                     <td>{{ $orderinfo->product->content_title}}</td>
-                    <td>{{ $orderinfo->product->content_title}}</td>
+
                     <td>1</td>
 
                     <td>{{ Carbon\Carbon::parse($orderinfo->created_at)}}</td>
-                    {{-- <td> </td> --}}
+                   
                 </tr>
                 </tbody>
             </table>

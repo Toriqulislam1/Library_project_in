@@ -1,7 +1,7 @@
 @extends('frontend.front_master')
 @section('content')
 @section('title')
-car
+Library
 @endsection
 
 <!--shop products-->
@@ -13,7 +13,7 @@ car
 
                 <div class="rpb-shop-prevw">
 
-                    <img src="{{ asset($details->breadcrumb ) }}" class="w-100" alt="img">
+                    <img src="{{ asset($details->thamble) }}" class="w-100" alt="img">
                 </div>
                 <div class="priceoderbtn"><a href="{{ route('checkOut-index',$details->id) }}" class="niwax-btn3" style="padding: 0 16px !important; line-height: 33px !important;">   Request for Book </a></div>
                 <div class="rpb-item-info">

@@ -74,18 +74,6 @@ $admin = Admin::find(1);
 
             $pdf = PDF::loadView('frontend.auth.invoiceEmail', compact('dataid'))->setOptions(['defaultFont' => 'sans-serif']);
 
-            Mail::send('frontend.auth.invoiceEmail', compact('dataid'), function ($message) use ($dataid, $pdf, $request) {
-                $message->to($request->email)
-                        ->subject('order invoice')
-                        ->attachData($pdf->output(), "invoice.pdf");
-            });
-
-            Mail::send('frontend.auth.invoiceEmail', compact('dataid'), function ($message) use ($dataid, $pdf, $adminNotify, $request) {
-                $message->to($adminNotify)
-                        ->subject('order invoice')
-                        ->attachData($pdf->output(), "invoice.pdf");
-            });
-
             Services::where('id', $product_id)->decrement('quentiry', 1);
 
             $request->session()->forget('test');

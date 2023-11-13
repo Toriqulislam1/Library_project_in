@@ -40,6 +40,11 @@ $setting = App\Models\setting::find(1);
             <a href="{{ route('details-service-page',$product->id) }}"><img src="{{ $product->thamble }}" alt="portfolio" class="img-fluid"> </a>
             </div>
             <div class="item-info">
+                @if($product->quentiry <= 0)
+                <p> out of stock</p>
+            @else
+                <p>Available: {{ $product->quentiry }} units</p>
+            @endif
             <h4><a href="{{ route('details-service-page',$product->id) }}">{{ $product->content_title  }}</a></h4>
             </div>
 

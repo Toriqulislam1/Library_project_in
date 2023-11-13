@@ -329,17 +329,18 @@ $setting = App\Models\setting::orderBy('id','desc')->get();
             <table class="custom--table">
                 <thead>
                 <tr>
-                    <th>{{ __('name') }}</th>
-                    <th>{{ __('car model')  }}</th>
-                    <th>{{ __('car brand ') }}</th>
-                    <th>{{ __('time') }}</th>
+                    <th>{{ __('Book name') }}</th>
+                    <th>{{ __('start data')  }}</th>
+
+                    <th>{{ __('end data') }}</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td>{{ $orderinfo->product->content_title}}</td>
-                    <td>{{ $orderinfo->car_model}}</td>
-                    <td>{{ $orderinfo->car_brand }}</td>
+                    <td>{{ $orderinfo->date }}</td>
+                    <td>{{ $orderinfo->endDate }}</td>
+
                     <td>{{ Carbon\Carbon::parse($orderinfo->created_at)}}</td>
 
                 </tr>
@@ -349,7 +350,7 @@ $setting = App\Models\setting::orderBy('id','desc')->get();
 
         <div class="item-description">
             <div class="table-responsive">
-               
+
                 <table class="custom--table">
                     <thead class="head-bg">
                     <tr>

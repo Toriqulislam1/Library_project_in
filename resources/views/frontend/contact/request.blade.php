@@ -1,7 +1,7 @@
 @extends('frontend.front_master')
 @section('content')
 @section('title')
-Technoval BD
+demo
 @endsection
 
 
