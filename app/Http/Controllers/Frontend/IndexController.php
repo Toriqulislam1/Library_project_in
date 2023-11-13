@@ -4,18 +4,12 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use App\Models\Category;
 use App\Models\subcategory;
-use App\Models\Client;
-use App\Models\Gallery;
-use App\Models\Portfolio;
 use App\Models\Services;
 use App\Models\Childcategory;
-use App\Models\Contact;
 use App\Models\Blog;
-use App\Models\privacy;
-use App\Models\Terms;
+
 
 class IndexController extends Controller
 {
@@ -30,42 +24,11 @@ function serviceDetailsPage($id){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function index(){
 
-        $services = Services::where('status',1)->orderBy('id','DESC')->limit(8)->get();
-        $categories = Category::orderBy('category_name','ASC')->get();
-		$subcategory = subcategory::orderBy('subcategory_name','ASC')->get();
-		$blogs = Blog::where('status',1)->orderBy('id','DESC')->limit(8)->get();
-        view('frontend.index',compact('services','categories','subcategory','blogs'));
+
+
+        view('frontend.index');
     }
 
 

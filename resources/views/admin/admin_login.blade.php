@@ -8,27 +8,27 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('backend/images/favicon.ico') }}">
 
-    <title>Technoval Admin - Log in </title>
-  
+    <title>Books Admin - Log in </title>
+
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css') }}">
-	  
-	<!-- Style-->  
+
+	<!-- Style-->
 	<link rel="stylesheet" href="{{ asset('backend/css/style.css') }}">
-	<link rel="stylesheet" href="{{ asset('backend/css/skin_color.css') }}">	
+	<link rel="stylesheet" href="{{ asset('backend/css/skin_color.css') }}">
 
 </head>
 <body class="hold-transition theme-primary bg-gradient-primary">
-	
+
 	<div class="container h-p100">
-		<div class="row align-items-center justify-content-md-center h-p100">	
-			
+		<div class="row align-items-center justify-content-md-center h-p100">
+
 			<div class="col-12">
 				<div class="row justify-content-center no-gutters">
 					<div class="col-lg-4 col-md-5 col-12">
 						<div class="content-top-agile p-10">
 							<h2 class="text-white">Welcome Admin</h2>
-							<p class="text-white-50"></p>							
+							<p class="text-white-50"></p>
 						</div>
 						<div>
                         <form method="POST" action="{{ route('admin.login')}}">
@@ -68,11 +68,11 @@
 									</div>
 									<!-- /.col -->
 								  </div>
-							</form>														
+							</form>
 
-						
-							
-							
+
+
+
 						</div>
 					</div>
 				</div>
@@ -83,7 +83,7 @@
 
 	<!-- Vendor JS -->
 	<script src="{{ asset('backend/js/vendors.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/icons/feather-icons/feather.min.js') }}"></script>	
+    <script src="{{ asset('backend/assets/icons/feather-icons/feather.min.js') }}"></script>
 
 </body>
 </html>

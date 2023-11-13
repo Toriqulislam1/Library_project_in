@@ -15,7 +15,7 @@ car
 
                     <img src="{{ asset($details->breadcrumb ) }}" class="w-100" alt="img">
                 </div>
-                <div class="priceoderbtn"><a href="{{ route('checkOut-index',$details->id) }}" class="niwax-btn3" style="padding: 0 16px !important; line-height: 33px !important;">Order Now</a></div>
+                <div class="priceoderbtn"><a href="{{ route('checkOut-index',$details->id) }}" class="niwax-btn3" style="padding: 0 16px !important; line-height: 33px !important;">   Request for Book </a></div>
                 <div class="rpb-item-info">
                     <div class="tab-17 tabs-layout">
 

@@ -19,10 +19,10 @@ class orderController extends Controller
     function checkOutIndex($product_id)
     {
 
-            $services = Services::all();
+
         return view('frontend.order.checkout', [
             'product_id' => $product_id,
-            'services' =>$services,
+
         ]);
 
 
@@ -39,11 +39,6 @@ class orderController extends Controller
         $request->session()->put('product_id', $alldata['product_id']);
 
 
-        $services_id = $request->service;
-
-       $afterjson =json_encode($services_id);
-
-     // Store the product ID in the session
 $prod = $request->product_id;
 $request->session()->put('product_id', $prod);
 
@@ -73,14 +68,8 @@ $admin = Admin::find(1);
                 'product_id' =>$product_id,
                 'user_id' => Auth::user()->id,
                 'order_num' => "#" . Auth::user()->id . rand(10, 9999),
-
-                'car_brand' => $request->carBrand,
-                'car_model' => $request->carModel,
+                'endDate' => $request->carModel,
                 'date' => $request->date,
-                'service_id' => $afterjson,
-
-
-
             ]);
 
             $pdf = PDF::loadView('frontend.auth.invoiceEmail', compact('dataid'))->setOptions(['defaultFont' => 'sans-serif']);
@@ -97,7 +86,13 @@ $admin = Admin::find(1);
                         ->attachData($pdf->output(), "invoice.pdf");
             });
 
+            Services::where('id', $product_id)->decrement('quentiry', 1);
+
             $request->session()->forget('test');
+
+
+
+
             return view('frontend.contact.success_page');
 
 

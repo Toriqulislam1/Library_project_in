@@ -1,7 +1,7 @@
 @extends('frontend.front_master')
 @section('content')
 @section('title')
-Applys
+Library
 @endsection
 
 <!--Start login Form-->

@@ -49,10 +49,10 @@
 			<div class="col-md-6">
 
 <div class="form-group">
-	<h5>Breadcrumb Banner <span class="text-danger">*</span></h5>
+	<h5>Quentiry<span class="text-danger">*</span></h5>
 	<div class="controls">
-<input type="file" name="breadcrumb" class="form-control" onChange="mainThamUrl(this)" required="" >
-@error('breadcrumb')
+<input type="number" name="quentiry" class="form-control" required="" >
+@error('quentiry')
 <span class="text-danger">{{ $message }}</span>
 @enderror
 <img src="" id="mainThmb">
@@ -74,7 +74,7 @@
 		<div class="col-md-4">
 
 				<div class="form-group">
-					<h5>Service Title <span class="text-danger">*</span></h5>
+					<h5>Author name <span class="text-danger">*</span></h5>
 					<div class="controls">
 					<input type="text" name="content_title" class="form-control" required="">
 					@error('content_title')

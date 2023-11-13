@@ -14,23 +14,6 @@ car
           <div class="niwax23form shadow">
             <div class="common-heading text-l">
               <h2 class="mt0 mb0 text-center mb-5">Check Out</h2>
-              {{-- <div class="fieldsets row">
-                @if(session('test'))
-                <div class="alert alert-danger">
-                    <strong> {{(session('test')) }}</strong>
-                </div>
-                @endif
-            </div> --}}
-
-            {{-- <div>
-                @if(session('test'))
-                    <h1>Session Data</h1>
-                    <pre>{{ print_r(session('test'), true) }}</pre>
-                @else
-                    <p>No session data available</p>
-                @endif
-            </div> --}}
-
 
             @if(session('success'))
                     <div class="alert alert-success">
@@ -102,7 +85,7 @@ car
                     <div class="col-md-6 form-group floating-label">
                       <div class="formicon"><i class='fas fa-calendar-minus'></i></div>
                       <input type="datetime-local" id="myID" placeholder=" data and time " value="{{ session('test.date') }}" required="required" id="email" class="floating-input" name="date">
-                      <label>date</label>
+                      <label> start date</label>
                       @error('email')
                       <div>{{ $message }}</div>
                      @enderror
@@ -112,7 +95,7 @@ car
                     <div class="col-md-6 form-group floating-label">
                     <div class="formicon"><i class="fa fa-car"></i></div>
                     <input type="date" placeholder=" " required="required" id="your_location" value="{{ session('test.carModel') }}" class="floating-input" name="carModel">
-                    <label>Car Model </label>
+                    <label>End date </label>
                     @error('location')
                     <div>{{ $message }}</div>
                    @enderror
@@ -120,38 +103,9 @@ car
                   </div>
 
                   </div>
-
-                  @php
-                  $brands = App\Models\Category::all();
-                  @endphp
-                  <div class="form-group col-sm-6">
-                    <span>Brand Name</span>
-                      <select name="carBrand" id="Dtype" required>
-                      <option value>Select Brand</option>
-                      @foreach ($brands  as  $brand)
-                      <option value="{{ $brand->category_name }}" {{ ($brand->category_name == session('test.carBrand')) ? 'selected' : '' }}>
-                        {{ $brand->category_name }}
-                    </option>
-                      @endforeach
-                      </select>
-                      <div class="help-block with-errors"></div>
                   </div>
 
 
-
-                  </div>
-
-
-                    @foreach ($services as $service)
-
-
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="service[]" id="inlineCheckbox1"
-                                  value="{{ $service->id}}" {{ in_array($service->id, session('test.service', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="inlineCheckbox1">{{ $service->content_title  }}</label>
-                            </div>
-
-                  @endforeach
                   <div class="fieldsets mt20"> <button type="submit" id="p" name="submit" class="btn btn-main bg-btn w-fit mb20"><span>Order Now<i class="fas fa-chevron-right fa-icon"></i></span> <span class="loader"></span></button> </div>
 
                 </form>

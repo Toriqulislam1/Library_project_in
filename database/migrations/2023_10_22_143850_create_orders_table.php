@@ -22,10 +22,8 @@ return new class extends Migration
             $table->integer('product_id');
             $table->integer('user_id');
             $table->string('order_num');
-            $table->string('car_model');
-            $table->string('car_brand');
+            $table->string('endDate');
             $table->string('date');
-            $table->string('service_id');
             $table->string('status')->default('panding');
             $table->timestamps();
         });

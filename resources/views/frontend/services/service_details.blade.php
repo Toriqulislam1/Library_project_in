@@ -6,28 +6,7 @@
 @endsection
 
 
-<!--Breadcrumb Area-->
-{{--  <section class="breadcrumb-area ">
-    <div class="text-block">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 v-center">
-            <div class="bread-inner">
-              <div class="bread-menu">
 
-              </div>
-              <div class="bread-title">
-                <h4>{{ $services->content_slide_title}}</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>  --}}
-  <!--End Breadcrumb Area-->
-
-<!--Start About-->
 <section class="service pad-tb bg-gradient5">
 <div class="container-fluid">
 <div class="row">

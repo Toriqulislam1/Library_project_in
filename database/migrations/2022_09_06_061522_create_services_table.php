@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('subcategory_id')->nullable();
             $table->integer('childcategory_id')->nullable();
             $table->string('content_slide_title');
-            $table->string('breadcrumb');
+            $table->string('quentiry');
             $table->string('content_title');
             $table->string('content_descrip');
             $table->string('long_descrip');

@@ -14,19 +14,11 @@ class ContentController extends Controller
 {
     public function AddContent(){
 		$categories = Category::latest()->get();
-		return view('admin.content.add_content',compact('categories'));
+		return view('admin.content.add_content');
 
 	}
 
 	public function StoreContent(Request $request){
-
-
-
-
-		$image = $request->file('breadcrumb');
-    	$name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-    	Image::make($image)->resize(917,1000)->save('upload/services/'.$name_gen);
-    	$save_url = 'upload/services/'.$name_gen;
 
 		if($request->hasFile("thamble")){
             $file=$request->file("thamble");
@@ -45,7 +37,7 @@ class ContentController extends Controller
 			'content_title' => $request->content_title,
 			'content_descrip' => $request->content_descrip,
 			'long_descrip' => $request->long_descrip,
-			'breadcrumb' => $save_url,
+			'quentiry' => $request->quentiry,
 			'thamble' => $save,
 			'status' => 1,
       		'created_at' => Carbon::now(),
@@ -73,10 +65,10 @@ class ContentController extends Controller
 	public function EditContent($id){
 
 
-		$categories = Category::latest()->get();
-		$subcategory = subcategory::latest()->get();
+
+
 		$services = Services::findOrFail($id);
-		return view('admin.content.content_edit',compact('categories','subcategory','services'));
+		return view('admin.content.content_edit',compact('services'));
 
 	} //end
 
@@ -84,7 +76,7 @@ class ContentController extends Controller
 
 		$services_id = $request->id;
 		$oldImage = $request->old_img;
-		unlink($oldImage);
+		// unlink($oldImage);
 
 	   $image = $request->file('breadcrumb');
 		   $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
@@ -94,7 +86,7 @@ class ContentController extends Controller
 		Services::findOrFail($services_id)->update([
 			'category_id' => $request->category_id,
 			'subcategory_id' => $request->subcategory_id,
-			// 'childcategory_id' => $request->childcategory_id,
+
 			'content_slide_title' => $request->content_slide_title,
 			'content_title' => $request->content_title,
 			'content_descrip' => $request->content_descrip,
